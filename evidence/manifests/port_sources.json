@@ -12,7 +12,7 @@
       "source": "prism/codec/x265_bridge.py",
       "destination": "src/prism_v2/codec/x265_bridge.py",
       "source_sha256": "52ee088bf12fce25a7ee07206598595a086c3752ecfaf80fea8e385652ec24b8",
-      "destination_sha256": "d1ba510fd0dc0acfe91e79d84aee59a06ee7cbb026c2fff981683dc004248ce0"
+      "destination_sha256": "2603dfcf5a637827b634aab266ef710747e0ceeaac8f65e8401db1d448d0a215"
     },
     {
       "source": "prism/codec/native/x265_shim.c",
@@ -36,7 +36,7 @@
       "source": "scripts/spike_gate0.py",
       "destination": "src/prism_v2/codec/fixtures.py",
       "source_sha256": "bfde0ccd01e9f8089c2d9929fadf7313f19115fc139f9925a08c1376d37f8f57",
-      "destination_sha256": "208d933545d4bb6b8447e1a04ac98b7e763ac053a253d4f4635dfb56f9cacb50"
+      "destination_sha256": "fb327c98f088f3a178fe913fe1f764e24e88f773657ffe039965087faf131cd2"
     },
     {
       "source": "gate0/x265_residual_patch.patch",
@@ -85,7 +85,7 @@
       "source": "scripts/spike_gate0.py",
       "destination": "src/prism_v2/codec/gate0.py",
       "source_sha256": "bfde0ccd01e9f8089c2d9929fadf7313f19115fc139f9925a08c1376d37f8f57",
-      "destination_sha256": "fdc9980d9dca1b89bb33248720f2ec85ec4d09d35a2e0cf678eb4fe100d4018c"
+      "destination_sha256": "dfb850f37f259cc064065ba7367b14c4a4c9a415547833716e8ba5d630f11fe5"
     },
     {
       "source": "scripts/spike_gate0.py",
@@ -129,7 +129,7 @@
   ],
   "adaptations": {
     "codec_contract": "CRF intra only; explicit aq-strength/hevc-aq; assembly ON; info=0 to suppress built-in encoder SEI. Stock and patched builds use identical parameters.",
-    "runner": "Uses recovered v3 QG criteria for all signs; removes legacy raw-drift fallback and schema mismatch; keeps independent seeded ten-frame stimuli and process isolation.",
+    "runner": "Recovered 1920x1080 ten-frame PCG64 CRF20/GOP1/B0 sign fixture; full CONFIG grid retained for identity/two-decoder checks. Band values and frame-class rule unchanged; details in j0_control_fixture.json.",
     "ctu_expansion": "NumPy implements v1 PyTorch bilinear align_corners=False center mapping; source model/training code is not ported.",
     "decoders": "Preserves FFmpeg/HM invocation, adds pinned binary hashes and exact YUV sample equality.",
     "build": "Offline clean local source archives only; no apt/pip/git network operations; original CMake/HM compiler policy retained.",

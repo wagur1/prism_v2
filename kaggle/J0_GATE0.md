@@ -42,10 +42,14 @@ F1 control coverage is all CRFs `{20,24,28,32,36}`, all six stock/no-map/zero/
 plus/minus/checkerboard conditions, and ten seeded intra frames at 1920x1080.
 Every stream is decoded by FFmpeg and HM and compared byte for byte. Stock,
 patched no-map, and patched zero-map streams must be byte-identical and contain
-no SEI. Sign checks retain the frozen criteria and coverage rules unchanged.
+no SEI. Numerical sign checks use the recovered **CRF20/GOP1/B0** fixture only;
+the other CRFs retain identity, SEI-absence, and decoder checks. The v1 five QP
+labels were repetitions at CRF20, not a five-CRF calibration. F1 records
+`net_effect_crfs: [20]`; the kernel requires that attribution. Sign checks retain
+the frozen criteria and coverage rules unchanged.
 
 The retarget fixture maps a 130x98 source through a nonuniform quantized map to
-a 97x65 visible rectangle in a 112x80 coded frame. It compares warped offsets
+a 113x65 visible rectangle in a 128x80 coded frame. It compares warped offsets
 against an independent scalar area-integration oracle, verifies the requested
 offsets in native telemetry including edge QGs, checks a nonzero encoded effect,
 and round-trips geometry through actual R/QR access units at every CRF. M1/M2
@@ -80,13 +84,15 @@ and one encoder worker per stream on a Kaggle CPU instance. Budget, in minutes:
 
 ```text
 T = setup + 2*x265_build + HM_build + pytest
-    + 300*(encode_seconds + ffmpeg_seconds + HM_decode_seconds)/60
+    + (300+60)*(encode_seconds + ffmpeg_seconds + HM_decode_seconds)/60
     + 20*small_retarget_seconds/60 + margin
-  = 10 + 2*20 + 15 + 5 + 300*(6 + 0.15 + 0.8)/60 + 20*0.5/60 + 20
-  = 124.92 minutes (about 2.1 hours)
+  = 10 + 2*20 + 15 + 5 + 360*(6 + 0.15 + 0.8)/60 + 20*0.5/60 + 20
+  = 131.87 minutes (about 2.2 hours)
 ```
 
-Inputs are planning assumptions, including download speed and CPU throughput.
+The extra 60 full-resolution frames are the native pytest sign fixture, now
+restored to its ratified resolution. Inputs are planning assumptions, including
+download speed and CPU throughput; `pytest` above covers its other overhead.
 The command runner enforces a 145-minute overall deadline, a 75-minute build
 limit, and a 75-minute F1 limit, each capped by the remaining overall time.
 Commands emit heartbeats every 30 seconds. Slow upstreams or slower CPUs fail
@@ -113,6 +119,77 @@ the deadline rather than reducing the grid, changing criteria, or reporting PASS
 
 Local validation evidence is recorded in `runs/j0-package-local-checks.json`.
 No Kaggle push or source/dependency download was performed during implementation.
+
+## Failed native run: diagnosis and recovery (2026-11-04)
+
+Read `runs/j0_out/j0_gate0.log` directly; no dependency on the downloading receipt.
+The run at commit `b69e45b0c55a64d27fd8b4af2a6f6fe4b26976a2` built successfully,
+then reported 58 passed and three failed native tests. The tracebacks distinguish:
+
+- `test_native_geometry_sei_decoder_match_and_baseline_absence`: the first M1
+  encode was 64x48. x265's stderr says `Picture size must be at least one CTU`.
+  All M1/M2/R fixture encodes now use 64x64. Encoder-open exceptions include
+  dimensions and captured native fd-2 stderr, which is also replayed to the log.
+- `test_sign_controls_identity_and_two_decoders`: the actual traceback is the
+  minus6 frame-3 median 6.5 outside [5,6] at 128x80/CRF20. It now uses the
+  recovered 1920x1080, ten-frame independent PCG64 noise, CRF20, medium preset,
+  GOP1/B0, FPS30 settings. Frame 0 is first/uncompensated; frames 1-9 are
+  compensated despite being I slices. The generator matches the read-only v1
+  function byte for byte; ten-frame SHA-256 is
+  `938e0f62f5477ce5581dd4630b3e2f4c5965413c6edfd7b0bb4f681d66e84a01`.
+- `test_native_warped_qg_acceptance`: the read-only patch's `offsets()` uses
+  `cols=(m_picWidth+15)/16`; `prismTelemetryCUs()` records the requested mean
+  over the **reported QG parent**, not the CU leaf origin. QGs can be 16, 32,
+  or 64 pixels; sub-QG leaves repeat their parent's value. The previous 112-wide
+  fixture passed an eight-column CTU-padded map to a seven-column native grid.
+  Its replacement uses width 128 so those strides agree, retains partial
+  source/visible cells and the 80-high partial bottom CTU, and checks every
+  reported QG footprint. Each of the 22 perimeter QGs additionally needs an
+  individual 16x16 observation; coarse means cannot stand in for edge evidence.
+
+Recovery sources and exact hashes are in
+`evidence/manifests/j0_control_fixture.json`: `run_gate0_kaggle.py`,
+`calibrate_bands.py`, `recalibrate_offline.py`, the complete v3 proposal settings,
+`scripts/spike_gate0.py`, and `prism/codec/x265_bridge.py`. The supplied
+`gate0/src/` is empty; the runner resolves to those script/package sources.
+The proposal includes GOP1 and GOP10; this runner uses its GOP1 intra subset
+as CONFIG B1 requires. Its historical pin declares assembly OFF, whereas the
+current build must retain assembly ON. Fixture recovery is not a historical
+binary replay or proof of native acceptance on this build.
+
+Frozen criteria SHA-256 remains
+`316134d2f2cf448f6d1e4292d7c9fee0e9fbd60c58e1cb4c196f624d9cad2cdc`:
+minus6 compensated [5,6], plus6/checkerboard compensated [5,7], first-frame
+[5.5,6.5], fidelity 1.0, aggregate floor 4.9. No criteria, codec patch, source
+pin, build flag, or production geometry/QG contract changed. The sign fixtures
+now match the recovered ratified stimulus domain; their native result remains
+**[NEEDS VERIFY]** until the next pinned-stack run.
+
+Out-of-domain sign fixtures and insufficient individual edge evidence raise
+explicit `[NEEDS VERIFY]` skips in native pytest. F1 stays FAIL/incomplete and
+retains SKIP details for unfinished checks. The kernel still rejects every
+skip/xfail/missing test and keeps `training_authorized=false`. New conditions
+such as band checks at CRF24/28/32/36 require owner-level ratified calibration
+data; this fix does not extrapolate thresholds. Native coverage at other coded
+widths whose padded/native strides differ is also pending separate evidence.
+
+The only kernel entry-point change requires `net_effect_crfs == [20]` in the
+F1 report. Build commands, patch hashes, timeouts, and fail-closed final receipt
+logic are unchanged. No network operation or kernel rerun was performed.
+
+Local regression run: **91 collected, 86 passed, 5 skipped, zero failures/errors**
+with `python -m unittest discover -s tests -t . -v`. The five skips are the three
+native cases (no pinned local stack) plus the two existing historical/J1 parity
+placeholders. Seven new offline regression methods cover these fixes; the
+existing frozen-band and kernel skip-rejection tests still pass. Logs and
+machine-readable results are in `runs/j0-fixture-fixes-*`.
+
+**[NEEDS VERIFY] pytest execution:** `python -m pytest tests/ -q` was attempted
+using the local Codex Python 3.12.14 runtime and failed before collection with
+`No module named pytest`. The available Hermes Python 3.11 runtime also lacks
+pytest; no accessible offline wheel/install was found. The suite is green via
+unittest, but a pytest-green result cannot be claimed without the missing local
+dependency. No installation or download was attempted.
 
 ## Changed files
 

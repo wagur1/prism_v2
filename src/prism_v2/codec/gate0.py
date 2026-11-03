@@ -8,6 +8,9 @@ from pathlib import Path
 import subprocess
 import sys
 from .fixtures import synthetic_frames, synthetic_content_sha256, offset_maps
+from .fixtures import (CONTROL_WIDTH, CONTROL_HEIGHT, CONTROL_CRF, CONTROL_GOP,
+                       CONTROL_BFRAMES, CONTROL_QP, CONTROL_FRAMES,
+                       FixtureNeedsVerify, require_control_domain)
 from .x265_bridge import BuildPin, EncoderConfig, X265Library, X265Encoder, file_sha256
 from .net_effect import frame_bits
 from .criteria import verify_condition, SOURCE_SHA256
@@ -21,7 +24,8 @@ def encode_worker(job):
     if not codec.pin.enable_assembly:
         raise ValueError('CONFIG B1 requires assembly ON')
     offsets=offset_maps(width,height).get(job['map'])
-    with X265Encoder(codec,width,height,EncoderConfig(crf=job['crf']),prefix.with_suffix('.csv')) as encoder:
+    config = EncoderConfig(**job['config'])
+    with X265Encoder(codec,width,height,config,prefix.with_suffix('.csv')) as encoder:
         stream=b''.join(encoder.encode(frame,offsets) for frame in synthetic_frames(width,height))+encoder.flush()
     prefix.with_suffix('.hevc').write_bytes(stream)
     frame_bits(prefix.with_suffix('.csv'))
@@ -30,7 +34,9 @@ def encode_worker(job):
 def encode_condition(prefix,name,build,crf,width,height):
     if any(prefix.parent.glob(prefix.name+'.*')):
         raise ValueError('Use fresh output; stale artifacts are not evidence')
-    job={'prefix':str(prefix.resolve()),'map':name,'build':build,'crf':crf,'width':width,'height':height}
+    config = EncoderConfig(qp=CONTROL_QP, crf=crf, gop=CONTROL_GOP, bframes=CONTROL_BFRAMES)
+    job={'prefix':str(prefix.resolve()),'map':name,'build':build,'crf':crf,'width':width,'height':height,
+         'config':asdict(config)}
     path=prefix.with_suffix('.job.json');path.write_text(json.dumps(job,indent=2)+'\n')
     env={**os.environ,'PRISM_X265_SHIM':build['shim'],'PRISM_X265_LIBRARY':build['library'],
          'LD_LIBRARY_PATH':str(Path(build['library']).parent),
@@ -43,7 +49,7 @@ def encode_condition(prefix,name,build,crf,width,height):
         subprocess.run([sys.executable,'-m','prism_v2.codec.gate0',str(path.resolve())],env=env,check=True,stdout=log,stderr=subprocess.STDOUT)
 
 
-def run_gate(output,stack,width=1920,height=1080,crfs=(20,24,28,32,36)):
+def run_gate(output,stack,width=CONTROL_WIDTH,height=CONTROL_HEIGHT,crfs=(20,24,28,32,36)):
     output=Path(output)
     if output.exists() and any(output.iterdir()):
         raise ValueError('Gate output must be empty')
@@ -53,8 +59,16 @@ def run_gate(output,stack,width=1920,height=1080,crfs=(20,24,28,32,36)):
         raise ValueError('Use the CONFIG CRF grid')
     output.mkdir(parents=True,exist_ok=True)
     report={'status':'RUNNING','gate0_complete':False,'criteria_source_sha256':SOURCE_SHA256,
-            'synthetic_content_sha256':synthetic_content_sha256(width,height),'runs':[]}
+            'net_effect_crfs':[CONTROL_CRF], 'runs':[]}
     try:
+        require_control_domain(width, height, CONTROL_CRF)
+        if CONTROL_CRF not in crfs:
+            raise FixtureNeedsVerify('[NEEDS VERIFY] Ratified CRF20 control fixture is required')
+        report['synthetic_content_sha256'] = synthetic_content_sha256(width,height)
+        report['control_fixture'] = {'width':width, 'height':height, 'frames':CONTROL_FRAMES,
+            'config':asdict(EncoderConfig(qp=CONTROL_QP, crf=CONTROL_CRF,
+                                         gop=CONTROL_GOP, bframes=CONTROL_BFRAMES)),
+            'frame_classes':['first_frame'] + ['compensated'] * (CONTROL_FRAMES - 1)}
         maps=offset_maps(width,height)
         for crf in crfs:
             streams={}
@@ -65,17 +79,25 @@ def run_gate(output,stack,width=1920,height=1080,crfs=(20,24,28,32,36)):
                 path=prefix.with_suffix('.hevc');stream=path.read_bytes();streams[name]=stream
                 if has_sei(stream):
                     raise ValueError('Stock/M2 controls must not contain geometry SEI')
-                decoded=verify_decoders(path,DecoderPin(**stack['decoders']['ffmpeg']),DecoderPin(**stack['decoders']['hm']),width,height,10)
+                decoded=verify_decoders(path,DecoderPin(**stack['decoders']['ffmpeg']),DecoderPin(**stack['decoders']['hm']),width,height,CONTROL_FRAMES)
                 report['runs'].append({'crf':crf,'map':name,'au_bytes_including_headers':len(stream),
                     'bitstream_sha256':hashlib.sha256(stream).hexdigest(),'decode':decoded})
             if streams['stock']!=streams['zero'] or streams['same_binary_no_map']!=streams['zero']:
                 raise ValueError('Stock/same-binary zero-map byte identity failed')
+            # The full CONFIG CRF grid still exercises identity and both decoders.
+            # Ratified numerical bands are applied only to the recovered CRF20
+            # fixture, never extrapolated to the other four CRFs.
+            if crf != CONTROL_CRF:
+                continue
             for name in ('plus6','minus6','checkerboard'):
                 result=verify_condition(output/f'crf{crf}_zero.telemetry.csv',output/f'crf{crf}_{name}.telemetry.csv',
                     maps[name],name=name,width=width,height=height)
                 report.setdefault('net_effect',[]).append({'crf':crf,'map':name,'result':result})
         report['status']='CODEC_CONTROLS_PASS'
         report['pending']='[NEEDS VERIFY] native SEI/warped-QG acceptance and historical replay; control pass alone does not satisfy F1'
+    except FixtureNeedsVerify as exc:
+        report.update(status='SKIP',reason=str(exc))
+        raise
     except Exception as exc:
         report.update(status='FAIL',reason=str(exc))
         raise

@@ -1,0 +1,399 @@
+{
+  "status": "FIXTURE_CONDITIONS_RECOVERED_NATIVE_RERUN_PENDING",
+  "recovered_on": "2026-11-04",
+  "sources": [
+    {
+      "source": "C:/Users/Wagur1/prism-vcm/scripts/spike_gate0.py",
+      "sha256": "bfde0ccd01e9f8089c2d9929fadf7313f19115fc139f9925a08c1376d37f8f57"
+    },
+    {
+      "source": "C:/Users/Wagur1/prism-vcm/gate0/run_gate0_kaggle.py",
+      "sha256": "c438231fdecce254e84a4465c28aeaf302f17d4b917036bed3369fbd666f4da0"
+    },
+    {
+      "source": "C:/Users/Wagur1/prism-vcm/gate0/calibrate_bands.py",
+      "sha256": "dfb073465d93db66523a06ef11bcb2204ac78dd7a23ac343e6dd6e39d03607b4"
+    },
+    {
+      "source": "C:/Users/Wagur1/prism-vcm/gate0/recalibrate_offline.py",
+      "sha256": "1ed412e507e78ebb20cf7c423f19edde741883059cfebabd610b7446d5d4ba33"
+    },
+    {
+      "source": "C:/Users/Wagur1/prism-vcm/gate0/band_calibration_v3_proposal.json",
+      "sha256": "6747d7059a09f28c0d0f9f8d2148f1b1b5df68fec3ec89874fb0019a2633c0aa"
+    },
+    {
+      "source": "C:/Users/Wagur1/prism-vcm/gate0/criteria_frozen_v3.json",
+      "sha256": "316134d2f2cf448f6d1e4292d7c9fee0e9fbd60c58e1cb4c196f624d9cad2cdc"
+    },
+    {
+      "source": "C:/Users/Wagur1/prism-vcm/gate0/x265_residual_telemetry.patch",
+      "sha256": "4ad58dc315c7f77ae0294884351dd77718a12058743b420a0c2903d5f253f7ba"
+    },
+    {
+      "source": "C:/Users/Wagur1/prism-vcm/prism/codec/x265_bridge.py",
+      "sha256": "52ee088bf12fce25a7ee07206598595a086c3752ecfaf80fea8e385652ec24b8"
+    }
+  ],
+  "v1_settings": [
+    {
+      "qp_group": 27,
+      "gop": 1,
+      "width": 1920,
+      "height": 1080,
+      "config": {
+        "qp": 27,
+        "preset": "medium",
+        "aq_mode": 1,
+        "cutree": false,
+        "sao": true,
+        "qg_size": 16,
+        "gop": 1,
+        "bframes": 0,
+        "fps": 30,
+        "rc_mode": "CRF",
+        "crf": 20.0,
+        "bitrate_kbps": null,
+        "vbv_maxrate_kbps": null,
+        "vbv_bufsize_kbits": null
+      },
+      "pin": {
+        "library_sha256": "29aa914d6b10fba6fb2e2ae2ee2326adf20f4ffebd1b7426d83efeac00b34c6c",
+        "shim_sha256": "a2283f4df7e804788dfeb3405dcbc922fa9e9e43179119fe7a823e7b977b43e5",
+        "version": "3.5",
+        "abi": 199,
+        "picture_size": 16816,
+        "enable_assembly": false
+      },
+      "visible_qg16": [
+        120,
+        68
+      ]
+    },
+    {
+      "qp_group": 27,
+      "gop": 10,
+      "width": 1920,
+      "height": 1080,
+      "config": {
+        "qp": 27,
+        "preset": "medium",
+        "aq_mode": 1,
+        "cutree": false,
+        "sao": true,
+        "qg_size": 16,
+        "gop": 10,
+        "bframes": 3,
+        "fps": 30,
+        "rc_mode": "CRF",
+        "crf": 20.0,
+        "bitrate_kbps": null,
+        "vbv_maxrate_kbps": null,
+        "vbv_bufsize_kbits": null
+      },
+      "pin": {
+        "library_sha256": "29aa914d6b10fba6fb2e2ae2ee2326adf20f4ffebd1b7426d83efeac00b34c6c",
+        "shim_sha256": "a2283f4df7e804788dfeb3405dcbc922fa9e9e43179119fe7a823e7b977b43e5",
+        "version": "3.5",
+        "abi": 199,
+        "picture_size": 16816,
+        "enable_assembly": false
+      },
+      "visible_qg16": [
+        120,
+        68
+      ]
+    },
+    {
+      "qp_group": 32,
+      "gop": 1,
+      "width": 1920,
+      "height": 1080,
+      "config": {
+        "qp": 32,
+        "preset": "medium",
+        "aq_mode": 1,
+        "cutree": false,
+        "sao": true,
+        "qg_size": 16,
+        "gop": 1,
+        "bframes": 0,
+        "fps": 30,
+        "rc_mode": "CRF",
+        "crf": 20.0,
+        "bitrate_kbps": null,
+        "vbv_maxrate_kbps": null,
+        "vbv_bufsize_kbits": null
+      },
+      "pin": {
+        "library_sha256": "29aa914d6b10fba6fb2e2ae2ee2326adf20f4ffebd1b7426d83efeac00b34c6c",
+        "shim_sha256": "a2283f4df7e804788dfeb3405dcbc922fa9e9e43179119fe7a823e7b977b43e5",
+        "version": "3.5",
+        "abi": 199,
+        "picture_size": 16816,
+        "enable_assembly": false
+      },
+      "visible_qg16": [
+        120,
+        68
+      ]
+    },
+    {
+      "qp_group": 32,
+      "gop": 10,
+      "width": 1920,
+      "height": 1080,
+      "config": {
+        "qp": 32,
+        "preset": "medium",
+        "aq_mode": 1,
+        "cutree": false,
+        "sao": true,
+        "qg_size": 16,
+        "gop": 10,
+        "bframes": 3,
+        "fps": 30,
+        "rc_mode": "CRF",
+        "crf": 20.0,
+        "bitrate_kbps": null,
+        "vbv_maxrate_kbps": null,
+        "vbv_bufsize_kbits": null
+      },
+      "pin": {
+        "library_sha256": "29aa914d6b10fba6fb2e2ae2ee2326adf20f4ffebd1b7426d83efeac00b34c6c",
+        "shim_sha256": "a2283f4df7e804788dfeb3405dcbc922fa9e9e43179119fe7a823e7b977b43e5",
+        "version": "3.5",
+        "abi": 199,
+        "picture_size": 16816,
+        "enable_assembly": false
+      },
+      "visible_qg16": [
+        120,
+        68
+      ]
+    },
+    {
+      "qp_group": 37,
+      "gop": 1,
+      "width": 1920,
+      "height": 1080,
+      "config": {
+        "qp": 37,
+        "preset": "medium",
+        "aq_mode": 1,
+        "cutree": false,
+        "sao": true,
+        "qg_size": 16,
+        "gop": 1,
+        "bframes": 0,
+        "fps": 30,
+        "rc_mode": "CRF",
+        "crf": 20.0,
+        "bitrate_kbps": null,
+        "vbv_maxrate_kbps": null,
+        "vbv_bufsize_kbits": null
+      },
+      "pin": {
+        "library_sha256": "29aa914d6b10fba6fb2e2ae2ee2326adf20f4ffebd1b7426d83efeac00b34c6c",
+        "shim_sha256": "a2283f4df7e804788dfeb3405dcbc922fa9e9e43179119fe7a823e7b977b43e5",
+        "version": "3.5",
+        "abi": 199,
+        "picture_size": 16816,
+        "enable_assembly": false
+      },
+      "visible_qg16": [
+        120,
+        68
+      ]
+    },
+    {
+      "qp_group": 37,
+      "gop": 10,
+      "width": 1920,
+      "height": 1080,
+      "config": {
+        "qp": 37,
+        "preset": "medium",
+        "aq_mode": 1,
+        "cutree": false,
+        "sao": true,
+        "qg_size": 16,
+        "gop": 10,
+        "bframes": 3,
+        "fps": 30,
+        "rc_mode": "CRF",
+        "crf": 20.0,
+        "bitrate_kbps": null,
+        "vbv_maxrate_kbps": null,
+        "vbv_bufsize_kbits": null
+      },
+      "pin": {
+        "library_sha256": "29aa914d6b10fba6fb2e2ae2ee2326adf20f4ffebd1b7426d83efeac00b34c6c",
+        "shim_sha256": "a2283f4df7e804788dfeb3405dcbc922fa9e9e43179119fe7a823e7b977b43e5",
+        "version": "3.5",
+        "abi": 199,
+        "picture_size": 16816,
+        "enable_assembly": false
+      },
+      "visible_qg16": [
+        120,
+        68
+      ]
+    },
+    {
+      "qp_group": 42,
+      "gop": 1,
+      "width": 1920,
+      "height": 1080,
+      "config": {
+        "qp": 42,
+        "preset": "medium",
+        "aq_mode": 1,
+        "cutree": false,
+        "sao": true,
+        "qg_size": 16,
+        "gop": 1,
+        "bframes": 0,
+        "fps": 30,
+        "rc_mode": "CRF",
+        "crf": 20.0,
+        "bitrate_kbps": null,
+        "vbv_maxrate_kbps": null,
+        "vbv_bufsize_kbits": null
+      },
+      "pin": {
+        "library_sha256": "29aa914d6b10fba6fb2e2ae2ee2326adf20f4ffebd1b7426d83efeac00b34c6c",
+        "shim_sha256": "a2283f4df7e804788dfeb3405dcbc922fa9e9e43179119fe7a823e7b977b43e5",
+        "version": "3.5",
+        "abi": 199,
+        "picture_size": 16816,
+        "enable_assembly": false
+      },
+      "visible_qg16": [
+        120,
+        68
+      ]
+    },
+    {
+      "qp_group": 42,
+      "gop": 10,
+      "width": 1920,
+      "height": 1080,
+      "config": {
+        "qp": 42,
+        "preset": "medium",
+        "aq_mode": 1,
+        "cutree": false,
+        "sao": true,
+        "qg_size": 16,
+        "gop": 10,
+        "bframes": 3,
+        "fps": 30,
+        "rc_mode": "CRF",
+        "crf": 20.0,
+        "bitrate_kbps": null,
+        "vbv_maxrate_kbps": null,
+        "vbv_bufsize_kbits": null
+      },
+      "pin": {
+        "library_sha256": "29aa914d6b10fba6fb2e2ae2ee2326adf20f4ffebd1b7426d83efeac00b34c6c",
+        "shim_sha256": "a2283f4df7e804788dfeb3405dcbc922fa9e9e43179119fe7a823e7b977b43e5",
+        "version": "3.5",
+        "abi": 199,
+        "picture_size": 16816,
+        "enable_assembly": false
+      },
+      "visible_qg16": [
+        120,
+        68
+      ]
+    },
+    {
+      "qp_group": 47,
+      "gop": 1,
+      "width": 1920,
+      "height": 1080,
+      "config": {
+        "qp": 47,
+        "preset": "medium",
+        "aq_mode": 1,
+        "cutree": false,
+        "sao": true,
+        "qg_size": 16,
+        "gop": 1,
+        "bframes": 0,
+        "fps": 30,
+        "rc_mode": "CRF",
+        "crf": 20.0,
+        "bitrate_kbps": null,
+        "vbv_maxrate_kbps": null,
+        "vbv_bufsize_kbits": null
+      },
+      "pin": {
+        "library_sha256": "29aa914d6b10fba6fb2e2ae2ee2326adf20f4ffebd1b7426d83efeac00b34c6c",
+        "shim_sha256": "a2283f4df7e804788dfeb3405dcbc922fa9e9e43179119fe7a823e7b977b43e5",
+        "version": "3.5",
+        "abi": 199,
+        "picture_size": 16816,
+        "enable_assembly": false
+      },
+      "visible_qg16": [
+        120,
+        68
+      ]
+    },
+    {
+      "qp_group": 47,
+      "gop": 10,
+      "width": 1920,
+      "height": 1080,
+      "config": {
+        "qp": 47,
+        "preset": "medium",
+        "aq_mode": 1,
+        "cutree": false,
+        "sao": true,
+        "qg_size": 16,
+        "gop": 10,
+        "bframes": 3,
+        "fps": 30,
+        "rc_mode": "CRF",
+        "crf": 20.0,
+        "bitrate_kbps": null,
+        "vbv_maxrate_kbps": null,
+        "vbv_bufsize_kbits": null
+      },
+      "pin": {
+        "library_sha256": "29aa914d6b10fba6fb2e2ae2ee2326adf20f4ffebd1b7426d83efeac00b34c6c",
+        "shim_sha256": "a2283f4df7e804788dfeb3405dcbc922fa9e9e43179119fe7a823e7b977b43e5",
+        "version": "3.5",
+        "abi": 199,
+        "picture_size": 16816,
+        "enable_assembly": false
+      },
+      "visible_qg16": [
+        120,
+        68
+      ]
+    }
+  ],
+  "v1_frame_class_assignment": "frame 0 first/uncompensated; frame >=1 compensated, including GOP1 I slices",
+  "intra_subset": {
+    "width": 1920,
+    "height": 1080,
+    "crf": 20.0,
+    "gop": 1,
+    "bframes": 0,
+    "qp_label": 32,
+    "frames": 10
+  },
+  "synthetic_content_sha256": "938e0f62f5477ce5581dd4630b3e2f4c5965413c6edfd7b0bb4f681d66e84a01",
+  "generator_parity": "Exact bytes compared against synthetic_frames AST extracted from the read-only v1 source at 1920x1080, ten frames.",
+  "scope": [
+    "GOP1 is the ratified intra subset; GOP10/B3 is recorded for provenance and remains excluded by CONFIG B1.",
+    "Nominal QP groups 27/32/37/42/47 all use CRF20 and are not a CRF sweep.",
+    "CRF24/28/32/36 retain fresh identity, two-decoder and warped-offset checks; no extrapolation of ratified net-effect bands.",
+    "Historical pin declares assembly false; current CONFIG requires assembly ON. This recovers stimuli, not a historical build replay or native PASS.",
+    "gate0/src is empty in the supplied checkout; runner imports resolve to scripts/spike_gate0.py and prism/codec."
+  ]
+}

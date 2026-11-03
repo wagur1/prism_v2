@@ -354,6 +354,8 @@ class Runner:
                 raise ValueError('Incomplete F1 receipt')
             if report.get('crfs') != [20, 24, 28, 32, 36] or report.get('control_dimensions') != [1920, 1080]:
                 raise ValueError('Unexpected F1 grid/resolution')
+            if report.get('net_effect_crfs') != [20]:
+                raise ValueError('F1 sign checks must use the ratified CRF20 fixture')
             expected = {(crf, arm) for crf in report['crfs'] for arm in ('M1', 'M2', 'R', 'QR')}
             if len(report.get('retarget_runs', [])) != len(expected) or {(r['crf'], r['arm']) for r in report['retarget_runs']} != expected:
                 raise ValueError('Incomplete/duplicate retarget fixture coverage')

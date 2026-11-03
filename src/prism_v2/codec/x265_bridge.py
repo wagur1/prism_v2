@@ -5,6 +5,8 @@ from __future__ import annotations
 import ctypes as ct
 import hashlib
 import os
+import tempfile
+import threading
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
@@ -15,6 +17,32 @@ from .ffmpeg_stream import frame_bytes
 
 class X265Unavailable(RuntimeError):
     """The pinned library/shim pair is unavailable."""
+
+
+_OPEN_STDERR_LOCK = threading.Lock()
+
+
+def _open_with_stderr(api, width, height, preset, options):
+    """Capture native fd 2 (redirect_stderr misses C writes), then replay it.
+
+    Encoder opens are serialized because fd redirection is process-wide. J0
+    already isolates encoder workers; no stderr is swallowed on success/fail.
+    """
+    with _OPEN_STDERR_LOCK, tempfile.TemporaryFile() as captured:
+        saved = os.dup(2)
+        try:
+            os.dup2(captured.fileno(), 2)
+            handle = api.prism_open(width, height, preset, options)
+        finally:
+            os.dup2(saved, 2)
+            os.close(saved)
+            captured.seek(0)
+            diagnostic = captured.read()
+            if diagnostic:
+                remaining = memoryview(diagnostic)
+                while remaining:
+                    remaining = remaining[os.write(2, remaining):]
+        return handle, diagnostic.decode('utf-8', errors='replace').strip()
 
 
 def file_sha256(path: str | Path) -> str:
@@ -149,10 +177,12 @@ class X265Encoder:
         self._pending: dict[int, tuple[np.ndarray, np.ndarray | None]] = {}
         self._next_pts = 0
         self._flushed = False
-        self.handle = library.api.prism_open(width, height, config.preset.encode(),
-                                            config.options(csv_path).encode())
+        self.handle, diagnostic = _open_with_stderr(
+            library.api, width, height, config.preset.encode(), config.options(csv_path).encode())
         if not self.handle:
-            raise RuntimeError("x265 rejected pinned parameters/header ABI")
+            raise RuntimeError(f'x265 prism_open failed for {width}x{height} '
+                               f'(preset={config.preset}, CRF={config.crf}):\n'
+                               f'{diagnostic or "encoder emitted no stderr; check parameters, allocation, and shim ABI"}')
 
     def encode(self, yuv: bytes, offsets: np.ndarray | None) -> bytes:
         if not self.handle or self._flushed:

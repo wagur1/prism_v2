@@ -1,0 +1,52 @@
+{
+  "scope": "Offline fixture fixes; no native rerun or network",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "C:\\Users\\Wagur1\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "unittest": {
+    "command": "python -m unittest discover -s tests -t . -v",
+    "collected": 91,
+    "passed": 86,
+    "skipped": 5,
+    "failures": 0,
+    "errors": 0
+  },
+  "pytest": {
+    "command": "python -m pytest tests/ -q",
+    "status": "UNAVAILABLE",
+    "returncode": 1,
+    "reason": "No module named pytest; accessible local runtimes/cache lack an offline installation"
+  },
+  "native_acceptance": "[NEEDS VERIFY] No pinned local stack; native rerun pending",
+  "bands_unchanged": true,
+  "ratified_stimulus_recovered": true,
+  "secret_scan": {
+    "status": "PASS",
+    "files": [
+      "evidence/manifests/j0_control_fixture.json",
+      "evidence/manifests/port_sources.json",
+      "kaggle/J0_GATE0.md",
+      "kaggle/job_specs/j0_gate0/j0_gate0.py",
+      "runs/j0-fixture-fixes-pytest.log",
+      "runs/j0-fixture-fixes-unittest.log",
+      "src/prism_v2/codec/f1.py",
+      "src/prism_v2/codec/fixtures.py",
+      "src/prism_v2/codec/gate0.py",
+      "src/prism_v2/codec/x265_bridge.py",
+      "tests/codec/test_f1.py",
+      "tests/codec/test_native.py",
+      "tests/codec/test_native_regressions.py",
+      "tests/codec/test_runner.py"
+    ]
+  },
+  "kernel_package_validation": "PASS",
+  "logs": {
+    "runs/j0-fixture-fixes-unittest.log": {
+      "path": "runs/j0-fixture-fixes-unittest.log",
+      "sha256": "307504583a7626cc6d5ae1b9b9278baf94e21e09388a08734e46e959c308227d"
+    },
+    "runs/j0-fixture-fixes-pytest.log": {
+      "path": "runs/j0-fixture-fixes-pytest.log",
+      "sha256": "0007ddfa3a2b9e73efb7c800472b45c272120742c0069df2c2b7a58163aca8ce"
+    }
+  }
+}

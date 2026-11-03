@@ -1,1 +1,0 @@
-/usr/bin/gcc -fPIC -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/prism_x265.dir/link.d -shared -Wl,-soname,libprism_x265.so -o libprism_x265.so CMakeFiles/prism_x265.dir/x265_shim.c.o  -Wl,-rpath,/kaggle/working/j0_stack/patched/install/lib /kaggle/working/j0_stack/patched/install/lib/libx265.so

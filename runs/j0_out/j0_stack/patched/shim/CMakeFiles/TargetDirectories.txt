@@ -1,3 +1,0 @@
-/kaggle/working/j0_stack/patched/shim/CMakeFiles/prism_x265.dir
-/kaggle/working/j0_stack/patched/shim/CMakeFiles/edit_cache.dir
-/kaggle/working/j0_stack/patched/shim/CMakeFiles/rebuild_cache.dir

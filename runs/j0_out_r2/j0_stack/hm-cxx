@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-args=()
-for a in "$@"; do
- case "$a" in -Werror|-Werror=*) ;; *) args+=("$a");; esac
-done
-exec g++ "${args[@]}" -Wno-error -std=gnu++98

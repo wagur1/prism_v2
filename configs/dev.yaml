@@ -1,0 +1,8 @@
+# Design constants; interpolation/antialiasing remain blocked before eval.
+scope: development-only
+configurations: [source-size, half-each-dimension]
+coded_alignment: 16
+geometry_fraction_bits: 16
+image_interpolation: NEEDS_VERIFY
+image_antialiasing: NEEDS_VERIFY
+launch_enabled: false

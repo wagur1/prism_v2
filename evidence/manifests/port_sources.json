@@ -1,0 +1,137 @@
+{
+  "v1_commit": "a34d943f1f09f30eac10c3417f34c1c332be0fd2",
+  "port_date": "2026-11-04",
+  "entries": [
+    {
+      "source": "prism/codec/ffmpeg_stream.py",
+      "destination": "src/prism_v2/codec/ffmpeg_stream.py",
+      "source_sha256": "8b173892603911dcca1a15e46622231c723255d4a9ed9ee5fa3801e70ff61366",
+      "destination_sha256": "a674621e2d003e288017777d0bb129346d7a50c3e9764d60ecabac3f18c166d6"
+    },
+    {
+      "source": "prism/codec/x265_bridge.py",
+      "destination": "src/prism_v2/codec/x265_bridge.py",
+      "source_sha256": "52ee088bf12fce25a7ee07206598595a086c3752ecfaf80fea8e385652ec24b8",
+      "destination_sha256": "d1ba510fd0dc0acfe91e79d84aee59a06ee7cbb026c2fff981683dc004248ce0"
+    },
+    {
+      "source": "prism/codec/native/x265_shim.c",
+      "destination": "src/prism_v2/codec/native/x265_shim.c",
+      "source_sha256": "462534efaef5a3d34c20bcfed8c512752abefef552b02e4d5d7777a6422716b7",
+      "destination_sha256": "0b414a58bec4902a3d8f86a1ab5a70ad6a178700bc9ade658d091133f8361b37"
+    },
+    {
+      "source": "prism/codec/native/CMakeLists.txt",
+      "destination": "src/prism_v2/codec/native/CMakeLists.txt",
+      "source_sha256": "682e310e397fbae5afe6015d33fd50bc29150f163a16ecd0395000acb31fdc4e",
+      "destination_sha256": "a168738f7b9160ed26d98dcca9f5b4ef39c9f59c1b151aa444e900449ff15ab6"
+    },
+    {
+      "source": "prism/codec/gate0.py",
+      "destination": "src/prism_v2/codec/net_effect.py",
+      "source_sha256": "fc8b06d03b04f13ed4c57267c027f15ede2d958da6bcabe90d318129dd914681",
+      "destination_sha256": "14ed2409f5aad3186818a17a711e3bd0d0dcf0680a9b60a9a1440af1bd6a007c"
+    },
+    {
+      "source": "scripts/spike_gate0.py",
+      "destination": "src/prism_v2/codec/fixtures.py",
+      "source_sha256": "bfde0ccd01e9f8089c2d9929fadf7313f19115fc139f9925a08c1376d37f8f57",
+      "destination_sha256": "208d933545d4bb6b8447e1a04ac98b7e763ac053a253d4f4635dfb56f9cacb50"
+    },
+    {
+      "source": "gate0/x265_residual_patch.patch",
+      "destination": "third_party/x265/patches/x265_residual_patch.patch",
+      "source_sha256": "88cb0bc98b415daf25bc43549c379a479a145128ef909f98701c912a7e2d7cd5",
+      "destination_sha256": "e2b21fcefdb62ebc07edf10cfa17f5d9fc7bc4b22f56b1eb575748bb3a1ca982"
+    },
+    {
+      "source": "gate0/x265_residual_telemetry.patch",
+      "destination": "third_party/x265/patches/x265_residual_telemetry.patch",
+      "source_sha256": "4ad58dc315c7f77ae0294884351dd77718a12058743b420a0c2903d5f253f7ba",
+      "destination_sha256": "df3abe02bbc8428b2f1f4a620a4527ae39763b1ee9c8c164eec2ece7909daf59"
+    },
+    {
+      "source": "gate0/criteria_frozen_v3.json",
+      "destination": "src/prism_v2/codec/criteria/gate0_v3.json",
+      "source_sha256": "316134d2f2cf448f6d1e4292d7c9fee0e9fbd60c58e1cb4c196f624d9cad2cdc",
+      "destination_sha256": "73173d5315924e3a81d8a6ff15bbefc8a5f80806f5de4bfd4df094c4ae9d4760"
+    },
+    {
+      "source": "gate0/criteria_frozen_v3.json",
+      "destination": "tests/fixtures/criteria_v3.original.json",
+      "source_sha256": "316134d2f2cf448f6d1e4292d7c9fee0e9fbd60c58e1cb4c196f624d9cad2cdc",
+      "note": "Exact original blob is preserved in the source_utf8 field of a commented JSON envelope; hash decoded UTF-8 bytes, not the envelope, for the historical identifier.",
+      "destination_sha256": "3dcaaa32c57069e394bb70b06921d632ca6013048deb4d086de905f637fa6740"
+    },
+    {
+      "source": "tests/test_telemetry.py",
+      "destination": "tests/codec/test_ported_qg.py",
+      "source_sha256": "4716123af2270df7e79c13fa4c8e72563efd3f5f249e1320df845b597c0caa72",
+      "destination_sha256": "25cfba48e7565128054686e80b29b4ae5fdf4d88865838ec52f5a04c747f19ba"
+    },
+    {
+      "source": "gate0/build_gate0_stack.sh",
+      "destination": "scripts/build_codec.py",
+      "source_sha256": "39e4a02dd4955110010b6b84ae831a2daed93005bb2c6aa2c2977ec59db9ffe7",
+      "destination_sha256": "64b67f3aa73f676512796f223e3f1d0516c8f9197373fae9caa1388975559fad"
+    },
+    {
+      "source": "gate0/build_gate0_stack.sh",
+      "destination": "scripts/build_codec.sh",
+      "source_sha256": "39e4a02dd4955110010b6b84ae831a2daed93005bb2c6aa2c2977ec59db9ffe7",
+      "destination_sha256": "85dcfde91d5749da265f6278066906e38e4612b2bf07b88403b3632d03a95ba1"
+    },
+    {
+      "source": "scripts/spike_gate0.py",
+      "destination": "src/prism_v2/codec/gate0.py",
+      "source_sha256": "bfde0ccd01e9f8089c2d9929fadf7313f19115fc139f9925a08c1376d37f8f57",
+      "destination_sha256": "fdc9980d9dca1b89bb33248720f2ec85ec4d09d35a2e0cf678eb4fe100d4018c"
+    },
+    {
+      "source": "scripts/spike_gate0.py",
+      "destination": "scripts/gate0.py",
+      "source_sha256": "bfde0ccd01e9f8089c2d9929fadf7313f19115fc139f9925a08c1376d37f8f57",
+      "destination_sha256": "8b0db734d1783640f249c22c0cb3189eb08656a2eea90935df2a3726adc78803"
+    },
+    {
+      "source": "prism/models/student.py",
+      "destination": "src/prism_v2/codec/qg.py",
+      "source_sha256": "daf0093f790c9587b9741829f99a2b81a35a5213d9b89055dfa210ac5fb71f58",
+      "destination_sha256": "db2733d21a36d4a3c0b8d8195d2d1575893fcd4f3e9bd620b0aeeab32e1808d7"
+    },
+    {
+      "source": "scripts/spike_gate0.py",
+      "destination": "src/prism_v2/codec/decoders.py",
+      "source_sha256": "bfde0ccd01e9f8089c2d9929fadf7313f19115fc139f9925a08c1376d37f8f57",
+      "destination_sha256": "2b6cf7d4560db8a16686c91cc9e3a03ce3eaa6f70693d39354ac9db0e29f5752"
+    },
+    {
+      "source": "gate0/build_gate0_stack.sh",
+      "destination": "third_party/x265/PINNED_SOURCE.json",
+      "source_sha256": "39e4a02dd4955110010b6b84ae831a2daed93005bb2c6aa2c2977ec59db9ffe7",
+      "destination_sha256": "1ebb50e0113f4d15e2ae78552235605fbbdac8b78f2e667d815282d517f72b4c"
+    }
+  ],
+  "historical_replay": "[NEEDS VERIFY] full signed telemetry and expected-output bundle not recovered",
+  "additional_source_artifacts": [
+    {
+      "source": "docs/reports/step3_report.json",
+      "source_sha256": "eeca29224b0bc4cc0f7c05e81d227dc71007b863e375115963f48afa48849761"
+    },
+    {
+      "source": "gate0/build_gate0_stack.sh",
+      "source_sha256": "39e4a02dd4955110010b6b84ae831a2daed93005bb2c6aa2c2977ec59db9ffe7"
+    },
+    {
+      "source": "gate0/PATCH_AUDIT.md",
+      "source_sha256": "e527eda21895c8af85ec62a2ead327e9862d4b02ec5ca88eff8ac47ca58fce86"
+    }
+  ],
+  "adaptations": {
+    "codec_contract": "CRF intra only; explicit aq-strength/hevc-aq; assembly ON; info=0 to suppress built-in encoder SEI. Stock and patched builds use identical parameters.",
+    "runner": "Uses recovered v3 QG criteria for all signs; removes legacy raw-drift fallback and schema mismatch; keeps independent seeded ten-frame stimuli and process isolation.",
+    "ctu_expansion": "NumPy implements v1 PyTorch bilinear align_corners=False center mapping; source model/training code is not ported.",
+    "decoders": "Preserves FFmpeg/HM invocation, adds pinned binary hashes and exact YUV sample equality.",
+    "build": "Offline clean local source archives only; no apt/pip/git network operations; original CMake/HM compiler policy retained."
+  }
+}

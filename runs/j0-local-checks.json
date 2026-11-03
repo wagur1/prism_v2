@@ -1,0 +1,30 @@
+{
+  "scope": "CPU contract checks only; not native codec or efficacy evidence",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "numpy": "2.3.5",
+  "pytest": {
+    "returncode": 1,
+    "status": "UNAVAILABLE",
+    "log": "runs/j0-pytest.log"
+  },
+  "unittest": {
+    "passed": 49,
+    "skipped": 5,
+    "failed": 0,
+    "collected": 54,
+    "log": "runs/j0-unittest.log"
+  },
+  "claims_checker": {
+    "returncode": 0,
+    "output": "Ledger valid; prose tripwire clear. Manual evidence review is still required.\n"
+  },
+  "native_codec": "[NEEDS VERIFY] no pinned local stack executed",
+  "training_unlocked": false,
+  "created_repository_files": 82,
+  "artifacts": {
+    "runs/j0-pytest.log": "8c4387fcb7590739d958fb7f4cbacd0cfc6b84ca69572ddfb30c2a873f7e91c8",
+    "runs/j0-unittest.log": "597931a11ef6f7e65d22a29d5dfa4ec8773db27d96e6ad4e5e6d1d4f681665e6",
+    "evidence/manifests/port_sources.json": "20a94023cf07d3ba1ec4b7036d31526fd7e62e1049e0f488cab2c5423d255a7f",
+    "evidence/manifests/synthetic_fixtures.json": "19bd1939f3acf2d461d4920cc67a5656e69db5c6714311ad4382dab5c3d030f4"
+  }
+}

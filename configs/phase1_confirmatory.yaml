@@ -1,0 +1,14 @@
+# Skeleton reflecting signed CONFIG D; not a launch manifest.
+arms: [M1, M2, R, QR, U, QU, C, QC]
+crfs: [20, 24, 28, 32, 36]
+independent_training_seed_count: 3
+seed_values: NEEDS_VERIFY
+detectors: [Faster-RCNN, YOLO11-L]
+weights: NEEDS_VERIFY
+split_manifest: NEEDS_VERIFY
+primary_comparisons: [M2:M1, QR:M2, QR:R, R:U, R:C, QR:QU, QR:QC]
+correction: Holm-Bonferroni
+bootstrap_min_resamples: 1000
+confidence_level: 0.95
+alpha: 0.05
+launch_enabled: false

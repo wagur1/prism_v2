@@ -1,0 +1,26 @@
+{
+  "_comment": "Ported from C:/Users/Wagur1/prism-vcm/gate0/build_gate0_stack.sh and docs/reports/step3_report.json; v1 commit a34d943; port date 2026-11-04.",
+  "v1_commit": "a34d943f1f09f30eac10c3417f34c1c332be0fd2",
+  "x265": {
+    "tag": "3.5",
+    "commit": "f0c1022b6be121a753ff02853fbe33da71988656",
+    "url": "https://bitbucket.org/multicoreware/x265_git.git"
+  },
+  "hm": {
+    "tag": "HM-16.2",
+    "commit": "41801c786b2fb37dafc779f824b1f62fbe713bbe",
+    "url": "https://vcgit.hhi.fraunhofer.de/jvet/HM.git"
+  },
+  "enable_assembly": true,
+  "patch_order": [
+    "x265_residual_patch.patch",
+    "x265_residual_telemetry.patch"
+  ],
+  "patches": {
+    "x265_residual_patch.patch": "e2b21fcefdb62ebc07edf10cfa17f5d9fc7bc4b22f56b1eb575748bb3a1ca982",
+    "x265_residual_telemetry.patch": "df3abe02bbc8428b2f1f4a620a4527ae39763b1ee9c8c164eec2ece7909daf59"
+  },
+  "criteria_source_sha256": "316134d2f2cf448f6d1e4292d7c9fee0e9fbd60c58e1cb4c196f624d9cad2cdc",
+  "criteria_reference": "316134d2",
+  "binary_status": "[NEEDS VERIFY] build and verify locally supplied sources; no inherited binary acceptance"
+}

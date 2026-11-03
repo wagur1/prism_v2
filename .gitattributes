@@ -1,0 +1,10 @@
+src/** text eol=lf
+scripts/** text eol=lf
+tests/** text eol=lf
+configs/** text eol=lf
+third_party/** text eol=lf
+evidence/** text eol=lf
+runs/** text eol=lf
+reports/** text eol=lf
+kaggle/** text eol=lf
+pyproject.toml text eol=lf

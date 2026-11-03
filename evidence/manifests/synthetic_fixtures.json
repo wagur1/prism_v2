@@ -1,0 +1,40 @@
+{
+  "status": "SYNTHETIC_ONLY",
+  "license": "Generated noise/algebra; no dataset images included",
+  "generator": "tests/fixtures/generate_telemetry.py",
+  "artifacts": [
+    {
+      "path": "tests/fixtures/generate_telemetry.py",
+      "sha256": "252675f370d8d7fb7c377be88f78f5c4065badabfa9ae74adbea91d903b73970"
+    },
+    {
+      "path": "tests/fixtures/synthetic_zero.csv",
+      "sha256": "65915b6065ff0f7d1002e231b2cb9c3e5f9c0536fc9e62189c7c0fb7c28e265e"
+    },
+    {
+      "path": "tests/fixtures/synthetic_plus6.csv",
+      "sha256": "7d19dd11cd7fb5c06128fe3893061dd0dda0e7ea639443b3827caeb263b5bddf"
+    },
+    {
+      "path": "tests/fixtures/synthetic_minus6.csv",
+      "sha256": "849e0d34750a04a2526ce6d940e06f454a9680eaf8920f0050405bb058579c0a"
+    }
+  ],
+  "expected": {
+    "zero": {
+      "base_qp": 30,
+      "final_qp": 26
+    },
+    "plus6": {
+      "base_qp": 40,
+      "final_qp": 42,
+      "net_effect": 6
+    },
+    "minus6": {
+      "base_qp": 48,
+      "final_qp": 38,
+      "net_effect": -6
+    }
+  },
+  "interpretation": "Validates algebra and clipping of partial cells only; not native codec or historical replay evidence."
+}

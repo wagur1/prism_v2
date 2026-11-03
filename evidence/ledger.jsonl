@@ -1,0 +1,1 @@
+{"id": "signed-contract", "type": "design-constant", "statement": "Binding local implementation contracts and launch gates. No measured codec or efficacy claim.", "value": "See signed configuration", "unit": "protocol", "authority": {"path": "deliberation/CONFIG_V2.md", "sha256": "b83eaa77f6b23968b3fb5e42d3e6e6ed0c776291a6ecb48cbdc15fdb6ac8cdf5"}}

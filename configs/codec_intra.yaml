@@ -1,0 +1,13 @@
+# Protocol constants from signed CONFIG B1/B2; not measured performance.
+scope: coco-intra
+rate_control: CRF
+crfs: [20, 24, 28, 32, 36]
+aq_mode: 1
+aq_strength: 1.0
+hevc_aq: 0
+cutree: 0
+qg_size: 16
+gop: 1
+bframes: 0
+assembly: true
+criteria: src/prism_v2/codec/criteria/gate0_v3.json

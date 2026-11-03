@@ -1,6 +1,6 @@
 {
-  "id": "htran123456/prism-v2-j0-gate0",
-  "title": "PRISM v2 J0 codec gate",
+  "id": "htran123456/prism-v2-j0-gate0-r2",
+  "title": "prism-v2-j0-gate0-r2",
   "code_file": "j0_gate0.py",
   "language": "python",
   "kernel_type": "script",

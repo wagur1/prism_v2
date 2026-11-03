@@ -1,0 +1,97 @@
+{
+  "scope": "Offline regressions; no native acceptance claim",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "C:\\Users\\Wagur1\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "pytest": {
+    "command": "python -m pytest tests/ -q",
+    "exit_code": 1,
+    "status": "UNAVAILABLE",
+    "output": "C:\\Users\\Wagur1\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe: No module named pytest\n"
+  },
+  "unittest": {
+    "collected": 95,
+    "passed": 90,
+    "skipped": 5,
+    "failures": 0,
+    "errors": 0,
+    "skip_details": [
+      {
+        "test": "tests.codec.test_native.NativeTests.test_native_geometry_sei_decoder_match_and_baseline_absence",
+        "reason": "[NEEDS VERIFY] No pinned local encoder/decoder stack (PRISM_CODEC_STACK)"
+      },
+      {
+        "test": "tests.codec.test_native.NativeTests.test_native_warped_qg_acceptance",
+        "reason": "[NEEDS VERIFY] No pinned local encoder/decoder stack (PRISM_CODEC_STACK)"
+      },
+      {
+        "test": "tests.codec.test_native.NativeTests.test_sign_controls_identity_and_two_decoders",
+        "reason": "[NEEDS VERIFY] No pinned local encoder/decoder stack (PRISM_CODEC_STACK)"
+      },
+      {
+        "test": "tests.port_parity.test_deferred.DeferredPortParityTests.test_historical_gate_replay",
+        "reason": "[NEEDS VERIFY] Signed historical telemetry/expected-output replay bundle not recovered"
+      },
+      {
+        "test": "tests.port_parity.test_deferred.DeferredPortParityTests.test_v1_expansion_frozen_tensor_parity",
+        "reason": "[NEEDS VERIFY] J1 v1 PyTorch checkpoint/expansion fixture not recovered; analytic center fixture covered separately"
+      }
+    ]
+  },
+  "native_stack": null,
+  "network_operations": 0,
+  "secret_scan": {
+    "files": 113,
+    "hits": [],
+    "status": "PASS"
+  },
+  "package_validation": "PASS",
+  "skip_audit": [
+    {
+      "path": "tests/codec/test_native.py",
+      "line": 18,
+      "call": "unittest.skipUnless(STACK and Path(STACK).is_file(), '[NEEDS VERIFY] No pinned local encoder/decoder stack (PRISM_CODEC_STACK)')"
+    },
+    {
+      "path": "tests/port_parity/test_deferred.py",
+      "line": 6,
+      "call": "unittest.skip('[NEEDS VERIFY] Signed historical telemetry/expected-output replay bundle not recovered')"
+    },
+    {
+      "path": "tests/port_parity/test_deferred.py",
+      "line": 10,
+      "call": "unittest.skip('[NEEDS VERIFY] J1 v1 PyTorch checkpoint/expansion fixture not recovered; analytic center fixture covered separately')"
+    }
+  ],
+  "native_blocker": {
+    "path": "third_party/x265/patches/x265_residual_telemetry.patch",
+    "line": 148,
+    "guard": "p.rc.qgSize == 16",
+    "effect": "QG64 frame and CU emitters return without producing telemetry"
+  },
+  "log_sha256": {
+    "j0-qg64-pytest.log": "8c4387fcb7590739d958fb7f4cbacd0cfc6b84ca69572ddfb30c2a873f7e91c8",
+    "j0-qg64-unittest.log": "65e0cc18e042b87777d5dc13592865d2d9b76cf36690a0fbaee1c2022901d012"
+  },
+  "protected_paths_unchanged_from_HEAD": [
+    "deliberation",
+    "src/prism_v2/codec/net_effect.py",
+    "src/prism_v2/codec/sei.py",
+    "src/prism_v2/retarget/geometry.py",
+    "third_party/x265/PINNED_SOURCE.json",
+    "third_party/x265/patches",
+    "src/prism_v2/codec/criteria",
+    "tests/fixtures/criteria_v3.original.json"
+  ],
+  "whitespace_check": "PASS",
+  "changed_files_sha256": {
+    "src/prism_v2/codec/f1.py": "edcdef3348d2483cd7baeb188bedc28953a4a971b92448e4b39a35a0501ed78f",
+    "src/prism_v2/codec/encoder.py": "ef9ea1afe1a3a6f0a0f4746e78c492e601d9428689b98380456acc86f088e183",
+    "src/prism_v2/codec/x265_bridge.py": "a5be4f32dc19a9c2c7939ffe832433d7c5448bda248f8150d233bce6febf729d",
+    "tests/codec/test_native.py": "02288758225d6152a96f282d54fcb8e5ebf7bde7697ae802ddc9783b02c2129e",
+    "tests/codec/test_f1.py": "45cdb23ff2ba31d0ac681b1f14cea8a44639b58cbfcc3876e179b0818888bfc5",
+    "tests/codec/test_contracts.py": "a61192e1cbc0becf915451b3386e056bb45c742284811c160a7acefa6cfba34c",
+    "tests/codec/test_native_regressions.py": "9e20870d4d9e0af6600e22fbfa582faf1913c06795e0a4eb36b10195bea4bbf5",
+    "evidence/manifests/port_sources.json": "916c29d8c234b98a77996e9e10f622fb8e0577612079d958a1f503493b7bb840",
+    "kaggle/J0_GATE0.md": "83f6408b3a102974dede2403c67b528edf4a64685299033bc15f4ea515066de7"
+  }
+}

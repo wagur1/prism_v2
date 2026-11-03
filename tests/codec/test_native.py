@@ -7,7 +7,7 @@ from prism_v2.codec.gate0 import run_gate
 from prism_v2.codec.x265_bridge import X265Library, BuildPin
 from prism_v2.codec.encoder import encode_intra
 from prism_v2.codec.decoders import DecoderPin, verify_decoders
-from prism_v2.codec.fixtures import synthetic_frames, FixtureNeedsVerify
+from prism_v2.codec.fixtures import synthetic_frames
 from prism_v2.codec.sei import GeometrySignal, extract
 from prism_v2.retarget.geometry import from_saliency
 from prism_v2.codec.f1 import run_retarget_fixture
@@ -20,10 +20,7 @@ class NativeTests(unittest.TestCase):
     def test_sign_controls_identity_and_two_decoders(self):
         stack=json.loads(Path(STACK).read_text())
         with tempfile.TemporaryDirectory() as tmp:
-            try:
-                result=run_gate(Path(tmp),stack,crfs=(20,))
-            except FixtureNeedsVerify as exc:
-                self.skipTest(str(exc))
+            result=run_gate(Path(tmp),stack,crfs=(20,))
             self.assertEqual(result['status'],'CODEC_CONTROLS_PASS')
             self.assertFalse(result['gate0_complete'])
 
@@ -42,10 +39,22 @@ class NativeTests(unittest.TestCase):
     def test_native_warped_qg_acceptance(self):
         stack=json.loads(Path(STACK).read_text())
         with tempfile.TemporaryDirectory() as tmp:
-            try:
-                runs=run_retarget_fixture(Path(tmp)/'retarget',stack,crfs=(20,))
-            except FixtureNeedsVerify as exc:
-                self.skipTest(str(exc))
-            self.assertEqual(len(runs),4)
-            self.assertTrue(all(r['warped_telemetry']['requested_offsets_verified']
-                                for r in runs if r['arm'] in ('M2','QR')))
+            runs=run_retarget_fixture(Path(tmp)/'retarget',stack,crfs=(20,))
+            self.assertEqual(len(runs),6)
+            self.assertEqual({(r['arm'],r['crf'],r['qg_size']) for r in runs},
+                {(arm,20,16) for arm in ('M1','M2','R','QR')} |
+                {(arm,20,64) for arm in ('M2','QR')})
+            for arm in ('M2','QR'):
+                for size in (64,16):
+                    with self.subTest(arm=arm,qg_size=size):
+                        run=next(r for r in runs if r['arm']==arm and r['qg_size']==size)
+                        trace=run['warped_telemetry']
+                        self.assertIs(trace['requested_offsets_verified'],True)
+                        self.assertEqual(trace['qg_size'],size)
+                        self.assertEqual(trace['evidence'],'per_qg' if size==64 else 'cu_mean')
+                        self.assertEqual(trace['covered_qgs'],4 if size==64 else 40)
+                        self.assertGreater(trace['residual_qgs'],0)
+                        if size==64:
+                            self.assertEqual(trace['direct_qgs'],4)
+                            self.assertEqual(trace['direct_edge_qgs'],4)
+                            self.assertEqual(trace['partial_qgs'],2)

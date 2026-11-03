@@ -1,0 +1,99 @@
+{
+  "builds": {
+    "patched": {
+      "library": "/kaggle/working/j0_stack/patched/install/lib/libx265.so",
+      "shim": "/kaggle/working/j0_stack/patched/shim/libprism_x265.so",
+      "pin": {
+        "library_sha256": "b7100be1abc153a67dc533bbdf5a16c1b64b8e16f0e82b53f2eb9f0e9d7f1311",
+        "shim_sha256": "98d5da7b28705b6951774a963c9e442cc4600fad331b5a60fb753fc3af673519",
+        "version": "3.4+31-6722fce1f",
+        "abi": 199,
+        "picture_size": 16816,
+        "enable_assembly": true
+      }
+    },
+    "stock": {
+      "library": "/kaggle/working/j0_stack/stock/install/lib/libx265.so",
+      "shim": "/kaggle/working/j0_stack/stock/shim/libprism_x265.so",
+      "pin": {
+        "library_sha256": "c1c473d4d6d2dabb6d75283f4fd6733e27b55f9a1e66f115b372be771faaaac9",
+        "shim_sha256": "ca72c554121ad6afa6dcf3cfdea7b686bc25db1a2a53078b4caa24885093f5a4",
+        "version": "3.4+31-6722fce1f",
+        "abi": 199,
+        "picture_size": 16816,
+        "enable_assembly": true
+      }
+    }
+  },
+  "sources": {
+    "_comment": "Ported from C:/Users/Wagur1/prism-vcm/gate0/build_gate0_stack.sh and docs/reports/step3_report.json; v1 commit a34d943; port date 2026-11-04.",
+    "v1_commit": "a34d943f1f09f30eac10c3417f34c1c332be0fd2",
+    "x265": {
+      "tag": "3.5",
+      "commit": "f0c1022b6be121a753ff02853fbe33da71988656",
+      "url": "https://bitbucket.org/multicoreware/x265_git.git"
+    },
+    "hm": {
+      "tag": "HM-16.2",
+      "commit": "41801c786b2fb37dafc779f824b1f62fbe713bbe",
+      "url": "https://vcgit.hhi.fraunhofer.de/jvet/HM.git"
+    },
+    "enable_assembly": true,
+    "patch_order": [
+      "x265_residual_patch.patch",
+      "x265_residual_telemetry.patch"
+    ],
+    "patches": {
+      "x265_residual_patch.patch": "e2b21fcefdb62ebc07edf10cfa17f5d9fc7bc4b22f56b1eb575748bb3a1ca982",
+      "x265_residual_telemetry.patch": "df3abe02bbc8428b2f1f4a620a4527ae39763b1ee9c8c164eec2ece7909daf59"
+    },
+    "criteria_source_sha256": "316134d2f2cf448f6d1e4292d7c9fee0e9fbd60c58e1cb4c196f624d9cad2cdc",
+    "criteria_reference": "316134d2",
+    "binary_status": "[NEEDS VERIFY] build and verify locally supplied sources; no inherited binary acceptance"
+  },
+  "source_archive_sha256": {
+    "x265": "b4b8e1c1474411618c18d89518bef7325c02493481d996d7c0069fad219a87c8",
+    "hm": "95ec73cce270359da0c1e3fc1ba2adca28b4e8ca65a66ec6e32a2d5b06df5afb"
+  },
+  "enable_assembly": true,
+  "timing_seconds": {
+    "patched_x265_and_shim": 104.69252716,
+    "stock_x265_and_shim": 106.04529395300005,
+    "hm_decoder": 13.178259161000028
+  },
+  "compiler": {
+    "cmake": {
+      "path": "/usr/local/bin/cmake",
+      "sha256": "145dee4cb16ea78bf9b5f3d4cdac21bcde07de64123909c48acbc84d533b45c5",
+      "version": "cmake version 3.31.10\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake)."
+    },
+    "gcc": {
+      "path": "/usr/bin/gcc",
+      "sha256": "1b99826121ae6682a634e5efe09bd3e3df58ce58e0b28f849114ab5b89139c26",
+      "version": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
+    },
+    "g++": {
+      "path": "/usr/bin/g++",
+      "sha256": "1353e9bdd29a7295c7226bf6c63abccce056d8cac31f112e5cdbecc3f28c2769",
+      "version": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
+    },
+    "nasm": {
+      "path": "/usr/bin/nasm",
+      "sha256": "9b9ed9dd9a5ed930a57e32ebd1556415376e73028f17fa5b4bf43afdb61972e9",
+      "version": "NASM version 2.16.01"
+    }
+  },
+  "decoders": {
+    "ffmpeg": {
+      "executable": "/usr/bin/ffmpeg",
+      "sha256": "ed16af623947494a72e284b6eb8ff225f2da22b38b5d5069c2fd4b4ba3384e41"
+    },
+    "hm": {
+      "executable": "/kaggle/working/j0_stack/src/hm/bin/TAppDecoderStatic",
+      "sha256": "52f17bafad78a295c5971a025e668cd0ed282ed51896684ec712ff9c9386c3ca"
+    }
+  },
+  "shim_source_sha256": "0b414a58bec4902a3d8f86a1ab5a70ad6a178700bc9ade658d091133f8361b37",
+  "build_log_sha256": "28f2d17adf8cc6f4884d09048d9a3b8c3a131127ebde203e992d3d6c35b79d2a",
+  "status": "BUILT_UNVERIFIED"
+}

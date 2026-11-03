@@ -81,3 +81,16 @@ class NativeFixtureRegressions(unittest.TestCase):
                 self.assertEqual(seen, [(64,64)] * 3)
                 self.assertEqual(decode.call_count, 3)
                 self.assertTrue(all(c.args[-3:] == (64,64,1) for c in decode.call_args_list))
+
+    def test_native_acceptance_never_converts_failures_to_skips(self):
+        from tests.codec import test_native as native
+        with tempfile.TemporaryDirectory() as tmp:
+            stack = Path(tmp) / 'stack.json'
+            stack.write_text('{}')
+            case = native.NativeTests()
+            for method, function in ((case.test_sign_controls_identity_and_two_decoders, 'run_gate'),
+                                     (case.test_native_warped_qg_acceptance, 'run_retarget_fixture')):
+                with patch.object(native, 'STACK', str(stack)), \
+                     patch.object(native, function, side_effect=FixtureNeedsVerify('native evidence failure')):
+                    with self.assertRaises(FixtureNeedsVerify):
+                        method()

@@ -1,0 +1,97 @@
+{
+  "status": "ESCALATION_REQUIRED",
+  "j0_status": "FAIL",
+  "fix_round": "2 of 2",
+  "scope": "Offline blocker verification, skip audit and documentation; no codec edits or new native PASS",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "C:\\Users\\Wagur1\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "local_stack": null,
+  "pytest": {
+    "command": "python -m pytest tests/ -q",
+    "exit_code": 1,
+    "status": "UNAVAILABLE",
+    "reason": "No module named pytest; failed before collection"
+  },
+  "unittest": {
+    "command": "python -m unittest discover -s tests -t . -v",
+    "collected": 91,
+    "passed": 86,
+    "skipped": 5,
+    "failures": 0,
+    "errors": 0
+  },
+  "kernel_tier": {
+    "selection": [
+      "tests/codec",
+      "tests/geometry",
+      "tests/evaluation"
+    ],
+    "collected": 68,
+    "matches_r2_junit_cases": true,
+    "skip_calls": [
+      {
+        "path": "tests/codec/test_native.py",
+        "line": 18,
+        "call": "unittest.skipUnless(STACK and Path(STACK).is_file(),'[NEEDS VERIFY] No pinned local encoder/decoder stack (PRISM_CODEC_STACK)')"
+      },
+      {
+        "path": "tests/codec/test_native.py",
+        "line": 26,
+        "call": "self.skipTest(str(exc))"
+      },
+      {
+        "path": "tests/codec/test_native.py",
+        "line": 48,
+        "call": "self.skipTest(str(exc))"
+      }
+    ],
+    "valid_stack_file_disables_class_skip": true,
+    "ratified_control_domain_guard_passes": true,
+    "geometry_evaluation_skip_calls": [],
+    "conftest_overrides": [],
+    "excluded_placeholders": [
+      "tests.port_parity.test_deferred.DeferredPortParityTests.test_historical_gate_replay",
+      "tests.port_parity.test_deferred.DeferredPortParityTests.test_v1_expansion_frozen_tensor_parity"
+    ]
+  },
+  "r2_evidence": {
+    "collected": 68,
+    "passed": 67,
+    "skipped": [
+      {
+        "test": "tests.codec.test_native.NativeTests.test_native_warped_qg_acceptance",
+        "reason": "[NEEDS VERIFY] Warped telemetry lacks individual 16x16 edge QG evidence; coarse means cannot prove every edge offset"
+      }
+    ]
+  },
+  "blocker": {
+    "patch_sha256": "df3abe02bbc8428b2f1f4a620a4527ae39763b1ee9c8c164eec2ece7909daf59",
+    "patch_matches_download_and_pin_and_receipt": true,
+    "native_guard": "p.rc.qgSize == 16",
+    "frame_and_cu_emitters_return_when_unsupported": true,
+    "source": "runs/j0_out_r2/j0_stack/src/x265/source/encoder/prism_telemetry.cpp",
+    "source_sha256": "968a41bc99b0aeb9d052439f28da7ef1f1f82eeaa8f1d19a27cb8c22b931d659",
+    "production_config_guard": "Expected legal 8-bit QP and pinned QG16",
+    "consequence": "QG64 emits no native requested_offset rows under the immutable patch"
+  },
+  "protected_paths_unchanged_from_HEAD": [
+    "deliberation",
+    "third_party/x265",
+    "src/prism_v2/codec/net_effect.py",
+    "src/prism_v2/codec/sei.py",
+    "src/prism_v2/retarget/geometry.py",
+    "src/prism_v2/codec/criteria",
+    "tests/fixtures/criteria_v3.original.json"
+  ],
+  "package_validation": "PASS",
+  "metadata_id_preserved": "htran123456/prism-v2-j0-gate0-r2",
+  "network_operations": 0,
+  "logs": {
+    "runs/j0-final-round-pytest.log": {
+      "sha256": "f85b1223122564fa882a65e9916c818b52796b9f969d4722db711c5a93b15718"
+    },
+    "runs/j0-final-round-unittest.log": {
+      "sha256": "cf9ce48c806eadc813daa90012b63cf6ccb09c85a429fded89cba679503a36ab"
+    }
+  }
+}

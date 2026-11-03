@@ -12,7 +12,7 @@
       "source": "prism/codec/x265_bridge.py",
       "destination": "src/prism_v2/codec/x265_bridge.py",
       "source_sha256": "52ee088bf12fce25a7ee07206598595a086c3752ecfaf80fea8e385652ec24b8",
-      "destination_sha256": "2603dfcf5a637827b634aab266ef710747e0ceeaac8f65e8401db1d448d0a215"
+      "destination_sha256": "a5be4f32dc19a9c2c7939ffe832433d7c5448bda248f8150d233bce6febf729d"
     },
     {
       "source": "prism/codec/native/x265_shim.c",

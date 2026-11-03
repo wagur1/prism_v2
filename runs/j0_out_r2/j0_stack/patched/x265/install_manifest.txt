@@ -1,0 +1,6 @@
+/kaggle/working/j0_stack/patched/install/lib/libx265.a
+/kaggle/working/j0_stack/patched/install/include/x265.h
+/kaggle/working/j0_stack/patched/install/include/x265_config.h
+/kaggle/working/j0_stack/patched/install/lib/libx265.so.199
+/kaggle/working/j0_stack/patched/install/lib/libx265.so
+/kaggle/working/j0_stack/patched/install/lib/pkgconfig/x265.pc

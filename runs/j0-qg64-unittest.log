@@ -1,0 +1,107 @@
+test_exact_recovered_criteria_artifact_and_envelope (tests.codec.test_contracts.ContractTests.test_exact_recovered_criteria_artifact_and_envelope) ... ok
+test_modified_criteria_cannot_report_frozen_source_hash (tests.codec.test_contracts.ContractTests.test_modified_criteria_cannot_report_frozen_source_hash) ... ok
+test_only_frozen_crf_intra_configuration (tests.codec.test_contracts.ContractTests.test_only_frozen_crf_intra_configuration) ... ok
+test_qg64_override_is_explicit_and_limited_to_acceptance (tests.codec.test_contracts.ContractTests.test_qg64_override_is_explicit_and_limited_to_acceptance) ... ok
+test_stimulus_reproducibility_and_ctu_checkerboard (tests.codec.test_contracts.ContractTests.test_stimulus_reproducibility_and_ctu_checkerboard) ... ok
+test_samples_must_match_and_have_expected_size (tests.codec.test_decoders.DecoderTests.test_samples_must_match_and_have_expected_size) ... ok
+test_control_failure_cannot_leave_a_pass_receipt (tests.codec.test_f1.F1Tests.test_control_failure_cannot_leave_a_pass_receipt) ... [F1] controls: 5 CRFs x 6 maps x 10 frames; FFmpeg + HM
+ok
+test_native_telemetry_rejects_wrong_offsets_and_missing_edge_qg (tests.codec.test_f1.F1Tests.test_native_telemetry_rejects_wrong_offsets_and_missing_edge_qg) ... ok
+test_needs_verify_keeps_f1_incomplete (tests.codec.test_f1.F1Tests.test_needs_verify_keeps_f1_incomplete) ... [F1] controls: 5 CRFs x 6 maps x 10 frames; FFmpeg + HM
+ok
+test_pass_label_without_full_grid_evidence_fails (tests.codec.test_f1.F1Tests.test_pass_label_without_full_grid_evidence_fails) ... [F1] controls: 5 CRFs x 6 maps x 10 frames; FFmpeg + HM
+ok
+test_patch_qg_parent_means_duplicates_and_corroborating_edges (tests.codec.test_f1.F1Tests.test_patch_qg_parent_means_duplicates_and_corroborating_edges) ... ok
+test_qg64_exact_rows_include_every_partial_and_edge_qg (tests.codec.test_f1.F1Tests.test_qg64_exact_rows_include_every_partial_and_edge_qg) ... ok
+test_retarget_fixture_partial_cells_and_signed_offsets (tests.codec.test_f1.F1Tests.test_retarget_fixture_partial_cells_and_signed_offsets) ... ok
+test_retarget_requires_both_passes_and_fixture_only_override (tests.codec.test_f1.F1Tests.test_retarget_requires_both_passes_and_fixture_only_override) ... ok
+test_native_geometry_sei_decoder_match_and_baseline_absence (tests.codec.test_native.NativeTests.test_native_geometry_sei_decoder_match_and_baseline_absence) ... skipped '[NEEDS VERIFY] No pinned local encoder/decoder stack (PRISM_CODEC_STACK)'
+test_native_warped_qg_acceptance (tests.codec.test_native.NativeTests.test_native_warped_qg_acceptance) ... skipped '[NEEDS VERIFY] No pinned local encoder/decoder stack (PRISM_CODEC_STACK)'
+test_sign_controls_identity_and_two_decoders (tests.codec.test_native.NativeTests.test_sign_controls_identity_and_two_decoders) ... skipped '[NEEDS VERIFY] No pinned local encoder/decoder stack (PRISM_CODEC_STACK)'
+test_native_acceptance_never_converts_failures_to_skips (tests.codec.test_native_regressions.NativeFixtureRegressions.test_native_acceptance_never_converts_failures_to_skips) ... ok
+test_native_methods_use_full_domain_and_ctu_sized_baselines (tests.codec.test_native_regressions.NativeFixtureRegressions.test_native_methods_use_full_domain_and_ctu_sized_baselines) ... ok
+test_native_open_failure_surfaces_c_stderr_and_restores_fd (tests.codec.test_native_regressions.NativeFixtureRegressions.test_native_open_failure_surfaces_c_stderr_and_restores_fd) ... ok
+test_recovered_generator_hash_and_intra_conditions (tests.codec.test_native_regressions.NativeFixtureRegressions.test_recovered_generator_hash_and_intra_conditions) ... ok
+test_tiny_and_unratified_control_domains_skip_closed (tests.codec.test_native_regressions.NativeFixtureRegressions.test_tiny_and_unratified_control_domains_skip_closed) ... ok
+test_clipped_edge_cells_are_fully_covered_and_padding_is_excluded (tests.codec.test_ported_qg.QGTelemetryTests.test_clipped_edge_cells_are_fully_covered_and_padding_is_excluded) ... ok
+test_dedup_inconsistent_final_or_base_qp_raises_even_for_inactive_leaf (tests.codec.test_ported_qg.QGTelemetryTests.test_dedup_inconsistent_final_or_base_qp_raises_even_for_inactive_leaf) ... ok
+test_exactly_eighty_percent_joint_coverage_is_allowed (tests.codec.test_ported_qg.QGTelemetryTests.test_exactly_eighty_percent_joint_coverage_is_allowed) ... ok
+test_explicit_bands_and_aggregate_floor_are_enforced (tests.codec.test_ported_qg.QGTelemetryTests.test_explicit_bands_and_aggregate_floor_are_enforced) ... ok
+test_feedback_class_is_not_i_slice_class (tests.codec.test_ported_qg.QGTelemetryTests.test_feedback_class_is_not_i_slice_class) ... ok
+test_first_frame_fidelity_is_one_even_with_compensated_threshold_point98 (tests.codec.test_ported_qg.QGTelemetryTests.test_first_frame_fidelity_is_one_even_with_compensated_threshold_point98) ... ok
+test_frame_poc_mismatch_rejected (tests.codec.test_ported_qg.QGTelemetryTests.test_frame_poc_mismatch_rejected) ... ok
+test_inactive_support_is_excluded_and_all_coverage_categories_reported (tests.codec.test_ported_qg.QGTelemetryTests.test_inactive_support_is_excluded_and_all_coverage_categories_reported) ... ok
+test_map_sign_ignores_effective_qg_average_request (tests.codec.test_ported_qg.QGTelemetryTests.test_map_sign_ignores_effective_qg_average_request) ... ok
+test_missing_overlapping_and_unaligned_coverage_raise (tests.codec.test_ported_qg.QGTelemetryTests.test_missing_overlapping_and_unaligned_coverage_raise) ... ok
+test_partition_divergence_and_leaf_multiplicity_are_invariant (tests.codec.test_ported_qg.QGTelemetryTests.test_partition_divergence_and_leaf_multiplicity_are_invariant) ... ok
+test_qg_type7_quantiles_and_magnitude_are_distinct (tests.codec.test_ported_qg.QGTelemetryTests.test_qg_type7_quantiles_and_magnitude_are_distinct) ... ok
+test_skip_leaf_does_not_activate_qg_but_any_residual_leaf_does (tests.codec.test_ported_qg.QGTelemetryTests.test_skip_leaf_does_not_activate_qg_but_any_residual_leaf_does) ... ok
+test_full_crf_identity_grid_uses_bands_only_in_ratified_domain (tests.codec.test_runner.RunnerTests.test_full_crf_identity_grid_uses_bands_only_in_ratified_domain) ... ok
+test_worker_has_source_import_path_and_isolated_telemetry (tests.codec.test_runner.RunnerTests.test_worker_has_source_import_path_and_isolated_telemetry) ... ok
+test_annex_b_trailing_zeros_are_not_part_of_ebsp (tests.codec.test_sei.SEITests.test_annex_b_trailing_zeros_are_not_part_of_ebsp) ... ok
+test_asymmetric_crop_wire_fields_match_documented_order (tests.codec.test_sei.SEITests.test_asymmetric_crop_wire_fields_match_documented_order) ... ok
+test_baseline_kinds_reject_nonuniform_knots_in_constructor_and_wire (tests.codec.test_sei.SEITests.test_baseline_kinds_reject_nonuniform_knots_in_constructor_and_wire) ... ok
+test_crop_resize_serialization (tests.codec.test_sei.SEITests.test_crop_resize_serialization) ... ok
+test_geometry_requires_declared_prefix_layer_and_temporal_header (tests.codec.test_sei.SEITests.test_geometry_requires_declared_prefix_layer_and_temporal_header) ... ok
+test_missing_emulation_prevention_is_rejected (tests.codec.test_sei.SEITests.test_missing_emulation_prevention_is_rejected) ... ok
+test_payload_and_annex_b_equality (tests.codec.test_sei.SEITests.test_payload_and_annex_b_equality) ... ok
+test_reject_truncated_unknown_version_and_non_monotone (tests.codec.test_sei.SEITests.test_reject_truncated_unknown_version_and_non_monotone) ... ok
+test_stock_and_m2_unchanged_and_no_geometry (tests.codec.test_sei.SEITests.test_stock_and_m2_unchanged_and_no_geometry) ... ok
+test_wire_golden_widths_and_network_byte_order (tests.codec.test_sei.SEITests.test_wire_golden_widths_and_network_byte_order) ... ok
+test_base_drift_is_removed_in_both_directions (tests.codec.test_synthetic_net_effect.SyntheticNetTests.test_base_drift_is_removed_in_both_directions) ... ok
+test_missing_frame_and_non_intra_fail (tests.codec.test_synthetic_net_effect.SyntheticNetTests.test_missing_frame_and_non_intra_fail) ... ok
+test_evaluator_uses_geometry_only_from_au (tests.evaluation.test_coordinates.EvaluationCoordinatesTests.test_evaluator_uses_geometry_only_from_au) ... ok
+test_all_typed_records (tests.evidence.test_claims.ClaimTests.test_all_typed_records) ... ok
+test_artifact_hash_and_ledger_duplicate_rejected (tests.evidence.test_claims.ClaimTests.test_artifact_hash_and_ledger_duplicate_rejected) ... ok
+test_citations_in_code_comments_or_link_targets_do_not_support_prose (tests.evidence.test_claims.ClaimTests.test_citations_in_code_comments_or_link_targets_do_not_support_prose) ... ok
+test_cli_exit_code_for_synthetic_md (tests.evidence.test_claims.ClaimTests.test_cli_exit_code_for_synthetic_md) ... ok
+test_cli_scans_nested_reports_and_resolves_paths_under_root (tests.evidence.test_claims.ClaimTests.test_cli_scans_nested_reports_and_resolves_paths_under_root) ... ok
+test_comment_examples_in_code_do_not_hide_following_prose (tests.evidence.test_claims.ClaimTests.test_comment_examples_in_code_do_not_hide_following_prose) ... ok
+test_compact_quantities_and_numeric_code_spans_are_flagged (tests.evidence.test_claims.ClaimTests.test_compact_quantities_and_numeric_code_spans_are_flagged) ... ok
+test_fence_delimiter_length_and_inline_backticks (tests.evidence.test_claims.ClaimTests.test_fence_delimiter_length_and_inline_backticks) ... ok
+test_synthetic_markdown_tripwire_and_citation (tests.evidence.test_claims.ClaimTests.test_synthetic_markdown_tripwire_and_citation) ... ok
+test_patch_pins_match_the_files (tests.evidence.test_provenance.ProvenanceTests.test_patch_pins_match_the_files) ... ok
+test_ported_file_hashes_and_headers (tests.evidence.test_provenance.ProvenanceTests.test_ported_file_hashes_and_headers) ... ok
+test_synthetic_fixture_hashes (tests.evidence.test_provenance.ProvenanceTests.test_synthetic_fixture_hashes) ... ok
+test_crop_letterbox_clipping_and_degenerate_boxes (tests.geometry.test_boxes.BoxTests.test_crop_letterbox_clipping_and_degenerate_boxes) ... ok
+test_crop_retains_original_coordinates (tests.geometry.test_boxes.BoxTests.test_crop_retains_original_coordinates) ... ok
+test_inverse_after_detector_letterbox_and_visible_offset (tests.geometry.test_boxes.BoxTests.test_inverse_after_detector_letterbox_and_visible_offset) ... ok
+test_padding_clipped_and_input_unmodified (tests.geometry.test_boxes.BoxTests.test_padding_clipped_and_input_unmodified) ... ok
+test_asymmetric_partial_area_marginals_follow_a3 (tests.geometry.test_geometry.GeometryTests.test_asymmetric_partial_area_marginals_follow_a3) ... ok
+test_empty_roi_and_full_saliency_are_uniform (tests.geometry.test_geometry.GeometryTests.test_empty_roi_and_full_saliency_are_uniform) ... ok
+test_invalid_maps_fail (tests.geometry.test_geometry.GeometryTests.test_invalid_maps_fail) ... ok
+test_invalid_saliency_and_outside_coordinates (tests.geometry.test_geometry.GeometryTests.test_invalid_saliency_and_outside_coordinates) ... ok
+test_max_dimensions_and_smallest_partial_interval_survive_quantization (tests.geometry.test_geometry.GeometryTests.test_max_dimensions_and_smallest_partial_interval_survive_quantization) ... ok
+test_quantization_collapse_rejected (tests.geometry.test_geometry.GeometryTests.test_quantization_collapse_rejected) ... ok
+test_quantization_error_bound (tests.geometry.test_geometry.GeometryTests.test_quantization_error_bound) ... ok
+test_random_monotonicity_no_holes_and_inverse (tests.geometry.test_geometry.GeometryTests.test_random_monotonicity_no_holes_and_inverse) ... ok
+test_weight_formula_partial_cells_and_area_marginals (tests.geometry.test_geometry.GeometryTests.test_weight_formula_partial_cells_and_area_marginals) ... ok
+test_identity_retains_full_v1_buffer_with_partial_ctus (tests.geometry.test_geometry.QGTests.test_identity_retains_full_v1_buffer_with_partial_ctus) ... ok
+test_padding_extends_boundary_field_before_area_reduction (tests.geometry.test_geometry.QGTests.test_padding_extends_boundary_field_before_area_reduction) ... ok
+test_partial_ctu_shape_and_bound_preservation (tests.geometry.test_geometry.QGTests.test_partial_ctu_shape_and_bound_preservation) ... ok
+test_partial_destination_cell_includes_extended_pixels (tests.geometry.test_geometry.QGTests.test_partial_destination_cell_includes_extended_pixels) ... ok
+test_v1_bilinear_half_pixel_centers (tests.geometry.test_geometry.QGTests.test_v1_bilinear_half_pixel_centers) ... ok
+test_warp_coded_dimensions_follow_signal_domain (tests.geometry.test_geometry.QGTests.test_warp_coded_dimensions_follow_signal_domain) ... ok
+test_warp_identity_partial_area_and_padding (tests.geometry.test_geometry.QGTests.test_warp_identity_partial_area_and_padding) ... ok
+test_warp_rejects_float_map_and_out_of_bound_offsets (tests.geometry.test_geometry.QGTests.test_warp_rejects_float_map_and_out_of_bound_offsets) ... ok
+test_warp_uses_destination_area (tests.geometry.test_geometry.QGTests.test_warp_uses_destination_area) ... ok
+test_invalid_metadata_missing_script_escape_and_secret_attachment (tests.kaggle.test_package.PackageTests.test_invalid_metadata_missing_script_escape_and_secret_attachment) ... ok
+test_real_job_cpu_internet_and_print_only (tests.kaggle.test_package.PackageTests.test_real_job_cpu_internet_and_print_only) ... ok
+test_secret_tripwires_do_not_echo_secrets (tests.kaggle.test_package.PackageTests.test_secret_tripwires_do_not_echo_secrets) ... ok
+test_real_patch_bytes_match_pins (tests.kaggle.test_package.PatchTests.test_real_patch_bytes_match_pins) ... ok
+test_tamper_second_patch_missing_patch_and_reorder_abort (tests.kaggle.test_package.PatchTests.test_tamper_second_patch_missing_patch_and_reorder_abort) ... ok
+test_no_skip_or_missing_native_test_can_pass (tests.kaggle.test_package.PytestReportTests.test_no_skip_or_missing_native_test_can_pass) ... ok
+test_failure_always_writes_valid_receipt_and_logs (tests.kaggle.test_package.ReceiptTests.test_failure_always_writes_valid_receipt_and_logs) ... [J0 2026-11-03T20:43:45.775439+00:00] START prerequisites
+[J0 2026-11-03T20:43:45.776405+00:00] FAIL prerequisites (0.0 s)
+[J0 2026-11-03T20:43:45.776553+00:00] FINAL FAIL; receipt=C:\Users\Wagur1\AppData\Local\Temp\tmpurb372uu\runs\j0_gate0_receipt.json
+ok
+test_pass_requires_complete_evidence (tests.kaggle.test_package.ReceiptTests.test_pass_requires_complete_evidence) ... ok
+test_success_without_checks_cannot_be_promoted (tests.kaggle.test_package.ReceiptTests.test_success_without_checks_cannot_be_promoted) ... [J0 2026-11-03T20:43:45.781168+00:00] FINAL FAIL; receipt=C:\Users\Wagur1\AppData\Local\Temp\tmpor613fcx\runs\j0_gate0_receipt.json
+ok
+test_historical_gate_replay (tests.port_parity.test_deferred.DeferredPortParityTests.test_historical_gate_replay) ... skipped '[NEEDS VERIFY] Signed historical telemetry/expected-output replay bundle not recovered'
+test_v1_expansion_frozen_tensor_parity (tests.port_parity.test_deferred.DeferredPortParityTests.test_v1_expansion_frozen_tensor_parity) ... skipped '[NEEDS VERIFY] J1 v1 PyTorch checkpoint/expansion fixture not recovered; analytic center fixture covered separately'
+
+----------------------------------------------------------------------
+Ran 95 tests in 0.885s
+
+OK (skipped=5)

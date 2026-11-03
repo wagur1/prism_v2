@@ -1,0 +1,5 @@
+2026-11-03T19:48:15Z | r2 kernel launched after fix round 1 (3 fixture bugs fixed, bands untouched); old slug prism-v2-j0-codec-gate ERROR + 409-on-repush (superseded by prism-v2-j0-gate0-r2); download of v1 output stopped early (log kept, receipt not retrieved)
+2026-11-03T19:49:03Z poll1 status=KernelWorkerStatus.RUNNING
+2026-11-03T19:49:45Z | cron-check: old slug ERROR (processed, fix round 1 done, superseded); r2 RUNNING — background watcher exec_1d472c09 owns monitoring now; no action this run
+2026-11-03T19:54:05Z poll2 status=KernelWorkerStatus.RUNNING
+2026-11-03T19:59:07Z poll3 status=KernelWorkerStatus.ERROR

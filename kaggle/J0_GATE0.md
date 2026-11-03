@@ -13,6 +13,112 @@ in the reference directories; ZCode must confirm its argument convention.
 The metadata owner follows the supplied v1 metadata (`htran123456`); adjust the
 owner to the account selected by the wrapper before validating and pushing.
 
+The kernel identity has a single editable source: the first `id` field in
+`kaggle/job_specs/j0_gate0/kernel-metadata.json`. The entry point does not hardcode
+the slug. If re-pushing an errored slug returns HTTP 409, the auditor can set
+`id` to a fresh `owner/slug` and optionally update `title`, then rerun the offline
+package validator before pushing. The existing r2 id is preserved here; no push
+or network operation is part of this fix round.
+
+## QG64 acceptance implementation and evidence hierarchy
+
+The downloaded r2 JUnit report contains **68 collected, 67 passed, 1 skipped**.
+The skip is the warped fixture's missing individual QG16 edge observations.
+`runs/j0_out_r2/runs/j0_gate0_receipt.json` correctly remains FAIL. The earlier
+recovery narrative below describes the preceding implementation, not a new PASS.
+
+`run_retarget_fixture` now requires both forms of adapter evidence for M2/QR:
+
+1. **Primary:** an additional CRF20 encode at `qg-size=64`, comparing every CU
+   telemetry row to exactly one reduced adapter QG64 value at `rtol=0,
+   atol=1e-6`. The independent expected grid is the mean of each 4x4 block of
+   QG16 cells, saved as `offsets_qg64.npy`. The coded dimensions stay 128x80;
+   all four QG64 blocks, including both bottom partial CTUs, must be covered.
+   Every row must report `qg_size=64`; missing, corrupt, or nonfinite rows fail.
+2. **Corroborating:** the existing QG16 CU-parent mean fidelity runs at all five
+   CRFs. Their traces explicitly say `evidence=cu_mean`; coarse parents are
+   permitted without claiming individual QG16 edge observations. A QG16
+   failure still prevents acceptance even when QG64 evidence is available.
+
+The native quantOffsets ABI retains its 16-cell storage for QG64, so the
+encoder receives the original adapter buffer and the verifier receives the
+reduced 2x2 oracle. For this fixture the bottom padded rows repeat the last
+coded row; its full 4x4 block mean equals the native height-clipped mean. Offline
+regressions verify this against the patch's scalar footprint calculation.
+
+At `qg-size=64`, the QG parent spans one CTU64. A CU telemetry row therefore
+refers to exactly one QG64 value, including at the partial bottom boundary;
+smaller CU leaves may repeat that parent value. Equality is checked for every
+row and coverage for every QG, so duplicate leaves cannot hide a missing block
+or a conflicting observation. This is per-QG edge evidence at QG64. It does
+not establish individual QG16 offsets or efficacy, which remains separately
+gated by D6 at QG16 under CONFIG B1.
+
+The explicit `qg_size_override=64` is used only by the two CRF20 acceptance
+arms. Ordinary `EncoderConfig`, sign fixtures, and efficacy retain QG16.
+The old insufficient-individual-QG16-edge exception is removed; the genuine
+native/adapter stride mismatch exception remains. Native tests assert six
+CRF20 runs, both QG64 equality results and QG16 corroboration, and propagate
+fixture failures instead of converting them into skips.
+
+**Kernel readiness remains blocked by the pinned native telemetry patch.**
+In `third_party/x265/patches/x265_residual_telemetry.patch:148`,
+`supported()` requires `p.rc.qgSize == 16`. Both `prismTelemetryFrame()` and
+`prismTelemetryCUs()` return immediately when it is false (patch lines 183 and
+207), emitting `x265_prism_telemetry_v2: unsupported AQ/refinement configuration`.
+Consequently, a QG64 encode would provide no native `requested_offset` rows to
+compare with the adapter. This is independent of CU partition choices.
+
+The local patch, the downloaded r2 patch, the r2 receipt and `PINNED_SOURCE.json`
+agree on SHA-256
+`df3abe02bbc8428b2f1f4a620a4527ae39763b1ee9c8c164eec2ece7909daf59`.
+The actual patched r2 source confirms the guard at
+`runs/j0_out_r2/j0_stack/src/x265/source/encoder/prism_telemetry.cpp:73`, with
+both early returns at lines 108 and 132. The implemented options override
+cannot bypass that native guard. The new QG64 pass will fail on missing
+telemetry with the current pinned build; it cannot honestly report PASS.
+
+The Python acceptance implementation and offline regressions are complete,
+but native acceptance is unproven. Supporting QG64 telemetry requires a native
+instrumentation change and a matching patch pin; `PINNED_SOURCE.json` is
+explicitly protected in this task, so neither was changed. Do not launch the
+final kernel with the current pinned patch. Bands, `deliberation/`,
+`net_effect.py`, `sei.py`, and `geometry.py` are unchanged.
+
+### Collected-tier skip audit
+
+The kernel's exact selection remains `tests/codec tests/geometry tests/evaluation`
+(`j0_gate0.py:343`). All skip/xfail mechanisms in that selection are listed here:
+
+| Location | Condition with a valid native `PRISM_CODEC_STACK` file |
+| --- | --- |
+| `tests/codec/test_native.py:18`, class `unittest.skipUnless` | Disabled when the variable names an existing file; applies to three native methods. Merely setting a nonexistent path still skips. |
+| `tests/codec`, method-level `skipTest` / `skipif` / `expectedFailure` / `xfail` | None. Both former `FixtureNeedsVerify` handlers are removed. |
+| `tests/geometry`, all skip / expected-failure mechanisms | None. |
+| `tests/evaluation`, all skip / expected-failure mechanisms | None. |
+| `tests/port_parity/test_deferred.py:6`, `unittest.skip` | Always skips historical replay until its signed bundle is recovered; outside the kernel tier. |
+| `tests/port_parity/test_deferred.py:10`, `unittest.skip` | Always skips J1 parity until its checkpoint/expansion fixture is recovered; outside the kernel tier. |
+
+There are no other skip markers/calls, `skipif`, `xskip`, or `xfail` in those
+three directories, and no `conftest.py` overrides. Both historical/J1 placeholders
+are now in `tests/port_parity/test_deferred.py` (lines 6 and 10), outside the
+kernel selection. The kernel still rejects every collected skip or xfail.
+With an existing stack file, no collected-tier skip can fire; invalid native
+artifacts or missing telemetry now fail the tests.
+
+Local verification this round: `python -m pytest tests/ -q` could not collect
+(`No module named pytest`, exit 1) using the available Python 3.12.14 runtime.
+Unittest discovery completed with **95 collected,
+90 passed, 5 skipped, zero failures/errors**. The five are three absent-native-
+stack skips and the two historical/J1 placeholders. `PRISM_CODEC_STACK` is unset
+locally; the downloaded Linux binaries are not a runnable Windows stack. No
+pytest-green or new native result is claimed, and no dependency was downloaded.
+The requested pytest result with only two placeholder skips has therefore
+**not** been achieved. Logs and the source/skip audit are in `runs/j0-qg64-*`.
+The package validator, secret scan of all tracked files and these new logs,
+and protected-file/whitespace checks pass. The port provenance manifest
+updates only the changed Python bridge's destination hash.
+
 ## Execution and evidence
 
 The standalone entry point clones public `wagur1/prism_v2` **main** into
@@ -85,9 +191,9 @@ and one encoder worker per stream on a Kaggle CPU instance. Budget, in minutes:
 ```text
 T = setup + 2*x265_build + HM_build + pytest
     + (300+60)*(encode_seconds + ffmpeg_seconds + HM_decode_seconds)/60
-    + 20*small_retarget_seconds/60 + margin
-  = 10 + 2*20 + 15 + 5 + 360*(6 + 0.15 + 0.8)/60 + 20*0.5/60 + 20
-  = 131.87 minutes (about 2.2 hours)
+    + 22*small_retarget_seconds/60 + margin
+  = 10 + 2*20 + 15 + 5 + 360*(6 + 0.15 + 0.8)/60 + 22*0.5/60 + 20
+  = 131.88 minutes (about 2.2 hours)
 ```
 
 The extra 60 full-resolution frames are the native pytest sign fixture, now
@@ -144,8 +250,9 @@ then reported 58 passed and three failed native tests. The tracebacks distinguis
   fixture passed an eight-column CTU-padded map to a seven-column native grid.
   Its replacement uses width 128 so those strides agree, retains partial
   source/visible cells and the 80-high partial bottom CTU, and checks every
-  reported QG footprint. Each of the 22 perimeter QGs additionally needs an
-  individual 16x16 observation; coarse means cannot stand in for edge evidence.
+  reported QG footprint. That earlier version additionally required individual
+  observations for all 22 perimeter QG16 cells; the QG64 acceptance hierarchy
+  above supersedes that requirement.
 
 Recovery sources and exact hashes are in
 `evidence/manifests/j0_control_fixture.json`: `run_gate0_kaggle.py`,
@@ -165,9 +272,10 @@ pin, build flag, or production geometry/QG contract changed. The sign fixtures
 now match the recovered ratified stimulus domain; their native result remains
 **[NEEDS VERIFY]** until the next pinned-stack run.
 
-Out-of-domain sign fixtures and insufficient individual edge evidence raise
-explicit `[NEEDS VERIFY]` skips in native pytest. F1 stays FAIL/incomplete and
-retains SKIP details for unfinished checks. The kernel still rejects every
+In that earlier version, out-of-domain sign fixtures and insufficient
+individual edge evidence raised explicit `[NEEDS VERIFY]` skips in native
+pytest. The implementation above removes those method-level skips. F1 remains
+FAIL/incomplete on missing evidence. The kernel still rejects every
 skip/xfail/missing test and keeps `training_authorized=false`. New conditions
 such as band checks at CRF24/28/32/36 require owner-level ratified calibration
 data; this fix does not extrapolate thresholds. Native coverage at other coded

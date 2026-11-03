@@ -1,0 +1,793 @@
+checking file source/encoder/prism_residual_trace.h
+checking file source/encoder/frameencoder.cpp
+Hunk #1 succeeded at 33 (offset 8 lines).
+Hunk #2 succeeded at 2164 (offset 2013 lines).
+['patch', '-d', '/kaggle/working/j0_stack/src/x265', '-p1', '--forward', '--batch', '--fuzz=0', '-i', '/kaggle/working/prism_v2/third_party/x265/patches/x265_residual_patch.patch', '--dry-run']
+patching file source/encoder/prism_residual_trace.h
+patching file source/encoder/frameencoder.cpp
+Hunk #1 succeeded at 33 (offset 8 lines).
+Hunk #2 succeeded at 2164 (offset 2013 lines).
+['patch', '-d', '/kaggle/working/j0_stack/src/x265', '-p1', '--forward', '--batch', '--fuzz=0', '-i', '/kaggle/working/prism_v2/third_party/x265/patches/x265_residual_patch.patch']
+checking file source/encoder/CMakeLists.txt
+checking file source/encoder/frameencoder.cpp
+checking file source/encoder/prism_residual_trace.h
+checking file source/encoder/prism_telemetry.cpp
+checking file source/encoder/prism_telemetry.h
+checking file source/encoder/ratecontrol.cpp
+['patch', '-d', '/kaggle/working/j0_stack/src/x265', '-p1', '--forward', '--batch', '--fuzz=0', '-i', '/kaggle/working/prism_v2/third_party/x265/patches/x265_residual_telemetry.patch', '--dry-run']
+patching file source/encoder/CMakeLists.txt
+patching file source/encoder/frameencoder.cpp
+patching file source/encoder/prism_residual_trace.h
+patching file source/encoder/prism_telemetry.cpp
+patching file source/encoder/prism_telemetry.h
+patching file source/encoder/ratecontrol.cpp
+['patch', '-d', '/kaggle/working/j0_stack/src/x265', '-p1', '--forward', '--batch', '--fuzz=0', '-i', '/kaggle/working/prism_v2/third_party/x265/patches/x265_residual_telemetry.patch']
+-- cmake version 3.31.10
+CMake Deprecation Warning at CMakeLists.txt:10 (cmake_policy):
+  The OLD behavior for policy CMP0025 will be removed from a future version
+  of CMake.
+
+  The cmake-policies(7) manual explains that the OLD behaviors of all
+  policies are deprecated and that a policy should be set to OLD only under
+  specific short-term circumstances.  Projects should be ported to the NEW
+  behavior and not rely on setting a policy to OLD.
+
+
+CMake Deprecation Warning at CMakeLists.txt:16 (cmake_policy):
+  The OLD behavior for policy CMP0054 will be removed from a future version
+  of CMake.
+
+  The cmake-policies(7) manual explains that the OLD behaviors of all
+  policies are deprecated and that a policy should be set to OLD only under
+  specific short-term circumstances.  Projects should be ported to the NEW
+  behavior and not rely on setting a policy to OLD.
+
+
+CMake Warning (dev) at CMakeLists.txt:19 (project):
+  cmake_minimum_required() should be called prior to this top-level project()
+  call.  Please see the cmake-commands(7) manual for usage documentation of
+  both commands.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMake Deprecation Warning at CMakeLists.txt:20 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- Detected x86_64 target processor
+CMake Warning (dev) at /usr/local/lib/python3.13/dist-packages/cmake/data/share/cmake-3.31/Modules/FindPackageHandleStandardArgs.cmake:441 (message):
+  The package name passed to `find_package_handle_standard_args` (NUMA) does
+  not match the name of the calling package (Numa).  This can lead to
+  problems in calling code that expects `find_package` result variables
+  (e.g., `_FOUND`) to follow a certain pattern.
+Call Stack (most recent call first):
+  cmake/FindNuma.cmake:43 (find_package_handle_standard_args)
+  CMakeLists.txt:100 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found NUMA: /usr
+-- Looking for numa_node_of_cpu
+-- Looking for numa_node_of_cpu - found
+-- libnuma found, building with support for NUMA nodes
+CMake Warning (dev) at /usr/local/lib/python3.13/dist-packages/cmake/data/share/cmake-3.31/Modules/CheckIncludeFiles.cmake:118 (message):
+  Policy CMP0075 is not set: Include file check macros honor
+  CMAKE_REQUIRED_LIBRARIES.  Run "cmake --help-policy CMP0075" for policy
+  details.  Use the cmake_policy command to set the policy and suppress this
+  warning.
+
+  CMAKE_REQUIRED_LIBRARIES is set to:
+
+    numa
+
+  For compatibility with CMake 3.11 and below this check is ignoring it.
+Call Stack (most recent call first):
+  CMakeLists.txt:175 (check_include_files)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Looking for include file inttypes.h
+-- Looking for include file inttypes.h - found
+-- Performing Test CC_HAS_NO_STRICT_OVERFLOW
+-- Performing Test CC_HAS_NO_STRICT_OVERFLOW - Success
+-- Performing Test CC_HAS_NO_NARROWING
+-- Performing Test CC_HAS_NO_NARROWING - Success
+-- Performing Test CC_HAS_NO_ARRAY_BOUNDS
+-- Performing Test CC_HAS_NO_ARRAY_BOUNDS - Success
+-- Performing Test CC_HAS_FAST_MATH
+-- Performing Test CC_HAS_FAST_MATH - Success
+-- Performing Test CC_HAS_STACK_REALIGN
+-- Performing Test CC_HAS_STACK_REALIGN - Success
+-- Performing Test CC_HAS_FNO_EXCEPTIONS_FLAG
+-- Performing Test CC_HAS_FNO_EXCEPTIONS_FLAG - Success
+CMake Warning (dev) at /usr/local/lib/python3.13/dist-packages/cmake/data/share/cmake-3.31/Modules/FindPackageHandleStandardArgs.cmake:441 (message):
+  The package name passed to `find_package_handle_standard_args` (nasm) does
+  not match the name of the calling package (Nasm).  This can lead to
+  problems in calling code that expects `find_package` result variables
+  (e.g., `_FOUND`) to follow a certain pattern.
+Call Stack (most recent call first):
+  cmake/FindNasm.cmake:23 (find_package_handle_standard_args)
+  CMakeLists.txt:352 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found nasm: /usr/bin/nasm (found version "2.16.01")
+-- Found Nasm 2.16.01 to build assembly primitives
+-- GIT_EXECUTABLE /usr/bin/git
+-- SOURCE CODE IS FROM x265 GIT ARCHIVED ZIP OR TAR BALL
+-- GIT ARCHIVAL INFORMATION PROCESSED
+-- X265 RELEASE VERSION 3.4+31-6722fce1f
+-- The ASM_NASM compiler identification is NASM
+-- Found assembler: /usr/bin/nasm
+-- Looking for strtok_r
+-- Looking for strtok_r - found
+-- Configuring done (2.2s)
+-- Generating done (0.0s)
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_INSTALL_LIBDIR
+    CMAKE_POLICY_VERSION_MINIMUM
+    LINKED_10BIT
+    LINKED_12BIT
+    MAIN12
+
+
+-- Build files have been written to: /kaggle/working/j0_stack/patched/x265
+['cmake', '-S', '/kaggle/working/j0_stack/src/x265/source', '-B', '/kaggle/working/j0_stack/patched/x265', '-G', 'Unix Makefiles', '-DCMAKE_C_COMPILER=gcc', '-DCMAKE_CXX_COMPILER=g++', '-DCMAKE_BUILD_TYPE=Release', '-DCMAKE_INSTALL_PREFIX=/kaggle/working/j0_stack/patched/install', '-DLIB_INSTALL_DIR=lib', '-DCMAKE_INSTALL_LIBDIR=lib', '-DCMAKE_POLICY_VERSION_MINIMUM=3.5', '-DHIGH_BIT_DEPTH=OFF', '-DMAIN12=OFF', '-DLINKED_10BIT=OFF', '-DLINKED_12BIT=OFF', '-DENABLE_SHARED=ON', '-DENABLE_CLI=OFF', '-DENABLE_PIC=ON', '-DEXPORT_C_API=ON', '-DENABLE_ASSEMBLY=ON', '-DENABLE_LIBNUMA=ON', '-DNASM_EXECUTABLE=/usr/bin/nasm', '-DCMAKE_ASM_NASM_COMPILER=/usr/bin/nasm', '-DCMAKE_ASM_NASM_FLAGS=-w-macro-params-legacy']
+[  2%] Building CXX object encoder/CMakeFiles/encoder.dir/search.cpp.o
+[  2%] Building CXX object encoder/CMakeFiles/encoder.dir/analysis.cpp.o
+[  4%] Building CXX object encoder/CMakeFiles/encoder.dir/bitcost.cpp.o
+[  5%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/pixel-a.asm.o
+/kaggle/working/j0_stack/src/x265/source/encoder/analysis.cpp: In member function ‘x265::Mode& x265::Analysis::compressCTU(x265::CUData&, x265::Frame&, const x265::CUGeom&, const x265::Entropy&)’:
+/kaggle/working/j0_stack/src/x265/source/encoder/analysis.cpp:160:51: warning: comparing the result of pointer addition ‘((*((x265::Analysis*)this)->x265::Analysis::<anonymous>.x265::Search::m_frame->x265::Frame::m_ctuInfo) + ((sizetype)(((long unsigned int)ctu.x265::CUData::m_cuAddr) * 272)))’ and NULL [-Waddress]
+  160 |     if (m_param->bCTUInfo && (*m_frame->m_ctuInfo + ctu.m_cuAddr))
+      |                              ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~
+[  6%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/const-a.asm.o
+[  8%] Building CXX object encoder/CMakeFiles/encoder.dir/motion.cpp.o
+[  9%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/cpu-a.asm.o
+[ 10%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/ssd-a.asm.o
+[ 12%] Building CXX object encoder/CMakeFiles/encoder.dir/slicetype.cpp.o
+[ 13%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/mc-a.asm.o
+[ 14%] Building CXX object encoder/CMakeFiles/encoder.dir/frameencoder.cpp.o
+[ 16%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/mc-a2.asm.o
+[ 17%] Building CXX object encoder/CMakeFiles/encoder.dir/framefilter.cpp.o
+[ 18%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/pixel-util8.asm.o
+[ 20%] Building CXX object encoder/CMakeFiles/encoder.dir/level.cpp.o
+[ 21%] Building CXX object encoder/CMakeFiles/encoder.dir/nal.cpp.o
+[ 22%] Building CXX object encoder/CMakeFiles/encoder.dir/sei.cpp.o
+[ 24%] Building CXX object encoder/CMakeFiles/encoder.dir/sao.cpp.o
+[ 25%] Building CXX object encoder/CMakeFiles/encoder.dir/entropy.cpp.o
+[ 26%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/blockcopy8.asm.o
+[ 28%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/pixeladd8.asm.o
+[ 29%] Building CXX object encoder/CMakeFiles/encoder.dir/dpb.cpp.o
+[ 30%] Building CXX object encoder/CMakeFiles/encoder.dir/ratecontrol.cpp.o
+[ 32%] Building CXX object encoder/CMakeFiles/encoder.dir/prism_telemetry.cpp.o
+[ 33%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/dct8.asm.o
+/kaggle/working/j0_stack/src/x265/source/encoder/ratecontrol.cpp: In member function ‘int x265::RateControl::writeRateControlFrameStats(x265::Frame*, x265::RateControlEntry*)’:
+/kaggle/working/j0_stack/src/x265/source/encoder/ratecontrol.cpp:3028:36: warning: ‘~’ directive writing 1 byte into a region of size between 0 and 127 [-Wformat-overflow=]
+ 3028 |             sprintf(deltaPOC, "%s%d~", deltaPOC, rpsWriter->deltaPOC[i]);
+      |                                    ^
+In file included from /usr/include/stdio.h:980,
+                 from /usr/include/c++/13/cstdio:42,
+                 from /kaggle/working/j0_stack/src/x265/source/common/common.h:33,
+                 from /kaggle/working/j0_stack/src/x265/source/encoder/ratecontrol.cpp:30:
+In function ‘int sprintf(char*, const char*, ...)’,
+    inlined from ‘int x265::RateControl::writeRateControlFrameStats(x265::Frame*, x265::RateControlEntry*)’ at /kaggle/working/j0_stack/src/x265/source/encoder/ratecontrol.cpp:3028:20:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:30:34: note: ‘__builtin___sprintf_chk’ output between 3 and 140 bytes into a destination of size 128
+   30 |   return __builtin___sprintf_chk (__s, __USE_FORTIFY_LEVEL - 1,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   31 |                                   __glibc_objsize (__s), __fmt,
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   32 |                                   __va_arg_pack ());
+      |                                   ~~~~~~~~~~~~~~~~~
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:30:34: warning: ‘__builtin___sprintf_chk’ argument 5 overlaps destination object ‘deltaPOC’ [-Wrestrict]
+/kaggle/working/j0_stack/src/x265/source/encoder/ratecontrol.cpp: In member function ‘int x265::RateControl::writeRateControlFrameStats(x265::Frame*, x265::RateControlEntry*)’:
+/kaggle/working/j0_stack/src/x265/source/encoder/ratecontrol.cpp:3019:14: note: destination object referenced by ‘restrict’-qualified argument 1 was declared here
+ 3019 |         char deltaPOC[128];
+      |              ^~~~~~~~
+/kaggle/working/j0_stack/src/x265/source/encoder/ratecontrol.cpp:3029:33: warning: ‘~’ directive writing 1 byte into a region of size between 0 and 39 [-Wformat-overflow=]
+ 3029 |             sprintf(bUsed, "%s%d~", bUsed, rpsWriter->bUsed[i]);
+      |                                 ^
+In function ‘int sprintf(char*, const char*, ...)’,
+    inlined from ‘int x265::RateControl::writeRateControlFrameStats(x265::Frame*, x265::RateControlEntry*)’ at /kaggle/working/j0_stack/src/x265/source/encoder/ratecontrol.cpp:3029:20:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:30:34: note: ‘__builtin___sprintf_chk’ output between 3 and 42 bytes into a destination of size 40
+   30 |   return __builtin___sprintf_chk (__s, __USE_FORTIFY_LEVEL - 1,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   31 |                                   __glibc_objsize (__s), __fmt,
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   32 |                                   __va_arg_pack ());
+      |                                   ~~~~~~~~~~~~~~~~~
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:30:34: warning: ‘__builtin___sprintf_chk’ argument 5 overlaps destination object ‘bUsed’ [-Wrestrict]
+/kaggle/working/j0_stack/src/x265/source/encoder/ratecontrol.cpp: In member function ‘int x265::RateControl::writeRateControlFrameStats(x265::Frame*, x265::RateControlEntry*)’:
+/kaggle/working/j0_stack/src/x265/source/encoder/ratecontrol.cpp:3020:14: note: destination object referenced by ‘restrict’-qualified argument 1 was declared here
+ 3020 |         char bUsed[40];
+      |              ^~~~~
+[ 34%] Building CXX object encoder/CMakeFiles/encoder.dir/reference.cpp.o
+[ 36%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/seaintegral.asm.o
+[ 37%] Building CXX object encoder/CMakeFiles/encoder.dir/encoder.cpp.o
+[ 38%] Building CXX object encoder/CMakeFiles/encoder.dir/api.cpp.o
+[ 40%] Building CXX object encoder/CMakeFiles/encoder.dir/weightPrediction.cpp.o
+[ 41%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/sad-a.asm.o
+[ 42%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/intrapred8.asm.o
+[ 44%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/intrapred8_allangs.asm.o
+[ 44%] Built target encoder
+[ 45%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/v4-ipfilter8.asm.o
+[ 46%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/h-ipfilter8.asm.o
+[ 48%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/ipfilter8.asm.o
+[ 49%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/loopfilter.asm.o
+[ 50%] Building CXX object common/CMakeFiles/common.dir/x86/asm-primitives.cpp.o
+[ 52%] Building CXX object common/CMakeFiles/common.dir/vec/vec-primitives.cpp.o
+[ 53%] Building CXX object common/CMakeFiles/common.dir/vec/dct-sse3.cpp.o
+[ 54%] Building CXX object common/CMakeFiles/common.dir/vec/dct-ssse3.cpp.o
+[ 56%] Building CXX object common/CMakeFiles/common.dir/vec/dct-sse41.cpp.o
+[ 57%] Building CXX object common/CMakeFiles/common.dir/primitives.cpp.o
+[ 58%] Building CXX object common/CMakeFiles/common.dir/pixel.cpp.o
+[ 60%] Building CXX object common/CMakeFiles/common.dir/dct.cpp.o
+[ 61%] Building CXX object common/CMakeFiles/common.dir/lowpassdct.cpp.o
+[ 62%] Building CXX object common/CMakeFiles/common.dir/ipfilter.cpp.o
+[ 64%] Building CXX object common/CMakeFiles/common.dir/intrapred.cpp.o
+[ 65%] Building CXX object common/CMakeFiles/common.dir/loopfilter.cpp.o
+[ 66%] Building CXX object common/CMakeFiles/common.dir/constants.cpp.o
+[ 68%] Building CXX object common/CMakeFiles/common.dir/cpu.cpp.o
+[ 69%] Building CXX object common/CMakeFiles/common.dir/version.cpp.o
+[ 70%] Building CXX object common/CMakeFiles/common.dir/threading.cpp.o
+[ 72%] Building CXX object common/CMakeFiles/common.dir/threadpool.cpp.o
+[ 73%] Building CXX object common/CMakeFiles/common.dir/wavefront.cpp.o
+[ 74%] Building CXX object common/CMakeFiles/common.dir/md5.cpp.o
+[ 76%] Building CXX object common/CMakeFiles/common.dir/bitstream.cpp.o
+[ 77%] Building CXX object common/CMakeFiles/common.dir/yuv.cpp.o
+[ 78%] Building CXX object common/CMakeFiles/common.dir/shortyuv.cpp.o
+[ 80%] Building CXX object common/CMakeFiles/common.dir/picyuv.cpp.o
+[ 81%] Building CXX object common/CMakeFiles/common.dir/common.cpp.o
+[ 82%] Building CXX object common/CMakeFiles/common.dir/param.cpp.o
+[ 84%] Building CXX object common/CMakeFiles/common.dir/frame.cpp.o
+[ 85%] Building CXX object common/CMakeFiles/common.dir/framedata.cpp.o
+[ 86%] Building CXX object common/CMakeFiles/common.dir/cudata.cpp.o
+[ 88%] Building CXX object common/CMakeFiles/common.dir/slice.cpp.o
+[ 89%] Building CXX object common/CMakeFiles/common.dir/lowres.cpp.o
+[ 90%] Building CXX object common/CMakeFiles/common.dir/piclist.cpp.o
+[ 92%] Building CXX object common/CMakeFiles/common.dir/predict.cpp.o
+[ 93%] Building CXX object common/CMakeFiles/common.dir/scalinglist.cpp.o
+[ 94%] Building CXX object common/CMakeFiles/common.dir/quant.cpp.o
+[ 96%] Building CXX object common/CMakeFiles/common.dir/deblock.cpp.o
+[ 97%] Building CXX object common/CMakeFiles/common.dir/scaler.cpp.o
+[ 97%] Built target common
+[ 98%] Linking CXX static library libx265.a
+[100%] Linking CXX shared library libx265.so
+[100%] Built target x265-static
+[100%] Built target x265-shared
+['cmake', '--build', '/kaggle/working/j0_stack/patched/x265', '--parallel', '4']
+-- Install configuration: "Release"
+-- Installing: /kaggle/working/j0_stack/patched/install/lib/libx265.a
+-- Installing: /kaggle/working/j0_stack/patched/install/include/x265.h
+-- Installing: /kaggle/working/j0_stack/patched/install/include/x265_config.h
+-- Installing: /kaggle/working/j0_stack/patched/install/lib/libx265.so.199
+-- Installing: /kaggle/working/j0_stack/patched/install/lib/libx265.so
+-- Installing: /kaggle/working/j0_stack/patched/install/lib/pkgconfig/x265.pc
+['cmake', '--install', '/kaggle/working/j0_stack/patched/x265']
+-- The C compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Configuring done (0.2s)
+-- Generating done (0.0s)
+-- Build files have been written to: /kaggle/working/j0_stack/patched/shim
+['cmake', '-S', '/kaggle/working/prism_v2/src/prism_v2/codec/native', '-B', '/kaggle/working/j0_stack/patched/shim', '-G', 'Unix Makefiles', '-DCMAKE_C_COMPILER=gcc', '-DCMAKE_BUILD_TYPE=Release', '-DX265_INCLUDE_DIR=/kaggle/working/j0_stack/patched/install/include', '-DX265_LIBRARY=/kaggle/working/j0_stack/patched/install/lib/libx265.so', '-DCMAKE_BUILD_RPATH=/kaggle/working/j0_stack/patched/install/lib']
+[ 50%] Building C object CMakeFiles/prism_x265.dir/x265_shim.c.o
+[100%] Linking C shared library libprism_x265.so
+[100%] Built target prism_x265
+['cmake', '--build', '/kaggle/working/j0_stack/patched/shim', '--parallel', '4']
+-- cmake version 3.31.10
+CMake Deprecation Warning at CMakeLists.txt:10 (cmake_policy):
+  The OLD behavior for policy CMP0025 will be removed from a future version
+  of CMake.
+
+  The cmake-policies(7) manual explains that the OLD behaviors of all
+  policies are deprecated and that a policy should be set to OLD only under
+  specific short-term circumstances.  Projects should be ported to the NEW
+  behavior and not rely on setting a policy to OLD.
+
+
+CMake Deprecation Warning at CMakeLists.txt:16 (cmake_policy):
+  The OLD behavior for policy CMP0054 will be removed from a future version
+  of CMake.
+
+  The cmake-policies(7) manual explains that the OLD behaviors of all
+  policies are deprecated and that a policy should be set to OLD only under
+  specific short-term circumstances.  Projects should be ported to the NEW
+  behavior and not rely on setting a policy to OLD.
+
+
+CMake Warning (dev) at CMakeLists.txt:19 (project):
+  cmake_minimum_required() should be called prior to this top-level project()
+  call.  Please see the cmake-commands(7) manual for usage documentation of
+  both commands.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMake Deprecation Warning at CMakeLists.txt:20 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- Detected x86_64 target processor
+CMake Warning (dev) at /usr/local/lib/python3.13/dist-packages/cmake/data/share/cmake-3.31/Modules/FindPackageHandleStandardArgs.cmake:441 (message):
+  The package name passed to `find_package_handle_standard_args` (NUMA) does
+  not match the name of the calling package (Numa).  This can lead to
+  problems in calling code that expects `find_package` result variables
+  (e.g., `_FOUND`) to follow a certain pattern.
+Call Stack (most recent call first):
+  cmake/FindNuma.cmake:43 (find_package_handle_standard_args)
+  CMakeLists.txt:100 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found NUMA: /usr
+-- Looking for numa_node_of_cpu
+-- Looking for numa_node_of_cpu - found
+-- libnuma found, building with support for NUMA nodes
+CMake Warning (dev) at /usr/local/lib/python3.13/dist-packages/cmake/data/share/cmake-3.31/Modules/CheckIncludeFiles.cmake:118 (message):
+  Policy CMP0075 is not set: Include file check macros honor
+  CMAKE_REQUIRED_LIBRARIES.  Run "cmake --help-policy CMP0075" for policy
+  details.  Use the cmake_policy command to set the policy and suppress this
+  warning.
+
+  CMAKE_REQUIRED_LIBRARIES is set to:
+
+    numa
+
+  For compatibility with CMake 3.11 and below this check is ignoring it.
+Call Stack (most recent call first):
+  CMakeLists.txt:175 (check_include_files)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Looking for include file inttypes.h
+-- Looking for include file inttypes.h - found
+-- Performing Test CC_HAS_NO_STRICT_OVERFLOW
+-- Performing Test CC_HAS_NO_STRICT_OVERFLOW - Success
+-- Performing Test CC_HAS_NO_NARROWING
+-- Performing Test CC_HAS_NO_NARROWING - Success
+-- Performing Test CC_HAS_NO_ARRAY_BOUNDS
+-- Performing Test CC_HAS_NO_ARRAY_BOUNDS - Success
+-- Performing Test CC_HAS_FAST_MATH
+-- Performing Test CC_HAS_FAST_MATH - Success
+-- Performing Test CC_HAS_STACK_REALIGN
+-- Performing Test CC_HAS_STACK_REALIGN - Success
+-- Performing Test CC_HAS_FNO_EXCEPTIONS_FLAG
+-- Performing Test CC_HAS_FNO_EXCEPTIONS_FLAG - Success
+CMake Warning (dev) at /usr/local/lib/python3.13/dist-packages/cmake/data/share/cmake-3.31/Modules/FindPackageHandleStandardArgs.cmake:441 (message):
+  The package name passed to `find_package_handle_standard_args` (nasm) does
+  not match the name of the calling package (Nasm).  This can lead to
+  problems in calling code that expects `find_package` result variables
+  (e.g., `_FOUND`) to follow a certain pattern.
+Call Stack (most recent call first):
+  cmake/FindNasm.cmake:23 (find_package_handle_standard_args)
+  CMakeLists.txt:352 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found nasm: /usr/bin/nasm (found version "2.16.01")
+-- Found Nasm 2.16.01 to build assembly primitives
+-- GIT_EXECUTABLE /usr/bin/git
+-- SOURCE CODE IS FROM x265 GIT ARCHIVED ZIP OR TAR BALL
+-- GIT ARCHIVAL INFORMATION PROCESSED
+-- X265 RELEASE VERSION 3.4+31-6722fce1f
+-- The ASM_NASM compiler identification is NASM
+-- Found assembler: /usr/bin/nasm
+-- Looking for strtok_r
+-- Looking for strtok_r - found
+-- Configuring done (1.2s)
+-- Generating done (0.0s)
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_INSTALL_LIBDIR
+    CMAKE_POLICY_VERSION_MINIMUM
+    LINKED_10BIT
+    LINKED_12BIT
+    MAIN12
+
+
+-- Build files have been written to: /kaggle/working/j0_stack/stock/x265
+['cmake', '-S', '/kaggle/working/j0_stack/src/x265-stock/source', '-B', '/kaggle/working/j0_stack/stock/x265', '-G', 'Unix Makefiles', '-DCMAKE_C_COMPILER=gcc', '-DCMAKE_CXX_COMPILER=g++', '-DCMAKE_BUILD_TYPE=Release', '-DCMAKE_INSTALL_PREFIX=/kaggle/working/j0_stack/stock/install', '-DLIB_INSTALL_DIR=lib', '-DCMAKE_INSTALL_LIBDIR=lib', '-DCMAKE_POLICY_VERSION_MINIMUM=3.5', '-DHIGH_BIT_DEPTH=OFF', '-DMAIN12=OFF', '-DLINKED_10BIT=OFF', '-DLINKED_12BIT=OFF', '-DENABLE_SHARED=ON', '-DENABLE_CLI=OFF', '-DENABLE_PIC=ON', '-DEXPORT_C_API=ON', '-DENABLE_ASSEMBLY=ON', '-DENABLE_LIBNUMA=ON', '-DNASM_EXECUTABLE=/usr/bin/nasm', '-DCMAKE_ASM_NASM_COMPILER=/usr/bin/nasm', '-DCMAKE_ASM_NASM_FLAGS=-w-macro-params-legacy']
+[  4%] Building CXX object encoder/CMakeFiles/encoder.dir/bitcost.cpp.o
+[  4%] Building CXX object encoder/CMakeFiles/encoder.dir/analysis.cpp.o
+[  4%] Building CXX object encoder/CMakeFiles/encoder.dir/search.cpp.o
+[  5%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/pixel-a.asm.o
+/kaggle/working/j0_stack/src/x265-stock/source/encoder/analysis.cpp: In member function ‘x265::Mode& x265::Analysis::compressCTU(x265::CUData&, x265::Frame&, const x265::CUGeom&, const x265::Entropy&)’:
+/kaggle/working/j0_stack/src/x265-stock/source/encoder/analysis.cpp:160:51: warning: comparing the result of pointer addition ‘((*((x265::Analysis*)this)->x265::Analysis::<anonymous>.x265::Search::m_frame->x265::Frame::m_ctuInfo) + ((sizetype)(((long unsigned int)ctu.x265::CUData::m_cuAddr) * 272)))’ and NULL [-Waddress]
+  160 |     if (m_param->bCTUInfo && (*m_frame->m_ctuInfo + ctu.m_cuAddr))
+      |                              ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~
+[  6%] Building CXX object encoder/CMakeFiles/encoder.dir/motion.cpp.o
+[  8%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/const-a.asm.o
+[  9%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/cpu-a.asm.o
+[ 10%] Building CXX object encoder/CMakeFiles/encoder.dir/slicetype.cpp.o
+[ 12%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/ssd-a.asm.o
+[ 13%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/mc-a.asm.o
+[ 14%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/mc-a2.asm.o
+[ 16%] Building CXX object encoder/CMakeFiles/encoder.dir/frameencoder.cpp.o
+[ 17%] Building CXX object encoder/CMakeFiles/encoder.dir/framefilter.cpp.o
+[ 18%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/pixel-util8.asm.o
+[ 20%] Building CXX object encoder/CMakeFiles/encoder.dir/level.cpp.o
+[ 21%] Building CXX object encoder/CMakeFiles/encoder.dir/nal.cpp.o
+[ 22%] Building CXX object encoder/CMakeFiles/encoder.dir/sei.cpp.o
+[ 24%] Building CXX object encoder/CMakeFiles/encoder.dir/sao.cpp.o
+[ 25%] Building CXX object encoder/CMakeFiles/encoder.dir/entropy.cpp.o
+[ 27%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/blockcopy8.asm.o
+[ 28%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/pixeladd8.asm.o
+[ 29%] Building CXX object encoder/CMakeFiles/encoder.dir/dpb.cpp.o
+[ 31%] Building CXX object encoder/CMakeFiles/encoder.dir/ratecontrol.cpp.o
+[ 32%] Building CXX object encoder/CMakeFiles/encoder.dir/reference.cpp.o
+[ 33%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/dct8.asm.o
+/kaggle/working/j0_stack/src/x265-stock/source/encoder/ratecontrol.cpp: In member function ‘int x265::RateControl::writeRateControlFrameStats(x265::Frame*, x265::RateControlEntry*)’:
+/kaggle/working/j0_stack/src/x265-stock/source/encoder/ratecontrol.cpp:3025:36: warning: ‘~’ directive writing 1 byte into a region of size between 0 and 127 [-Wformat-overflow=]
+ 3025 |             sprintf(deltaPOC, "%s%d~", deltaPOC, rpsWriter->deltaPOC[i]);
+      |                                    ^
+In file included from /usr/include/stdio.h:980,
+                 from /usr/include/c++/13/cstdio:42,
+                 from /kaggle/working/j0_stack/src/x265-stock/source/common/common.h:33,
+                 from /kaggle/working/j0_stack/src/x265-stock/source/encoder/ratecontrol.cpp:30:
+In function ‘int sprintf(char*, const char*, ...)’,
+    inlined from ‘int x265::RateControl::writeRateControlFrameStats(x265::Frame*, x265::RateControlEntry*)’ at /kaggle/working/j0_stack/src/x265-stock/source/encoder/ratecontrol.cpp:3025:20:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:30:34: note: ‘__builtin___sprintf_chk’ output between 3 and 140 bytes into a destination of size 128
+   30 |   return __builtin___sprintf_chk (__s, __USE_FORTIFY_LEVEL - 1,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   31 |                                   __glibc_objsize (__s), __fmt,
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   32 |                                   __va_arg_pack ());
+      |                                   ~~~~~~~~~~~~~~~~~
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:30:34: warning: ‘__builtin___sprintf_chk’ argument 5 overlaps destination object ‘deltaPOC’ [-Wrestrict]
+/kaggle/working/j0_stack/src/x265-stock/source/encoder/ratecontrol.cpp: In member function ‘int x265::RateControl::writeRateControlFrameStats(x265::Frame*, x265::RateControlEntry*)’:
+/kaggle/working/j0_stack/src/x265-stock/source/encoder/ratecontrol.cpp:3016:14: note: destination object referenced by ‘restrict’-qualified argument 1 was declared here
+ 3016 |         char deltaPOC[128];
+      |              ^~~~~~~~
+/kaggle/working/j0_stack/src/x265-stock/source/encoder/ratecontrol.cpp:3026:33: warning: ‘~’ directive writing 1 byte into a region of size between 0 and 39 [-Wformat-overflow=]
+ 3026 |             sprintf(bUsed, "%s%d~", bUsed, rpsWriter->bUsed[i]);
+      |                                 ^
+In function ‘int sprintf(char*, const char*, ...)’,
+    inlined from ‘int x265::RateControl::writeRateControlFrameStats(x265::Frame*, x265::RateControlEntry*)’ at /kaggle/working/j0_stack/src/x265-stock/source/encoder/ratecontrol.cpp:3026:20:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:30:34: note: ‘__builtin___sprintf_chk’ output between 3 and 42 bytes into a destination of size 40
+   30 |   return __builtin___sprintf_chk (__s, __USE_FORTIFY_LEVEL - 1,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   31 |                                   __glibc_objsize (__s), __fmt,
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   32 |                                   __va_arg_pack ());
+      |                                   ~~~~~~~~~~~~~~~~~
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:30:34: warning: ‘__builtin___sprintf_chk’ argument 5 overlaps destination object ‘bUsed’ [-Wrestrict]
+/kaggle/working/j0_stack/src/x265-stock/source/encoder/ratecontrol.cpp: In member function ‘int x265::RateControl::writeRateControlFrameStats(x265::Frame*, x265::RateControlEntry*)’:
+/kaggle/working/j0_stack/src/x265-stock/source/encoder/ratecontrol.cpp:3017:14: note: destination object referenced by ‘restrict’-qualified argument 1 was declared here
+ 3017 |         char bUsed[40];
+      |              ^~~~~
+[ 35%] Building CXX object encoder/CMakeFiles/encoder.dir/encoder.cpp.o
+[ 36%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/seaintegral.asm.o
+[ 37%] Building CXX object encoder/CMakeFiles/encoder.dir/api.cpp.o
+[ 39%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/sad-a.asm.o
+[ 40%] Building CXX object encoder/CMakeFiles/encoder.dir/weightPrediction.cpp.o
+[ 41%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/intrapred8.asm.o
+[ 43%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/intrapred8_allangs.asm.o
+[ 43%] Built target encoder
+[ 44%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/v4-ipfilter8.asm.o
+[ 45%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/h-ipfilter8.asm.o
+[ 47%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/ipfilter8.asm.o
+[ 48%] Building ASM_NASM object common/CMakeFiles/common.dir/x86/loopfilter.asm.o
+[ 50%] Building CXX object common/CMakeFiles/common.dir/x86/asm-primitives.cpp.o
+[ 51%] Building CXX object common/CMakeFiles/common.dir/vec/vec-primitives.cpp.o
+[ 52%] Building CXX object common/CMakeFiles/common.dir/vec/dct-sse3.cpp.o
+[ 54%] Building CXX object common/CMakeFiles/common.dir/vec/dct-ssse3.cpp.o
+[ 55%] Building CXX object common/CMakeFiles/common.dir/vec/dct-sse41.cpp.o
+[ 56%] Building CXX object common/CMakeFiles/common.dir/primitives.cpp.o
+[ 58%] Building CXX object common/CMakeFiles/common.dir/pixel.cpp.o
+[ 59%] Building CXX object common/CMakeFiles/common.dir/dct.cpp.o
+[ 60%] Building CXX object common/CMakeFiles/common.dir/lowpassdct.cpp.o
+[ 62%] Building CXX object common/CMakeFiles/common.dir/ipfilter.cpp.o
+[ 63%] Building CXX object common/CMakeFiles/common.dir/intrapred.cpp.o
+[ 64%] Building CXX object common/CMakeFiles/common.dir/loopfilter.cpp.o
+[ 66%] Building CXX object common/CMakeFiles/common.dir/constants.cpp.o
+[ 67%] Building CXX object common/CMakeFiles/common.dir/cpu.cpp.o
+[ 68%] Building CXX object common/CMakeFiles/common.dir/version.cpp.o
+[ 70%] Building CXX object common/CMakeFiles/common.dir/threading.cpp.o
+[ 71%] Building CXX object common/CMakeFiles/common.dir/threadpool.cpp.o
+[ 72%] Building CXX object common/CMakeFiles/common.dir/wavefront.cpp.o
+[ 74%] Building CXX object common/CMakeFiles/common.dir/md5.cpp.o
+[ 75%] Building CXX object common/CMakeFiles/common.dir/bitstream.cpp.o
+[ 77%] Building CXX object common/CMakeFiles/common.dir/yuv.cpp.o
+[ 78%] Building CXX object common/CMakeFiles/common.dir/shortyuv.cpp.o
+[ 79%] Building CXX object common/CMakeFiles/common.dir/picyuv.cpp.o
+[ 81%] Building CXX object common/CMakeFiles/common.dir/common.cpp.o
+[ 82%] Building CXX object common/CMakeFiles/common.dir/param.cpp.o
+[ 83%] Building CXX object common/CMakeFiles/common.dir/frame.cpp.o
+[ 85%] Building CXX object common/CMakeFiles/common.dir/framedata.cpp.o
+[ 86%] Building CXX object common/CMakeFiles/common.dir/cudata.cpp.o
+[ 87%] Building CXX object common/CMakeFiles/common.dir/slice.cpp.o
+[ 89%] Building CXX object common/CMakeFiles/common.dir/lowres.cpp.o
+[ 90%] Building CXX object common/CMakeFiles/common.dir/piclist.cpp.o
+[ 91%] Building CXX object common/CMakeFiles/common.dir/predict.cpp.o
+[ 93%] Building CXX object common/CMakeFiles/common.dir/scalinglist.cpp.o
+[ 94%] Building CXX object common/CMakeFiles/common.dir/quant.cpp.o
+[ 95%] Building CXX object common/CMakeFiles/common.dir/deblock.cpp.o
+[ 97%] Building CXX object common/CMakeFiles/common.dir/scaler.cpp.o
+[ 97%] Built target common
+[ 98%] Linking CXX static library libx265.a
+[100%] Linking CXX shared library libx265.so
+[100%] Built target x265-static
+[100%] Built target x265-shared
+['cmake', '--build', '/kaggle/working/j0_stack/stock/x265', '--parallel', '4']
+-- Install configuration: "Release"
+-- Installing: /kaggle/working/j0_stack/stock/install/lib/libx265.a
+-- Installing: /kaggle/working/j0_stack/stock/install/include/x265.h
+-- Installing: /kaggle/working/j0_stack/stock/install/include/x265_config.h
+-- Installing: /kaggle/working/j0_stack/stock/install/lib/libx265.so.199
+-- Installing: /kaggle/working/j0_stack/stock/install/lib/libx265.so
+-- Installing: /kaggle/working/j0_stack/stock/install/lib/pkgconfig/x265.pc
+['cmake', '--install', '/kaggle/working/j0_stack/stock/x265']
+-- The C compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Configuring done (0.2s)
+-- Generating done (0.0s)
+-- Build files have been written to: /kaggle/working/j0_stack/stock/shim
+['cmake', '-S', '/kaggle/working/prism_v2/src/prism_v2/codec/native', '-B', '/kaggle/working/j0_stack/stock/shim', '-G', 'Unix Makefiles', '-DCMAKE_C_COMPILER=gcc', '-DCMAKE_BUILD_TYPE=Release', '-DX265_INCLUDE_DIR=/kaggle/working/j0_stack/stock/install/include', '-DX265_LIBRARY=/kaggle/working/j0_stack/stock/install/lib/libx265.so', '-DCMAKE_BUILD_RPATH=/kaggle/working/j0_stack/stock/install/lib']
+[ 50%] Building C object CMakeFiles/prism_x265.dir/x265_shim.c.o
+[100%] Linking C shared library libprism_x265.so
+[100%] Built target prism_x265
+['cmake', '--build', '/kaggle/working/j0_stack/stock/shim', '--parallel', '4']
+make: Entering directory '/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon'
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/Debug.r.d -MT ./objects/Debug.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib -I../../../../source/Lib/TLibCommon -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/Debug.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/Debug.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TComPicYuv.r.d -MT ./objects/TComPicYuv.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib -I../../../../source/Lib/TLibCommon -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TComPicYuv.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComPicYuv.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TComYuv.r.d -MT ./objects/TComYuv.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib -I../../../../source/Lib/TLibCommon -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TComYuv.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComYuv.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/ContextModel.r.d -MT ./objects/ContextModel.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib -I../../../../source/Lib/TLibCommon -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/ContextModel.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/ContextModel.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/ContextModel3DBuffer.r.d -MT ./objects/ContextModel3DBuffer.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib -I../../../../source/Lib/TLibCommon -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/ContextModel3DBuffer.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/ContextModel3DBuffer.cpp
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComPicYuv.cpp: In member function ‘Void TComPicYuv::destroy()’:
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComPicYuv.cpp:149:5: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  149 |     if (m_ctuOffsetInBuffer[chan]) delete[] m_ctuOffsetInBuffer[chan]; m_ctuOffsetInBuffer[chan] = NULL;
+      |     ^~
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComPicYuv.cpp:149:72: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  149 |     if (m_ctuOffsetInBuffer[chan]) delete[] m_ctuOffsetInBuffer[chan]; m_ctuOffsetInBuffer[chan] = NULL;
+      |                                                                        ^~~~~~~~~~~~~~~~~~~
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComPicYuv.cpp:150:5: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  150 |     if (m_subCuOffsetInBuffer[chan]) delete[] m_subCuOffsetInBuffer[chan]; m_subCuOffsetInBuffer[chan] = NULL;
+      |     ^~
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComPicYuv.cpp:150:76: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  150 |     if (m_subCuOffsetInBuffer[chan]) delete[] m_subCuOffsetInBuffer[chan]; m_subCuOffsetInBuffer[chan] = NULL;
+      |                                                                            ^~~~~~~~~~~~~~~~~~~~~
+In file included from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/ContextModel3DBuffer.cpp:38:
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/ContextModel3DBuffer.h: In member function ‘Void ContextModel3DBuffer::copyFrom(const ContextModel3DBuffer*)’:
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/ContextModel3DBuffer.h:92:13: warning: ‘void* memcpy(void*, const void*, size_t)’ writing to an object of non-trivially copyable type ‘class ContextModel’; use copy-assignment or copy-initialization instead [-Wclass-memaccess]
+   92 |     ::memcpy( m_contextModel, src->m_contextModel, sizeof(ContextModel) * m_sizeXYZ );
+      |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/ContextModel3DBuffer.h:46:
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/ContextModel.h:57:7: note: ‘class ContextModel’ declared here
+   57 | class ContextModel
+      |       ^~~~~~~~~~~~
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/SEI.r.d -MT ./objects/SEI.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib -I../../../../source/Lib/TLibCommon -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/SEI.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/SEI.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TComCABACTables.r.d -MT ./objects/TComCABACTables.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib -I../../../../source/Lib/TLibCommon -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TComCABACTables.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComCABACTables.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TComSampleAdaptiveOffset.r.d -MT ./objects/TComSampleAdaptiveOffset.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib -I../../../../source/Lib/TLibCommon -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TComSampleAdaptiveOffset.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComSampleAdaptiveOffset.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TComBitStream.r.d -MT ./objects/TComBitStream.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib -I../../../../source/Lib/TLibCommon -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TComBitStream.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComBitStream.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TComChromaFormat.r.d -MT ./objects/TComChromaFormat.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib -I../../../../source/Lib/TLibCommon -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TComChromaFormat.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComChromaFormat.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TComDataCU.r.d -MT ./objects/TComDataCU.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib -I../../../../source/Lib/TLibCommon -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TComDataCU.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComDataCU.cpp
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComSampleAdaptiveOffset.cpp: In destructor ‘virtual TComSampleAdaptiveOffset::~TComSampleAdaptiveOffset()’:
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComSampleAdaptiveOffset.cpp:119:3: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  119 |   if (m_signLineBuf1) delete[] m_signLineBuf1; m_signLineBuf1 = NULL;
+      |   ^~
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComSampleAdaptiveOffset.cpp:119:48: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  119 |   if (m_signLineBuf1) delete[] m_signLineBuf1; m_signLineBuf1 = NULL;
+      |                                                ^~~~~~~~~~~~~~
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComSampleAdaptiveOffset.cpp:120:3: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  120 |   if (m_signLineBuf2) delete[] m_signLineBuf2; m_signLineBuf2 = NULL;
+      |   ^~
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComSampleAdaptiveOffset.cpp:120:48: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  120 |   if (m_signLineBuf2) delete[] m_signLineBuf2; m_signLineBuf2 = NULL;
+      |                                                ^~~~~~~~~~~~~~
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComSampleAdaptiveOffset.cpp: In member function ‘Void TComSampleAdaptiveOffset::offsetBlock(ComponentID, Int, Int*, Pel*, Pel*, Int, Int, Int, Int, Bool, Bool, Bool, Bool, Bool, Bool, Bool, Bool)’:
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComSampleAdaptiveOffset.cpp:317:5: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  317 |     if (m_signLineBuf1) delete[] m_signLineBuf1; m_signLineBuf1 = NULL;
+      |     ^~
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComSampleAdaptiveOffset.cpp:317:50: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  317 |     if (m_signLineBuf1) delete[] m_signLineBuf1; m_signLineBuf1 = NULL;
+      |                                                  ^~~~~~~~~~~~~~
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComSampleAdaptiveOffset.cpp:320:5: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  320 |     if (m_signLineBuf2) delete[] m_signLineBuf2; m_signLineBuf2 = NULL;
+      |     ^~
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComSampleAdaptiveOffset.cpp:320:50: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  320 |     if (m_signLineBuf2) delete[] m_signLineBuf2; m_signLineBuf2 = NULL;
+      |                                                  ^~~~~~~~~~~~~~
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TComLoopFilter.r.d -MT ./objects/TComLoopFilter.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib -I../../../../source/Lib/TLibCommon -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TComLoopFilter.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComLoopFilter.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TComMotionInfo.r.d -MT ./objects/TComMotionInfo.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib -I../../../../source/Lib/TLibCommon -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TComMotionInfo.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComMotionInfo.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TComPattern.r.d -MT ./objects/TComPattern.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib -I../../../../source/Lib/TLibCommon -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TComPattern.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComPattern.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TComPic.r.d -MT ./objects/TComPic.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib -I../../../../source/Lib/TLibCommon -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TComPic.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComPic.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TComPicSym.r.d -MT ./objects/TComPicSym.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib -I../../../../source/Lib/TLibCommon -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TComPicSym.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComPicSym.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TComPicYuvMD5.r.d -MT ./objects/TComPicYuvMD5.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib -I../../../../source/Lib/TLibCommon -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TComPicYuvMD5.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComPicYuvMD5.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TComPrediction.r.d -MT ./objects/TComPrediction.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib -I../../../../source/Lib/TLibCommon -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TComPrediction.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComPrediction.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TComRdCost.r.d -MT ./objects/TComRdCost.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib -I../../../../source/Lib/TLibCommon -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TComRdCost.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComRdCost.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TComRom.r.d -MT ./objects/TComRom.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib -I../../../../source/Lib/TLibCommon -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TComRom.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComRom.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TComSlice.r.d -MT ./objects/TComSlice.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib -I../../../../source/Lib/TLibCommon -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TComSlice.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComSlice.cpp
+In file included from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibEncoder/TEncSbac.h:48,
+                 from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComSlice.cpp:41:
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/ContextModel3DBuffer.h: In member function ‘Void ContextModel3DBuffer::copyFrom(const ContextModel3DBuffer*)’:
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/ContextModel3DBuffer.h:92:13: warning: ‘void* memcpy(void*, const void*, size_t)’ writing to an object of non-trivially copyable type ‘class ContextModel’; use copy-assignment or copy-initialization instead [-Wclass-memaccess]
+   92 |     ::memcpy( m_contextModel, src->m_contextModel, sizeof(ContextModel) * m_sizeXYZ );
+      |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibEncoder/TEncSbac.h:47:
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/ContextModel.h:57:7: note: ‘class ContextModel’ declared here
+   57 | class ContextModel
+      |       ^~~~~~~~~~~~
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TComTrQuant.r.d -MT ./objects/TComTrQuant.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib -I../../../../source/Lib/TLibCommon -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TComTrQuant.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComTrQuant.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TComTU.r.d -MT ./objects/TComTU.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib -I../../../../source/Lib/TLibCommon -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TComTU.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComTU.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TComInterpolationFilter.r.d -MT ./objects/TComInterpolationFilter.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib -I../../../../source/Lib/TLibCommon -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TComInterpolationFilter.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComInterpolationFilter.cpp
+gcc -c -MMD -MF ./objects/libmd5.r.d -MT ./objects/libmd5.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib -I../../../../source/Lib/TLibCommon -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/libmd5.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/libmd5/libmd5.c
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TComWeightPrediction.r.d -MT ./objects/TComWeightPrediction.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib -I../../../../source/Lib/TLibCommon -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TComWeightPrediction.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComWeightPrediction.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TComRdCostWeightPrediction.r.d -MT ./objects/TComRdCostWeightPrediction.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib -I../../../../source/Lib/TLibCommon -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TComRdCostWeightPrediction.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon/../../../../source/Lib/TLibCommon/TComRdCostWeightPrediction.cpp
+ar -crs ../../../../lib/libTLibCommonStatic.a ./objects/Debug.r.o ./objects/TComPicYuv.r.o ./objects/TComYuv.r.o ./objects/ContextModel.r.o ./objects/ContextModel3DBuffer.r.o ./objects/SEI.r.o ./objects/TComCABACTables.r.o ./objects/TComSampleAdaptiveOffset.r.o ./objects/TComBitStream.r.o ./objects/TComChromaFormat.r.o ./objects/TComDataCU.r.o ./objects/TComLoopFilter.r.o ./objects/TComMotionInfo.r.o ./objects/TComPattern.r.o ./objects/TComPic.r.o ./objects/TComPicSym.r.o ./objects/TComPicYuvMD5.r.o ./objects/TComPrediction.r.o ./objects/TComRdCost.r.o ./objects/TComRom.r.o ./objects/TComSlice.r.o ./objects/TComTrQuant.r.o ./objects/TComTU.r.o ./objects/TComInterpolationFilter.r.o ./objects/libmd5.r.o ./objects/TComWeightPrediction.r.o ./objects/TComRdCostWeightPrediction.r.o
+make: Leaving directory '/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon'
+['make', '-C', '/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon', '-j', '4', 'CPP=/kaggle/working/j0_stack/hm-cxx', 'release']
+make: Entering directory '/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibVideoIO'
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TVideoIOYuv.r.d -MT ./objects/TVideoIOYuv.r.o -fPIC -DMSYS_LINUX -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -DMSYS_UNIX_LARGEFILE -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibVideoIO/../../../../source/Lib -I../../../../source/Lib/TLibVideoIO -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TVideoIOYuv.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibVideoIO/../../../../source/Lib/TLibVideoIO/TVideoIOYuv.cpp
+ar -crs ../../../../lib/libTLibVideoIOStatic.a ./objects/TVideoIOYuv.r.o
+make: Leaving directory '/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibVideoIO'
+['make', '-C', '/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibVideoIO', '-j', '4', 'CPP=/kaggle/working/j0_stack/hm-cxx', 'release']
+make: Entering directory '/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder'
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/AnnexBread.r.d -MT ./objects/AnnexBread.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib -I../../../../source/Lib/TLibDecoder -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/AnnexBread.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/AnnexBread.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/NALread.r.d -MT ./objects/NALread.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib -I../../../../source/Lib/TLibDecoder -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/NALread.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/NALread.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/SEIread.r.d -MT ./objects/SEIread.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib -I../../../../source/Lib/TLibDecoder -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/SEIread.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/SEIread.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/SyntaxElementParser.r.d -MT ./objects/SyntaxElementParser.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib -I../../../../source/Lib/TLibDecoder -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/SyntaxElementParser.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/SyntaxElementParser.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TDecBinCoderCABAC.r.d -MT ./objects/TDecBinCoderCABAC.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib -I../../../../source/Lib/TLibDecoder -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TDecBinCoderCABAC.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecBinCoderCABAC.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TDecCAVLC.r.d -MT ./objects/TDecCAVLC.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib -I../../../../source/Lib/TLibDecoder -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TDecCAVLC.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecCAVLC.cpp
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/SEIread.cpp: In member function ‘Void SEIReader::xParseSEITimeCode(SEITimeCode&, UInt, std::ostream*)’:
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/SEIread.cpp:926:13: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  926 |             if(currentTimeSet.hoursFlag)
+      |             ^~
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/SEIread.cpp:927:84: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  927 |               sei_read_code( pDecodedMessageOutputStream, 5, code, "hours_value"); currentTimeSet.hoursValue = code;
+      |                                                                                    ^~~~~~~~~~~~~~
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TDecCu.r.d -MT ./objects/TDecCu.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib -I../../../../source/Lib/TLibDecoder -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TDecCu.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecCu.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TDecEntropy.r.d -MT ./objects/TDecEntropy.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib -I../../../../source/Lib/TLibDecoder -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TDecEntropy.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecEntropy.cpp
+In file included from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecSbac.h:51,
+                 from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecSlice.h:50,
+                 from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecCAVLC.cpp:40:
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/ContextModel3DBuffer.h: In member function ‘Void ContextModel3DBuffer::copyFrom(const ContextModel3DBuffer*)’:
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/ContextModel3DBuffer.h:92:13: warning: ‘void* memcpy(void*, const void*, size_t)’ writing to an object of non-trivially copyable type ‘class ContextModel’; use copy-assignment or copy-initialization instead [-Wclass-memaccess]
+   92 |     ::memcpy( m_contextModel, src->m_contextModel, sizeof(ContextModel) * m_sizeXYZ );
+      |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecBinCoder.h:41,
+                 from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecSbac.h:48:
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/ContextModel.h:57:7: note: ‘class ContextModel’ declared here
+   57 | class ContextModel
+      |       ^~~~~~~~~~~~
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TDecGop.r.d -MT ./objects/TDecGop.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib -I../../../../source/Lib/TLibDecoder -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TDecGop.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecGop.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TDecSbac.r.d -MT ./objects/TDecSbac.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib -I../../../../source/Lib/TLibDecoder -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TDecSbac.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecSbac.cpp
+In file included from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecSbac.h:51,
+                 from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecSlice.h:50,
+                 from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecGop.h:54,
+                 from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecGop.cpp:38:
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/ContextModel3DBuffer.h: In member function ‘Void ContextModel3DBuffer::copyFrom(const ContextModel3DBuffer*)’:
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/ContextModel3DBuffer.h:92:13: warning: ‘void* memcpy(void*, const void*, size_t)’ writing to an object of non-trivially copyable type ‘class ContextModel’; use copy-assignment or copy-initialization instead [-Wclass-memaccess]
+   92 |     ::memcpy( m_contextModel, src->m_contextModel, sizeof(ContextModel) * m_sizeXYZ );
+      |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecBinCoder.h:41,
+                 from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecSbac.h:48:
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/ContextModel.h:57:7: note: ‘class ContextModel’ declared here
+   57 | class ContextModel
+      |       ^~~~~~~~~~~~
+In file included from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecSbac.h:51,
+                 from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecSbac.cpp:38:
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/ContextModel3DBuffer.h: In member function ‘Void ContextModel3DBuffer::copyFrom(const ContextModel3DBuffer*)’:
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/ContextModel3DBuffer.h:92:13: warning: ‘void* memcpy(void*, const void*, size_t)’ writing to an object of non-trivially copyable type ‘class ContextModel’; use copy-assignment or copy-initialization instead [-Wclass-memaccess]
+   92 |     ::memcpy( m_contextModel, src->m_contextModel, sizeof(ContextModel) * m_sizeXYZ );
+      |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecBinCoder.h:41,
+                 from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecSbac.h:48:
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/ContextModel.h:57:7: note: ‘class ContextModel’ declared here
+   57 | class ContextModel
+      |       ^~~~~~~~~~~~
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecSbac.cpp: In member function ‘Void TDecSbac::xCopyContextsFrom(const TDecSbac*)’:
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecSbac.cpp:1823:9: warning: ‘void* memcpy(void*, const void*, size_t)’ writing to an object of non-trivially copyable type ‘class ContextModel’; use copy-assignment or copy-initialization instead [-Wclass-memaccess]
+ 1823 |   memcpy(m_contextModels, pSrc->m_contextModels, m_numContextModels*sizeof(m_contextModels[0]));
+      |   ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/ContextModel.h:57:7: note: ‘class ContextModel’ declared here
+   57 | class ContextModel
+      |       ^~~~~~~~~~~~
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TDecSlice.r.d -MT ./objects/TDecSlice.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib -I../../../../source/Lib/TLibDecoder -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TDecSlice.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecSlice.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TDecTop.r.d -MT ./objects/TDecTop.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib -I../../../../source/Lib/TLibDecoder -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TDecTop.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecTop.cpp
+In file included from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecSbac.h:51,
+                 from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecSlice.h:50,
+                 from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecSlice.cpp:38:
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/ContextModel3DBuffer.h: In member function ‘Void ContextModel3DBuffer::copyFrom(const ContextModel3DBuffer*)’:
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/ContextModel3DBuffer.h:92:13: warning: ‘void* memcpy(void*, const void*, size_t)’ writing to an object of non-trivially copyable type ‘class ContextModel’; use copy-assignment or copy-initialization instead [-Wclass-memaccess]
+   92 |     ::memcpy( m_contextModel, src->m_contextModel, sizeof(ContextModel) * m_sizeXYZ );
+      |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecBinCoder.h:41,
+                 from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecSbac.h:48:
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/ContextModel.h:57:7: note: ‘class ContextModel’ declared here
+   57 | class ContextModel
+      |       ^~~~~~~~~~~~
+In file included from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecSbac.h:51,
+                 from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecSlice.h:50,
+                 from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecGop.h:54,
+                 from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecTop.h:48,
+                 from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecTop.cpp:39:
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/ContextModel3DBuffer.h: In member function ‘Void ContextModel3DBuffer::copyFrom(const ContextModel3DBuffer*)’:
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/ContextModel3DBuffer.h:92:13: warning: ‘void* memcpy(void*, const void*, size_t)’ writing to an object of non-trivially copyable type ‘class ContextModel’; use copy-assignment or copy-initialization instead [-Wclass-memaccess]
+   92 |     ::memcpy( m_contextModel, src->m_contextModel, sizeof(ContextModel) * m_sizeXYZ );
+      |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecBinCoder.h:41,
+                 from /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecSbac.h:48:
+/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/ContextModel.h:57:7: note: ‘class ContextModel’ declared here
+   57 | class ContextModel
+      |       ^~~~~~~~~~~~
+ar -crs ../../../../lib/libTLibDecoderStatic.a ./objects/AnnexBread.r.o ./objects/NALread.r.o ./objects/SEIread.r.o ./objects/SyntaxElementParser.r.o ./objects/TDecBinCoderCABAC.r.o ./objects/TDecCAVLC.r.o ./objects/TDecCu.r.o ./objects/TDecEntropy.r.o ./objects/TDecGop.r.o ./objects/TDecSbac.r.o ./objects/TDecSlice.r.o ./objects/TDecTop.r.o
+make: Leaving directory '/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder'
+['make', '-C', '/kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder', '-j', '4', 'CPP=/kaggle/working/j0_stack/hm-cxx', 'release']
+make: Entering directory '/kaggle/working/j0_stack/src/hm/build/linux/lib/TAppCommon'
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/program_options_lite.r.d -MT ./objects/program_options_lite.r.o -fPIC -DMSYS_LINUX -I/kaggle/working/j0_stack/src/hm/build/linux/lib/TAppCommon/../../../../source/Lib -I../../../../source/Lib/TAppCommon -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/program_options_lite.r.o /kaggle/working/j0_stack/src/hm/build/linux/lib/TAppCommon/../../../../source/Lib/TAppCommon/program_options_lite.cpp
+ar -crs ../../../../lib/libTAppCommonStatic.a ./objects/program_options_lite.r.o
+make: Leaving directory '/kaggle/working/j0_stack/src/hm/build/linux/lib/TAppCommon'
+['make', '-C', '/kaggle/working/j0_stack/src/hm/build/linux/lib/TAppCommon', '-j', '4', 'CPP=/kaggle/working/j0_stack/hm-cxx', 'release']
+make: Entering directory '/kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder'
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/decmain.r.d -MT ./objects/decmain.r.o -fPIC -DMSYS_LINUX -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -DMSYS_UNIX_LARGEFILE -I/kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder/../../../../source/Lib -I../../../../source/App/TAppDecoder  -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/decmain.r.o /kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder/../../../../source/App/TAppDecoder/decmain.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TAppDecCfg.r.d -MT ./objects/TAppDecCfg.r.o -fPIC -DMSYS_LINUX -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -DMSYS_UNIX_LARGEFILE -I/kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder/../../../../source/Lib -I../../../../source/App/TAppDecoder  -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TAppDecCfg.r.o /kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder/../../../../source/App/TAppDecoder/TAppDecCfg.cpp
+/kaggle/working/j0_stack/hm-cxx -c -MMD -MF ./objects/TAppDecTop.r.d -MT ./objects/TAppDecTop.r.o -fPIC -DMSYS_LINUX -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -DMSYS_UNIX_LARGEFILE -I/kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder/../../../../source/Lib -I../../../../source/App/TAppDecoder  -Wall -Wshadow -Wno-sign-compare -Werror -O3 -Wuninitialized -o objects/TAppDecTop.r.o /kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder/../../../../source/App/TAppDecoder/TAppDecTop.cpp
+In file included from /kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder/../../../../source/Lib/TLibDecoder/TDecSbac.h:51,
+                 from /kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder/../../../../source/Lib/TLibDecoder/TDecSlice.h:50,
+                 from /kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder/../../../../source/Lib/TLibDecoder/TDecGop.h:54,
+                 from /kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder/../../../../source/Lib/TLibDecoder/TDecTop.h:48,
+                 from /kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder/../../../../source/App/TAppDecoder/TAppDecTop.h:48,
+                 from /kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder/../../../../source/App/TAppDecoder/decmain.cpp:41:
+/kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder/../../../../source/Lib/TLibCommon/ContextModel3DBuffer.h: In member function ‘Void ContextModel3DBuffer::copyFrom(const ContextModel3DBuffer*)’:
+/kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder/../../../../source/Lib/TLibCommon/ContextModel3DBuffer.h:92:13: warning: ‘void* memcpy(void*, const void*, size_t)’ writing to an object of non-trivially copyable type ‘class ContextModel’; use copy-assignment or copy-initialization instead [-Wclass-memaccess]
+   92 |     ::memcpy( m_contextModel, src->m_contextModel, sizeof(ContextModel) * m_sizeXYZ );
+      |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder/../../../../source/Lib/TLibDecoder/TDecBinCoder.h:41,
+                 from /kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder/../../../../source/Lib/TLibDecoder/TDecSbac.h:48:
+/kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder/../../../../source/Lib/TLibCommon/ContextModel.h:57:7: note: ‘class ContextModel’ declared here
+   57 | class ContextModel
+      |       ^~~~~~~~~~~~
+In file included from /kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder/../../../../source/Lib/TLibDecoder/TDecSbac.h:51,
+                 from /kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder/../../../../source/Lib/TLibDecoder/TDecSlice.h:50,
+                 from /kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder/../../../../source/Lib/TLibDecoder/TDecGop.h:54,
+                 from /kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder/../../../../source/Lib/TLibDecoder/TDecTop.h:48,
+                 from /kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder/../../../../source/App/TAppDecoder/TAppDecTop.h:48,
+                 from /kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder/../../../../source/App/TAppDecoder/TAppDecTop.cpp:44:
+/kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder/../../../../source/Lib/TLibCommon/ContextModel3DBuffer.h: In member function ‘Void ContextModel3DBuffer::copyFrom(const ContextModel3DBuffer*)’:
+/kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder/../../../../source/Lib/TLibCommon/ContextModel3DBuffer.h:92:13: warning: ‘void* memcpy(void*, const void*, size_t)’ writing to an object of non-trivially copyable type ‘class ContextModel’; use copy-assignment or copy-initialization instead [-Wclass-memaccess]
+   92 |     ::memcpy( m_contextModel, src->m_contextModel, sizeof(ContextModel) * m_sizeXYZ );
+      |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder/../../../../source/Lib/TLibDecoder/TDecBinCoder.h:41,
+                 from /kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder/../../../../source/Lib/TLibDecoder/TDecSbac.h:48:
+/kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder/../../../../source/Lib/TLibCommon/ContextModel.h:57:7: note: ‘class ContextModel’ declared here
+   57 | class ContextModel
+      |       ^~~~~~~~~~~~
+/kaggle/working/j0_stack/hm-cxx -o ../../../../bin/TAppDecoderStatic -Wall  ./objects/decmain.r.o ./objects/TAppDecCfg.r.o ./objects/TAppDecTop.r.o -L../../../../lib  -ldl  -lpthread -lTLibDecoderStatic -lTLibCommonStatic -lTLibVideoIOStatic -lTAppCommonStatic
+make: Leaving directory '/kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder'
+['make', '-C', '/kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder', '-j', '4', 'CPP=/kaggle/working/j0_stack/hm-cxx', 'release']

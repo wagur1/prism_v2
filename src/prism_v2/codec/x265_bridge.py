@@ -86,19 +86,21 @@ class EncoderConfig:
     vbv_maxrate_kbps: int | None = None
     vbv_bufsize_kbits: int | None = None
 
-    def options(self, csv_path: Path) -> str:
+    def options(self, csv_path: Path, *, qg_size_override: int | None = None) -> str:
         if self.rc_mode != "CRF" or self.gop != 1 or self.bframes != 0:
             raise ValueError("CONFIG B1: only CRF intra jobs are permitted")
         if self.aq_mode != 1 or self.cutree:
             raise ValueError("CONFIG B1 requires aq-mode=1 and cutree=0")
         if not 0 <= self.qp <= 51 or self.qg_size != 16:
             raise ValueError("Expected legal 8-bit QP and pinned QG16")
+        if qg_size_override is not None and (qg_size_override != 64 or self.crf != 20):
+            raise ValueError("QG override is only for the CRF20 QG64 acceptance fixture")
         if self.gop < 1 or self.bframes < 0:
             raise ValueError("Invalid GOP configuration")
         if self.rc_mode not in {"CQP", "CRF", "ABR", "VBV"}:
             raise ValueError("Unknown rate control mode")
         values = {"aq-mode": self.aq_mode, "aq-strength": 1.0, "hevc-aq": 0, "cutree": int(self.cutree), "info": 0,
-                  "sao": int(self.sao), "qg-size": 16, "keyint": self.gop,
+                  "sao": int(self.sao), "qg-size": qg_size_override or 16, "keyint": self.gop,
                   "min-keyint": self.gop, "scenecut": 0, "bframes": self.bframes,
                   "fps": self.fps, "repeat-headers": 1, "annexb": 1,
                   "frame-threads": 1, "pools": "none", "wpp": 0,
@@ -170,7 +172,7 @@ class X265Library:
 
 class X265Encoder:
     def __init__(self, library: X265Library, width: int, height: int,
-                 config: EncoderConfig, csv_path: Path):
+                 config: EncoderConfig, csv_path: Path, *, qg_size_override: int | None = None):
         self.width, self.height = width, height
         self.size = frame_bytes(width, height)
         self.library = library
@@ -178,7 +180,8 @@ class X265Encoder:
         self._next_pts = 0
         self._flushed = False
         self.handle, diagnostic = _open_with_stderr(
-            library.api, width, height, config.preset.encode(), config.options(csv_path).encode())
+            library.api, width, height, config.preset.encode(),
+            config.options(csv_path, qg_size_override=qg_size_override).encode())
         if not self.handle:
             raise RuntimeError(f'x265 prism_open failed for {width}x{height} '
                                f'(preset={config.preset}, CRF={config.crf}):\n'

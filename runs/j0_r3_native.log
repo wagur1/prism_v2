@@ -1,0 +1,328 @@
+[J0 2026-11-03T20:46:33.789163+00:00] START prerequisites
+COMMAND ['apt-get', 'update']
+Hit:1 http://archive.ubuntu.com/ubuntu noble InRelease
+Get:2 https://cloud.r-project.org/bin/linux/ubuntu noble-cran40/ InRelease [3,631 B]
+Get:3 https://cli.github.com/packages stable InRelease [3,917 B]
+Get:4 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+Get:5 https://r2u.stat.illinois.edu/ubuntu noble InRelease [9,161 B]
+Get:6 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+Get:7 http://archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+Get:8 https://cloud.r-project.org/bin/linux/ubuntu noble-cran40/ Packages [78.0 kB]
+Hit:9 https://ppa.launchpadcontent.net/deadsnakes/ppa/ubuntu noble InRelease
+Get:10 https://r2u.stat.illinois.edu/ubuntu noble/main amd64 Packages [3,115 kB]
+Get:11 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1,741 kB]
+Get:12 https://r2u.stat.illinois.edu/ubuntu noble/main all Packages [10.5 MB]
+Get:13 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [2,172 kB]
+Get:14 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [2,132 kB]
+Get:15 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1,552 kB]
+Get:16 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [1,422 kB]
+Fetched 23.1 MB in 2s (10.7 MB/s)
+Reading package lists...
+W: Skipping acquire of configured file 'main/source/Sources' as repository 'https://r2u.stat.illinois.edu/ubuntu noble InRelease' does not seem to provide it (sources.list entry misspelt?)
+COMMAND ['env', 'DEBIAN_FRONTEND=noninteractive', 'apt-get', 'install', '-y', '--no-install-recommends', 'nasm']
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  nasm
+0 upgraded, 1 newly installed, 0 to remove and 21 not upgraded.
+Need to get 459 kB of archives.
+After this operation, 3,407 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu noble/universe amd64 nasm amd64 2.16.01-1build1 [459 kB]
+Fetched 459 kB in 1s (618 kB/s)
+Selecting previously unselected package nasm.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 125658 files and directories currently installed.)
+Preparing to unpack .../nasm_2.16.01-1build1_amd64.deb ...
+Unpacking nasm (2.16.01-1build1) ...
+Setting up nasm (2.16.01-1build1) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+[J0 2026-11-03T20:46:47.485142+00:00] PASS prerequisites (13.696 s)
+[J0 2026-11-03T20:46:47.485217+00:00] START clone_repo
+COMMAND ['git', '-c', 'credential.helper=', 'clone', '--depth', '1', '--single-branch', '--branch', 'main', 'https://github.com/wagur1/prism_v2.git', '/kaggle/working/prism_v2']
+Cloning into '/kaggle/working/prism_v2'...
+COMMAND ['git', '-C', '/kaggle/working/prism_v2', 'rev-parse', 'HEAD']
+3b898c2e83ed9226a080ed14e5c6278b0ab9d18d
+[J0 2026-11-03T20:46:57.341231+00:00] PASS clone_repo (9.856 s)
+[J0 2026-11-03T20:46:57.341305+00:00] START python_dependencies
+COMMAND ['/usr/bin/python3', '-m', 'pip', 'install', '--disable-pip-version-check', '--no-input', 'pytest>=8,<10', 'numpy>=1.24,<3']
+Requirement already satisfied: pytest<10,>=8 in /usr/local/lib/python3.13/dist-packages (8.4.2)
+Requirement already satisfied: numpy<3,>=1.24 in /usr/local/lib/python3.13/dist-packages (2.1.3)
+Requirement already satisfied: iniconfig>=1 in /usr/local/lib/python3.13/dist-packages (from pytest<10,>=8) (2.3.1)
+Requirement already satisfied: packaging>=20 in /usr/local/lib/python3.13/dist-packages (from pytest<10,>=8) (26.3)
+Requirement already satisfied: pluggy<2,>=1.5 in /usr/local/lib/python3.13/dist-packages (from pytest<10,>=8) (1.7.0)
+Requirement already satisfied: pygments>=2.7.2 in /usr/local/lib/python3.13/dist-packages (from pytest<10,>=8) (2.21.0)
+[J0 2026-11-03T20:47:01.117510+00:00] PASS python_dependencies (3.776 s)
+[J0 2026-11-03T20:47:01.117741+00:00] START verify_patches
+[J0 2026-11-03T20:47:01.119214+00:00] PASS verify_patches (0.001 s)
+[J0 2026-11-03T20:47:01.119453+00:00] START clone_x265
+COMMAND ['git', 'init', '/kaggle/working/j0_sources/x265']
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint: 	git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint: 	git branch -m <name>
+Initialized empty Git repository in /kaggle/working/j0_sources/x265/.git/
+COMMAND ['git', '-C', '/kaggle/working/j0_sources/x265', 'remote', 'add', 'origin', 'https://bitbucket.org/multicoreware/x265_git.git']
+COMMAND ['git', '-c', 'credential.helper=', '-C', '/kaggle/working/j0_sources/x265', 'fetch', '--depth', '1', 'origin', 'f0c1022b6be121a753ff02853fbe33da71988656']
+From https://bitbucket.org/multicoreware/x265_git
+ * branch            f0c1022b6be121a753ff02853fbe33da71988656 -> FETCH_HEAD
+COMMAND ['git', '-C', '/kaggle/working/j0_sources/x265', 'checkout', '--detach', 'FETCH_HEAD']
+HEAD is now at f0c1022 release: Release notes for v3.5
+COMMAND ['git', '-C', '/kaggle/working/j0_sources/x265', 'rev-parse', 'HEAD']
+f0c1022b6be121a753ff02853fbe33da71988656
+[J0 2026-11-03T20:47:02.218867+00:00] PASS clone_x265 (1.099 s)
+[J0 2026-11-03T20:47:02.218933+00:00] START clone_hm
+COMMAND ['git', 'init', '/kaggle/working/j0_sources/hm']
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint: 	git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint: 	git branch -m <name>
+Initialized empty Git repository in /kaggle/working/j0_sources/hm/.git/
+COMMAND ['git', '-C', '/kaggle/working/j0_sources/hm', 'remote', 'add', 'origin', 'https://vcgit.hhi.fraunhofer.de/jvet/HM.git']
+COMMAND ['git', '-c', 'credential.helper=', '-C', '/kaggle/working/j0_sources/hm', 'fetch', '--depth', '1', 'origin', '41801c786b2fb37dafc779f824b1f62fbe713bbe']
+[J0 2026-11-03T20:47:32.232352+00:00] RUNNING git (30 s)
+From https://vcgit.hhi.fraunhofer.de/jvet/HM
+ * branch            41801c786b2fb37dafc779f824b1f62fbe713bbe -> FETCH_HEAD
+COMMAND ['git', '-C', '/kaggle/working/j0_sources/hm', 'checkout', '--detach', 'FETCH_HEAD']
+HEAD is now at 41801c7 create tag HM-16.2
+COMMAND ['git', '-C', '/kaggle/working/j0_sources/hm', 'rev-parse', 'HEAD']
+41801c786b2fb37dafc779f824b1f62fbe713bbe
+[J0 2026-11-03T20:48:01.675781+00:00] PASS clone_hm (59.457 s)
+[J0 2026-11-03T20:48:01.675851+00:00] START build_stack
+COMMAND ['/usr/bin/python3', '-u', '/kaggle/working/prism_v2/scripts/build_codec.py', '--x265-source', '/kaggle/working/j0_sources/x265', '--hm-source', '/kaggle/working/j0_sources/hm', '--output', '/kaggle/working/j0_stack', '--jobs', '4']
+[BUILD] patch -d /kaggle/working/j0_stack/src/x265 -p1 --forward --batch --fuzz=0 -i /kaggle/working/prism_v2/third_party/x265/patches/x265_residual_patch.patch --dry-run
+[BUILD] patch -d /kaggle/working/j0_stack/src/x265 -p1 --forward --batch --fuzz=0 -i /kaggle/working/prism_v2/third_party/x265/patches/x265_residual_patch.patch
+[BUILD] patch -d /kaggle/working/j0_stack/src/x265 -p1 --forward --batch --fuzz=0 -i /kaggle/working/prism_v2/third_party/x265/patches/x265_residual_telemetry.patch --dry-run
+[BUILD] patch -d /kaggle/working/j0_stack/src/x265 -p1 --forward --batch --fuzz=0 -i /kaggle/working/prism_v2/third_party/x265/patches/x265_residual_telemetry.patch
+[BUILD] cmake -S /kaggle/working/j0_stack/src/x265/source -B /kaggle/working/j0_stack/patched/x265 -G Unix Makefiles -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/kaggle/working/j0_stack/patched/install -DLIB_INSTALL_DIR=lib -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -DHIGH_BIT_DEPTH=OFF -DMAIN12=OFF -DLINKED_10BIT=OFF -DLINKED_12BIT=OFF -DENABLE_SHARED=ON -DENABLE_CLI=OFF -DENABLE_PIC=ON -DEXPORT_C_API=ON -DENABLE_ASSEMBLY=ON -DENABLE_LIBNUMA=ON -DNASM_EXECUTABLE=/usr/bin/nasm -DCMAKE_ASM_NASM_COMPILER=/usr/bin/nasm -DCMAKE_ASM_NASM_FLAGS=-w-macro-params-legacy
+[BUILD] cmake --build /kaggle/working/j0_stack/patched/x265 --parallel 4
+[J0 2026-11-03T20:48:31.676891+00:00] RUNNING /usr/bin/python3 (30 s)
+[J0 2026-11-03T20:49:01.678626+00:00] RUNNING /usr/bin/python3 (60 s)
+[J0 2026-11-03T20:49:31.679619+00:00] RUNNING /usr/bin/python3 (90 s)
+[J0 2026-11-03T20:50:01.680348+00:00] RUNNING /usr/bin/python3 (120 s)
+[BUILD] cmake --install /kaggle/working/j0_stack/patched/x265
+[BUILD] cmake -S /kaggle/working/prism_v2/src/prism_v2/codec/native -B /kaggle/working/j0_stack/patched/shim -G Unix Makefiles -DCMAKE_C_COMPILER=gcc -DCMAKE_BUILD_TYPE=Release -DX265_INCLUDE_DIR=/kaggle/working/j0_stack/patched/install/include -DX265_LIBRARY=/kaggle/working/j0_stack/patched/install/lib/libx265.so -DCMAKE_BUILD_RPATH=/kaggle/working/j0_stack/patched/install/lib
+[BUILD] cmake --build /kaggle/working/j0_stack/patched/shim --parallel 4
+[BUILD] cmake -S /kaggle/working/j0_stack/src/x265-stock/source -B /kaggle/working/j0_stack/stock/x265 -G Unix Makefiles -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/kaggle/working/j0_stack/stock/install -DLIB_INSTALL_DIR=lib -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -DHIGH_BIT_DEPTH=OFF -DMAIN12=OFF -DLINKED_10BIT=OFF -DLINKED_12BIT=OFF -DENABLE_SHARED=ON -DENABLE_CLI=OFF -DENABLE_PIC=ON -DEXPORT_C_API=ON -DENABLE_ASSEMBLY=ON -DENABLE_LIBNUMA=ON -DNASM_EXECUTABLE=/usr/bin/nasm -DCMAKE_ASM_NASM_COMPILER=/usr/bin/nasm -DCMAKE_ASM_NASM_FLAGS=-w-macro-params-legacy
+[BUILD] cmake --build /kaggle/working/j0_stack/stock/x265 --parallel 4
+[J0 2026-11-03T20:50:31.681628+00:00] RUNNING /usr/bin/python3 (150 s)
+[J0 2026-11-03T20:51:01.682254+00:00] RUNNING /usr/bin/python3 (180 s)
+[J0 2026-11-03T20:51:31.682846+00:00] RUNNING /usr/bin/python3 (210 s)
+[J0 2026-11-03T20:52:01.683613+00:00] RUNNING /usr/bin/python3 (240 s)
+[J0 2026-11-03T20:52:31.687110+00:00] RUNNING /usr/bin/python3 (270 s)
+[BUILD] cmake --install /kaggle/working/j0_stack/stock/x265
+[BUILD] cmake -S /kaggle/working/prism_v2/src/prism_v2/codec/native -B /kaggle/working/j0_stack/stock/shim -G Unix Makefiles -DCMAKE_C_COMPILER=gcc -DCMAKE_BUILD_TYPE=Release -DX265_INCLUDE_DIR=/kaggle/working/j0_stack/stock/install/include -DX265_LIBRARY=/kaggle/working/j0_stack/stock/install/lib/libx265.so -DCMAKE_BUILD_RPATH=/kaggle/working/j0_stack/stock/install/lib
+[BUILD] cmake --build /kaggle/working/j0_stack/stock/shim --parallel 4
+[BUILD] make -C /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibCommon -j 4 CPP=/kaggle/working/j0_stack/hm-cxx release
+[J0 2026-11-03T20:53:01.687716+00:00] RUNNING /usr/bin/python3 (300 s)
+[BUILD] make -C /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibVideoIO -j 4 CPP=/kaggle/working/j0_stack/hm-cxx release
+[BUILD] make -C /kaggle/working/j0_stack/src/hm/build/linux/lib/TLibDecoder -j 4 CPP=/kaggle/working/j0_stack/hm-cxx release
+[BUILD] make -C /kaggle/working/j0_stack/src/hm/build/linux/lib/TAppCommon -j 4 CPP=/kaggle/working/j0_stack/hm-cxx release
+[BUILD] make -C /kaggle/working/j0_stack/src/hm/build/linux/app/TAppDecoder -j 4 CPP=/kaggle/working/j0_stack/hm-cxx release
+[J0 2026-11-03T20:53:10.233249+00:00] PASS build_stack (308.557 s)
+[J0 2026-11-03T20:53:10.233328+00:00] START native_codec_pytest
+COMMAND ['/usr/bin/python3', '-m', 'pytest', 'tests/codec', 'tests/geometry', 'tests/evaluation', '-ra', '--strict-markers', '--junitxml=/kaggle/working/runs/j0_pytest.xml']
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-8.4.2, pluggy-1.7.0
+rootdir: /kaggle/working/prism_v2
+configfile: pyproject.toml
+collected 72 items
+
+tests/codec/test_contracts.py .....                                      [  6%]
+tests/codec/test_decoders.py .                                           [  8%]
+tests/codec/test_f1.py ........                                          [ 19%]
+tests/codec/test_native.py .F[J0 2026-11-03T20:53:40.234619+00:00] RUNNING /usr/bin/python3 (30 s)
+[J0 2026-11-03T20:54:10.235310+00:00] RUNNING /usr/bin/python3 (60 s)
+[J0 2026-11-03T20:54:40.236024+00:00] RUNNING /usr/bin/python3 (90 s)
+[J0 2026-11-03T20:55:10.236681+00:00] RUNNING /usr/bin/python3 (120 s)
+[J0 2026-11-03T20:55:40.237375+00:00] RUNNING /usr/bin/python3 (150 s)
+[J0 2026-11-03T20:56:10.238076+00:00] RUNNING /usr/bin/python3 (180 s)
+[J0 2026-11-03T20:56:40.238760+00:00] RUNNING /usr/bin/python3 (210 s)
+.                                           [ 23%]
+tests/codec/test_native_regressions.py .....                             [ 30%]
+tests/codec/test_ported_qg.py .............                              [ 48%]
+tests/codec/test_runner.py ..                                            [ 51%]
+tests/codec/test_sei.py ..........                                       [ 65%]
+tests/codec/test_synthetic_net_effect.py ..                              [ 68%]
+tests/geometry/test_boxes.py ....                                        [ 73%]
+tests/geometry/test_geometry.py ..................                       [ 98%]
+tests/evaluation/test_coordinates.py .                                   [100%]
+
+=================================== FAILURES ===================================
+_________________ NativeTests.test_native_warped_qg_acceptance _________________
+
+self = <tests.codec.test_native.NativeTests testMethod=test_native_warped_qg_acceptance>
+
+    def test_native_warped_qg_acceptance(self):
+        stack=json.loads(Path(STACK).read_text())
+        with tempfile.TemporaryDirectory() as tmp:
+>           runs=run_retarget_fixture(Path(tmp)/'retarget',stack,crfs=(20,))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/codec/test_native.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/prism_v2/codec/f1.py:182: in run_retarget_fixture
+    trace = (verify_warped_telemetry(telemetry,
+src/prism_v2/codec/f1.py:95: in verify_warped_telemetry
+    with Path(path).open(encoding='utf-8', newline='') as stream:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/tmp/tmpidazdu8u/retarget/crf20_M2_qg64.telemetry.csv')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = ''
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/tmp/tmpidazdu8u/retarget/crf20_M2_qg64.telemetry.csv'
+
+/usr/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+----------------------------- Captured stderr call -----------------------------
+x265 [info]: HEVC encoder version 3.4+31-6722fce1f
+x265 [info]: build info [Linux][GCC 13.3.0][64 bit] 8bit
+x265 [info]: using cpu capabilities: MMX2 SSE2Fast LZCNT SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+x265 [info]: Main Intra profile, Level-1 (Main tier)
+x265 [warning]: Too few rows/columns, --wpp disabled
+x265 [warning]: No thread pool allocated, --lookahead-slices disabled
+x265 [info]: Slices                              : 1
+x265 [info]: frame threads / pool features       : 1 / none
+x265 [info]: Coding QT: max CU size, min CU size : 64 / 8
+x265 [info]: Residual QT: max TU size, max depth : 32 / 1 inter / 1 intra
+x265 [info]: ME / range / subpel / merge         : hex / 57 / 2 / 3
+x265 [info]: Lookahead / bframes / badapt        : 0 / 0 / 0
+x265 [info]: b-pyramid / weightp / weightb       : 0 / 0 / 0
+x265 [info]: References / ref-limit  cu / depth  : 1 / off / on
+x265 [info]: AQ: mode / str / qg-size / cu-tree  : 1 / 1.0 / 16 / 0
+x265 [info]: Rate Control / qCompress            : CRF-20.0 / 0.60
+x265 [info]: tools: rd=3 psy-rd=2.00 early-skip rskip mode=1 signhide tmvp
+x265 [info]: tools: b-intra strong-intra-smoothing deblock sao
+x265 [info]: frame I:      1, Avg QP:21.67  kb/s: 1200.00 
+x265 [info]: consecutive B-frames: 100.0% 
+
+encoded 1 frames in 0.02s (61.26 fps), 1200.00 kb/s, Avg QP:21.67
+x265 [info]: HEVC encoder version 3.4+31-6722fce1f
+x265 [info]: build info [Linux][GCC 13.3.0][64 bit] 8bit
+x265 [info]: using cpu capabilities: MMX2 SSE2Fast LZCNT SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+x265 [info]: Main Intra profile, Level-1 (Main tier)
+x265 [warning]: Too few rows/columns, --wpp disabled
+x265 [warning]: No thread pool allocated, --lookahead-slices disabled
+x265 [info]: Slices                              : 1
+x265 [info]: frame threads / pool features       : 1 / none
+x265 [info]: Coding QT: max CU size, min CU size : 64 / 8
+x265 [info]: Residual QT: max TU size, max depth : 32 / 1 inter / 1 intra
+x265 [info]: ME / range / subpel / merge         : hex / 57 / 2 / 3
+x265 [info]: Lookahead / bframes / badapt        : 0 / 0 / 0
+x265 [info]: b-pyramid / weightp / weightb       : 0 / 0 / 0
+x265 [info]: References / ref-limit  cu / depth  : 1 / off / on
+x265 [info]: AQ: mode / str / qg-size / cu-tree  : 1 / 1.0 / 16 / 0
+x265 [info]: Rate Control / qCompress            : CRF-20.0 / 0.60
+x265 [info]: tools: rd=3 psy-rd=2.00 early-skip rskip mode=1 signhide tmvp
+x265 [info]: tools: b-intra strong-intra-smoothing deblock sao
+x265 [info]: frame I:      1, Avg QP:22.69  kb/s: 1229.76 
+x265 [info]: consecutive B-frames: 100.0% 
+
+encoded 1 frames in 0.02s (49.03 fps), 1229.76 kb/s, Avg QP:22.69
+x265 [info]: HEVC encoder version 3.4+31-6722fce1f
+x265 [info]: build info [Linux][GCC 13.3.0][64 bit] 8bit
+x265 [info]: using cpu capabilities: MMX2 SSE2Fast LZCNT SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+x265 [info]: Main Intra profile, Level-1 (Main tier)
+x265 [warning]: Too few rows/columns, --wpp disabled
+x265 [warning]: No thread pool allocated, --lookahead-slices disabled
+x265 [info]: Slices                              : 1
+x265 [info]: frame threads / pool features       : 1 / none
+x265 [info]: Coding QT: max CU size, min CU size : 64 / 8
+x265 [info]: Residual QT: max TU size, max depth : 32 / 1 inter / 1 intra
+x265 [info]: ME / range / subpel / merge         : hex / 57 / 2 / 3
+x265 [info]: Lookahead / bframes / badapt        : 0 / 0 / 0
+x265 [info]: b-pyramid / weightp / weightb       : 0 / 0 / 0
+x265 [info]: References / ref-limit  cu / depth  : 1 / off / on
+x265 [info]: AQ: mode / str / qg-size / cu-tree  : 1 / 1.0 / 16 / 0
+x265 [info]: Rate Control / qCompress            : CRF-20.0 / 0.60
+x265 [info]: tools: rd=3 psy-rd=2.00 early-skip rskip mode=1 signhide tmvp
+x265 [info]: tools: b-intra strong-intra-smoothing deblock sao
+x265 [info]: frame I:      1, Avg QP:21.67  kb/s: 1200.00 
+x265 [info]: consecutive B-frames: 100.0% 
+
+encoded 1 frames in 0.01s (69.20 fps), 1200.00 kb/s, Avg QP:21.67
+x265 [info]: HEVC encoder version 3.4+31-6722fce1f
+x265 [info]: build info [Linux][GCC 13.3.0][64 bit] 8bit
+x265 [info]: using cpu capabilities: MMX2 SSE2Fast LZCNT SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+x265 [info]: Main Intra profile, Level-1 (Main tier)
+x265 [warning]: Too few rows/columns, --wpp disabled
+x265 [warning]: No thread pool allocated, --lookahead-slices disabled
+x265 [info]: Slices                              : 1
+x265 [info]: frame threads / pool features       : 1 / none
+x265 [info]: Coding QT: max CU size, min CU size : 64 / 8
+x265 [info]: Residual QT: max TU size, max depth : 32 / 1 inter / 1 intra
+x265 [info]: ME / range / subpel / merge         : hex / 57 / 2 / 3
+x265 [info]: Lookahead / bframes / badapt        : 0 / 0 / 0
+x265 [info]: b-pyramid / weightp / weightb       : 0 / 0 / 0
+x265 [info]: References / ref-limit  cu / depth  : 1 / off / on
+x265 [info]: AQ: mode / str / qg-size / cu-tree  : 1 / 1.0 / 16 / 0
+x265 [info]: Rate Control / qCompress            : CRF-20.0 / 0.60
+x265 [info]: tools: rd=3 psy-rd=2.00 early-skip rskip mode=1 signhide tmvp
+x265 [info]: tools: b-intra strong-intra-smoothing deblock sao
+x265 [info]: frame I:      1, Avg QP:22.69  kb/s: 1229.76 
+x265 [info]: consecutive B-frames: 100.0% 
+
+encoded 1 frames in 0.01s (67.30 fps), 1229.76 kb/s, Avg QP:22.69
+x265 [info]: HEVC encoder version 3.4+31-6722fce1f
+x265 [info]: build info [Linux][GCC 13.3.0][64 bit] 8bit
+x265 [info]: using cpu capabilities: MMX2 SSE2Fast LZCNT SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+x265 [info]: Main Intra profile, Level-1 (Main tier)
+x265 [warning]: Too few rows/columns, --wpp disabled
+x265 [warning]: No thread pool allocated, --lookahead-slices disabled
+x265 [info]: Slices                              : 1
+x265 [info]: frame threads / pool features       : 1 / none
+x265 [info]: Coding QT: max CU size, min CU size : 64 / 8
+x265 [info]: Residual QT: max TU size, max depth : 32 / 1 inter / 1 intra
+x265 [info]: ME / range / subpel / merge         : hex / 57 / 2 / 3
+x265 [info]: Lookahead / bframes / badapt        : 0 / 0 / 0
+x265 [info]: b-pyramid / weightp / weightb       : 0 / 0 / 0
+x265 [info]: References / ref-limit  cu / depth  : 1 / off / on
+x265 [info]: AQ: mode / str / qg-size / cu-tree  : 1 / 1.0 / 64 / 0
+x265 [info]: Rate Control / qCompress            : CRF-20.0 / 0.60
+x265 [info]: tools: rd=3 psy-rd=2.00 early-skip rskip mode=1 signhide tmvp
+x265 [info]: tools: b-intra strong-intra-smoothing deblock sao
+x265_prism_telemetry_v2: unsupported AQ/refinement configuration
+x265_prism_telemetry_v2: unsupported AQ/refinement configuration
+x265 [info]: frame I:      1, Avg QP:22.75  kb/s: 1227.36 
+x265 [info]: consecutive B-frames: 100.0% 
+
+encoded 1 frames in 0.01s (73.72 fps), 1227.36 kb/s, Avg QP:22.75
+------------ generated xml file: /kaggle/working/runs/j0_pytest.xml ------------
+=========================== short test summary info ============================
+FAILED tests/codec/test_native.py::NativeTests::test_native_warped_qg_acceptance
+=================== 1 failed, 71 passed in 229.87s (0:03:49) ===================
+[J0 2026-11-03T20:57:00.624465+00:00] FAIL native_codec_pytest (230.391 s)
+Traceback (most recent call last):
+  File "/kaggle/src/script.py", line 394, in main
+    runner.execute()
+    ~~~~~~~~~~~~~~^^
+  File "/kaggle/src/script.py", line 343, in execute
+    self.run([sys.executable, '-m', 'pytest', 'tests/codec', 'tests/geometry', 'tests/evaluation',
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+              '-ra', '--strict-markers', f'--junitxml={junit}'], cwd=repo, timeout=900)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/kaggle/src/script.py", line 238, in run
+    raise subprocess.CalledProcessError(process.returncode, argv)
+subprocess.CalledProcessError: Command '['/usr/bin/python3', '-m', 'pytest', 'tests/codec', 'tests/geometry', 'tests/evaluation', '-ra', '--strict-markers', '--junitxml=/kaggle/working/runs/j0_pytest.xml']' returned non-zero exit status 1.
+[J0 2026-11-03T20:57:00.626703+00:00] FINAL FAIL; receipt=/kaggle/working/runs/j0_gate0_receipt.json

@@ -3,3 +3,7 @@
 2026-11-03T19:49:45Z | cron-check: old slug ERROR (processed, fix round 1 done, superseded); r2 RUNNING — background watcher exec_1d472c09 owns monitoring now; no action this run
 2026-11-03T19:54:05Z poll2 status=KernelWorkerStatus.RUNNING
 2026-11-03T19:59:07Z poll3 status=KernelWorkerStatus.ERROR
+2026-11-03T20:46:27Z r3 poll1 status=KernelWorkerStatus.RUNNING
+2026-11-03T20:51:30Z r3 poll2 status=KernelWorkerStatus.RUNNING
+2026-11-03T20:56:32Z r3 poll3 status=KernelWorkerStatus.RUNNING
+2026-11-03T21:01:33Z r3 poll4 status=KernelWorkerStatus.ERROR

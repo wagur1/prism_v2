@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "job": "j0_gate0",
+  "status": "FAIL",
+  "gate0_complete": false,
+  "training_authorized": false,
+  "started_at": "2026-11-03T20:46:33.781576+00:00",
+  "finished_at": "2026-11-03T20:57:00.626680+00:00",
+  "elapsed_seconds": 626.848,
+  "commit_sha": "3b898c2e83ed9226a080ed14e5c6278b0ab9d18d",
+  "source_commits": {
+    "x265": "f0c1022b6be121a753ff02853fbe33da71988656",
+    "hm": "41801c786b2fb37dafc779f824b1f62fbe713bbe"
+  },
+  "patch_shas": {
+    "x265_residual_patch.patch": "e2b21fcefdb62ebc07edf10cfa17f5d9fc7bc4b22f56b1eb575748bb3a1ca982",
+    "x265_residual_telemetry.patch": "df3abe02bbc8428b2f1f4a620a4527ae39763b1ee9c8c164eec2ece7909daf59"
+  },
+  "binaries": {
+    "stock_library": {
+      "path": "/kaggle/working/j0_stack/stock/install/lib/libx265.so",
+      "sha256": "c1c473d4d6d2dabb6d75283f4fd6733e27b55f9a1e66f115b372be771faaaac9"
+    },
+    "stock_shim": {
+      "path": "/kaggle/working/j0_stack/stock/shim/libprism_x265.so",
+      "sha256": "ca72c554121ad6afa6dcf3cfdea7b686bc25db1a2a53078b4caa24885093f5a4"
+    },
+    "patched_library": {
+      "path": "/kaggle/working/j0_stack/patched/install/lib/libx265.so",
+      "sha256": "b7100be1abc153a67dc533bbdf5a16c1b64b8e16f0e82b53f2eb9f0e9d7f1311"
+    },
+    "patched_shim": {
+      "path": "/kaggle/working/j0_stack/patched/shim/libprism_x265.so",
+      "sha256": "98d5da7b28705b6951774a963c9e442cc4600fad331b5a60fb753fc3af673519"
+    },
+    "ffmpeg": {
+      "path": "/usr/bin/ffmpeg",
+      "sha256": "ed16af623947494a72e284b6eb8ff225f2da22b38b5d5069c2fd4b4ba3384e41"
+    },
+    "hm": {
+      "path": "/kaggle/working/j0_stack/src/hm/bin/TAppDecoderStatic",
+      "sha256": "52f17bafad78a295c5971a025e668cd0ed282ed51896684ec712ff9c9386c3ca"
+    }
+  },
+  "checks": {
+    "patch_sha256": {
+      "status": "PASS",
+      "detail": "Both patch bytes match PINNED_SOURCE.json before application"
+    },
+    "binary_provenance": {
+      "status": "PASS",
+      "detail": "Source, patch, assembly, encoder/shim and decoder hashes verified"
+    },
+    "native_codec_pytest": {
+      "status": "FAIL",
+      "detail": "Not completed"
+    },
+    "sign_plus6": {
+      "status": "FAIL",
+      "detail": "Not completed"
+    },
+    "sign_minus6": {
+      "status": "FAIL",
+      "detail": "Not completed"
+    },
+    "sign_checkerboard": {
+      "status": "FAIL",
+      "detail": "Not completed"
+    },
+    "zero_map_identity": {
+      "status": "FAIL",
+      "detail": "Not completed"
+    },
+    "stock_m2_sei_free": {
+      "status": "FAIL",
+      "detail": "Not completed"
+    },
+    "sei_round_trip": {
+      "status": "FAIL",
+      "detail": "Not completed"
+    },
+    "warped_qg_partial_cells": {
+      "status": "FAIL",
+      "detail": "Not completed"
+    },
+    "two_decoder_equality": {
+      "status": "FAIL",
+      "detail": "Not completed"
+    },
+    "quantized_map_validity": {
+      "status": "FAIL",
+      "detail": "Not completed"
+    },
+    "box_coordinate_round_trip": {
+      "status": "FAIL",
+      "detail": "Not completed"
+    }
+  },
+  "stages": {
+    "prerequisites": {
+      "status": "PASS",
+      "seconds": 13.696,
+      "detail": "Completed"
+    },
+    "clone_repo": {
+      "status": "PASS",
+      "seconds": 9.856,
+      "detail": "Completed"
+    },
+    "python_dependencies": {
+      "status": "PASS",
+      "seconds": 3.776,
+      "detail": "Completed"
+    },
+    "verify_patches": {
+      "status": "PASS",
+      "seconds": 0.001,
+      "detail": "Completed"
+    },
+    "clone_x265": {
+      "status": "PASS",
+      "seconds": 1.099,
+      "detail": "Completed"
+    },
+    "clone_hm": {
+      "status": "PASS",
+      "seconds": 59.457,
+      "detail": "Completed"
+    },
+    "build_stack": {
+      "status": "PASS",
+      "seconds": 308.557,
+      "detail": "Completed"
+    },
+    "native_codec_pytest": {
+      "status": "FAIL",
+      "seconds": 230.391,
+      "detail": "CalledProcessError: Command '['/usr/bin/python3', '-m', 'pytest', 'tests/codec', 'tests/geometry', 'tests/evaluation', '-ra', '--strict-markers', '--junitxml=/kaggle/working/runs/j0_pytest.xml']' returned non-zero exit status 1."
+    },
+    "f1": {
+      "status": "FAIL",
+      "seconds": 0,
+      "detail": "Not completed"
+    }
+  },
+  "pinned_source_sha256": "1ebb50e0113f4d15e2ae78552235605fbbdac8b78f2e667d815282d517f72b4c",
+  "patch_order": [
+    "x265_residual_patch.patch",
+    "x265_residual_telemetry.patch"
+  ],
+  "enable_assembly": true,
+  "stack": {
+    "path": "/kaggle/working/j0_stack/stack.json",
+    "sha256": "e70eb587d4ef98f0bc9bb5358d7e9ff8b45a8478bd25bb838cf1103ccdd48f27"
+  },
+  "build_timing_seconds": {
+    "patched_x265_and_shim": 144.09511285899998,
+    "stock_x265_and_shim": 145.09422242799997,
+    "hm_decoder": 18.443516786999908
+  },
+  "error": "CalledProcessError: Command '['/usr/bin/python3', '-m', 'pytest', 'tests/codec', 'tests/geometry', 'tests/evaluation', '-ra', '--strict-markers', '--junitxml=/kaggle/working/runs/j0_pytest.xml']' returned non-zero exit status 1.",
+  "logs": {
+    "human": {
+      "path": "/kaggle/working/j0_gate0.log",
+      "sha256": "1047fbf6f78c035ca8008dfb62662a3ce821c5931947e64e47e4a88510e7e37e"
+    },
+    "machine": {
+      "path": "/kaggle/working/runs/j0_gate0.events.jsonl",
+      "sha256": "ccf9a9f8ae7077074d6d01a2db71ecbc77a2dcd28202cd8c4034d8fcc1910c7b"
+    }
+  }
+}

@@ -73,7 +73,7 @@
       "source": "gate0/build_gate0_stack.sh",
       "destination": "scripts/build_codec.py",
       "source_sha256": "39e4a02dd4955110010b6b84ae831a2daed93005bb2c6aa2c2977ec59db9ffe7",
-      "destination_sha256": "64b67f3aa73f676512796f223e3f1d0516c8f9197373fae9caa1388975559fad"
+      "destination_sha256": "23b33ed121593b12b9e8b685d945ec7b3670dcef2440e1ed03e5db80f2a650c1"
     },
     {
       "source": "gate0/build_gate0_stack.sh",
@@ -91,7 +91,7 @@
       "source": "scripts/spike_gate0.py",
       "destination": "scripts/gate0.py",
       "source_sha256": "bfde0ccd01e9f8089c2d9929fadf7313f19115fc139f9925a08c1376d37f8f57",
-      "destination_sha256": "8b0db734d1783640f249c22c0cb3189eb08656a2eea90935df2a3726adc78803"
+      "destination_sha256": "0aa8133ac8eed0684d8b577755c2498f530d66c0cd2b32f21c632d29771c570a"
     },
     {
       "source": "prism/models/student.py",

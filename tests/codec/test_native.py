@@ -10,6 +10,7 @@ from prism_v2.codec.decoders import DecoderPin, verify_decoders
 from prism_v2.codec.fixtures import synthetic_frames
 from prism_v2.codec.sei import GeometrySignal, extract
 from prism_v2.retarget.geometry import from_saliency
+from prism_v2.codec.f1 import run_retarget_fixture
 
 STACK=os.environ.get('PRISM_CODEC_STACK')
 
@@ -35,6 +36,10 @@ class NativeTests(unittest.TestCase):
                 self.assertEqual(extract(au),[signal] if arm=='R' else [])
                 verify_decoders(path,DecoderPin(**stack['decoders']['ffmpeg']),DecoderPin(**stack['decoders']['hm']),64,48,1)
 
-    @unittest.skip('[NEEDS VERIFY] Native warped-QG signed acceptance fixture has not been calibrated/recovered')
     def test_native_warped_qg_acceptance(self):
-        pass
+        stack=json.loads(Path(STACK).read_text())
+        with tempfile.TemporaryDirectory() as tmp:
+            runs=run_retarget_fixture(Path(tmp)/'retarget',stack,crfs=(20,))
+            self.assertEqual(len(runs),4)
+            self.assertTrue(all(r['warped_telemetry']['requested_offsets_verified']
+                                for r in runs if r['arm'] in ('M2','QR')))

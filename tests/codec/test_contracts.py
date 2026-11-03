@@ -41,11 +41,3 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(float(maps['checkerboard'][0,0]),-6)
         self.assertEqual(float(maps['checkerboard'][0,4]),6)
         self.assertEqual(float(maps['checkerboard'][4,0]),6)
-
-    @unittest.skip('[NEEDS VERIFY] Signed historical telemetry/expected-output replay bundle not recovered')
-    def test_historical_gate_replay(self):
-        pass
-
-    @unittest.skip('[NEEDS VERIFY] v1 PyTorch checkpoint/expansion fixture not recovered; analytic center fixture covered separately')
-    def test_v1_expansion_frozen_tensor_parity(self):
-        pass

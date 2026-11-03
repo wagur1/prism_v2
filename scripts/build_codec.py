@@ -14,6 +14,7 @@ import shutil
 import subprocess
 import sys
 import tarfile
+import time
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'src'))
@@ -52,6 +53,7 @@ def build(x265_source: Path, hm_source: Path, output: Path, jobs: int):
     output.mkdir(parents=True)
     log=output/'build.log'
     def logged(argv):
+        print('[BUILD] ' + ' '.join(str(a) for a in argv), flush=True)
         with log.open('ab') as stream:
             stream.write((repr([str(a) for a in argv])+'\n').encode())
             subprocess.run([str(a) for a in argv],check=True,stdout=stream,stderr=subprocess.STDOUT)
@@ -83,7 +85,9 @@ def build(x265_source: Path, hm_source: Path, output: Path, jobs: int):
         logged([*args,'--dry-run'])
         logged(args)
     built={}
+    timing={}
     for label,source in [('patched','x265'),('stock','x265-stock')]:
+        started=time.monotonic()
         target=output/label;install=target/'install';shim=target/'shim'
         logged(['cmake','-S',output/'src'/source/'source','-B',target/'x265','-G','Unix Makefiles',
             '-DCMAKE_C_COMPILER=gcc','-DCMAKE_CXX_COMPILER=g++','-DCMAKE_BUILD_TYPE=Release',
@@ -103,6 +107,8 @@ def build(x265_source: Path, hm_source: Path, output: Path, jobs: int):
              'PYTHONPATH':str(ROOT/'src'),'LD_LIBRARY_PATH':str(install/'lib'),'PRISM_GATE0_ASSEMBLY':'ON'}
         probe=run([sys.executable,'-c','import json; from dataclasses import asdict; from prism_v2.codec.x265_bridge import X265Library; print(json.dumps(asdict(X265Library().pin)))'],env=env)
         built[label]={'library':str(library),'shim':str(shim/'libprism_x265.so'),'pin':json.loads(probe)}
+        timing[label+'_x265_and_shim']=time.monotonic()-started
+    started=time.monotonic()
     wrapper=output/'hm-cxx'
     wrapper.write_text('#!/usr/bin/env bash\nargs=()\nfor a in "$@"; do\n case "$a" in -Werror|-Werror=*) ;; *) args+=("$a");; esac\ndone\nexec g++ "${args[@]}" -Wno-error -std=gnu++98\n')
     wrapper.chmod(0o755)
@@ -110,7 +116,9 @@ def build(x265_source: Path, hm_source: Path, output: Path, jobs: int):
     for component in ('lib/TLibCommon','lib/TLibVideoIO','lib/TLibDecoder','lib/TAppCommon','app/TAppDecoder'):
         logged(['make','-C',hm/'build/linux'/component,'-j',jobs,f'CPP={wrapper}','release'])
     decoder=hm/'bin/TAppDecoderStatic'
+    timing['hm_decoder']=time.monotonic()-started
     receipt={'builds':built,'sources':pins,'source_archive_sha256':archives,'enable_assembly':True,
+        'timing_seconds':timing,
         'compiler':{name:{'path':path,'sha256':sha(path),'version':run([path,'--version'])} for name,path in executables.items() if name in ('gcc','g++','nasm','cmake')},
         'decoders':{'ffmpeg':{'executable':executables['ffmpeg'],'sha256':sha(executables['ffmpeg'])},
                     'hm':{'executable':str(decoder),'sha256':sha(decoder)}},

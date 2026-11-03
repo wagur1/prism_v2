@@ -1,0 +1,78 @@
+{
+  "scope": "Offline package validation; no native acceptance, network, or Kaggle push",
+  "base_commit": "9e50e55891aaf9d6329b8abdbd0fc41e9b9e1d44",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "C:\\Users\\Wagur1\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "pytest": {
+    "status": "UNAVAILABLE",
+    "returncode": 1,
+    "log": "runs\\j0-package-pytest.log"
+  },
+  "unittest": {
+    "collected": 84,
+    "passed": 79,
+    "failed": 0,
+    "errors": 0,
+    "skipped": [
+      {
+        "test": "tests.codec.test_native.NativeTests.test_native_geometry_sei_decoder_match_and_baseline_absence",
+        "reason": "[NEEDS VERIFY] No pinned local encoder/decoder stack (PRISM_CODEC_STACK)"
+      },
+      {
+        "test": "tests.codec.test_native.NativeTests.test_native_warped_qg_acceptance",
+        "reason": "[NEEDS VERIFY] No pinned local encoder/decoder stack (PRISM_CODEC_STACK)"
+      },
+      {
+        "test": "tests.codec.test_native.NativeTests.test_sign_controls_identity_and_two_decoders",
+        "reason": "[NEEDS VERIFY] No pinned local encoder/decoder stack (PRISM_CODEC_STACK)"
+      },
+      {
+        "test": "tests.port_parity.test_deferred.DeferredPortParityTests.test_historical_gate_replay",
+        "reason": "[NEEDS VERIFY] Signed historical telemetry/expected-output replay bundle not recovered"
+      },
+      {
+        "test": "tests.port_parity.test_deferred.DeferredPortParityTests.test_v1_expansion_frozen_tensor_parity",
+        "reason": "[NEEDS VERIFY] J1 v1 PyTorch checkpoint/expansion fixture not recovered; analytic center fixture covered separately"
+      }
+    ],
+    "log": "runs\\j0-package-unittest.log"
+  },
+  "claims_checker": {
+    "returncode": 0,
+    "output": "Ledger valid; prose tripwire clear. Manual evidence review is still required.\n"
+  },
+  "whitespace": {
+    "returncode": 0,
+    "output": ""
+  },
+  "tested_file_sha256": {
+    "evidence/manifests/port_sources.json": "c11d42b241fa17d3ceec7967d49cd2f53e0d3668c94f8ad16e68d423339217e5",
+    "kaggle/J0_GATE0.md": "d849083a18d887f1524cba7e046930f77b94d7ccfb284d50209192f51cce589d",
+    "kaggle/job_specs/j0_gate0/j0_gate0.py": "e57f269130318e31c7f830fb7d446544b3abd7d1ed4a212d0a2b7a0db40ae445",
+    "kaggle/job_specs/j0_gate0/kernel-metadata.json": "e08f944cbcab2e8be451cfe72527a960c0a592fb3a1d0cc695024f5a9f7579c8",
+    "kaggle/package.py": "7b8f1000edc1c8bc19a7102e350ecaa1408a30589e1bd1028a80599e2e2570ae",
+    "scripts/build_codec.py": "23b33ed121593b12b9e8b685d945ec7b3670dcef2440e1ed03e5db80f2a650c1",
+    "scripts/gate0.py": "0aa8133ac8eed0684d8b577755c2498f530d66c0cd2b32f21c632d29771c570a",
+    "src/prism_v2/codec/f1.py": "731d7f65fc1804c56104fda097e309cd3ebc54bf30b3b6d3363c805cb6867eeb",
+    "tests/codec/test_contracts.py": "f9c08391bf1b38392d9d59518dc515077864d4579a35f9ad2f21caab43d03c49",
+    "tests/codec/test_f1.py": "41f069a2b76d4c9c4b7be9230b6fcc7a4cb2c230bec4c9f99e8d3ef8fb8bee30",
+    "tests/codec/test_native.py": "16301263f14ba7ab22aaa7ff6470d665da8ebadbfccf3558818ff8adf5a0a8f3",
+    "tests/kaggle/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/kaggle/test_package.py": "7392e735f88e8f9bde0c8c94ce77cfa5e571262b8db2fa3e14db324dcb6f5d3c",
+    "tests/port_parity/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/port_parity/test_deferred.py": "8bc04413c400c57a47bd568f9d702f5f8b5591d907c317c5f0deda758e713fa1"
+  },
+  "log_sha256": {
+    "runs\\j0-package-pytest.log": "8c4387fcb7590739d958fb7f4cbacd0cfc6b84ca69572ddfb30c2a873f7e91c8",
+    "runs\\j0-package-unittest.log": "2bcf9061f485577357b8b3ae8050d63405a89840539d873fa8cd8c3ed57073ea"
+  },
+  "runtime_estimate": {
+    "type": "derived-estimate",
+    "verification_status": "NEEDS VERIFY",
+    "formula_minutes": "10 + 2*20 + 15 + 5 + 300*(6+0.15+0.8)/60 + 20*0.5/60 + 20",
+    "minutes": 124.91666666666667,
+    "assumptions": "4 build workers; setup 10 min; each x265 20 min; HM 15 min; pytest 5 min; 300 control frames at encode/FFmpeg/HM 6/0.15/0.8 s; 20 retarget frames at 0.5 s; 20 min margin",
+    "overall_deadline_seconds": 8700
+  },
+  "training_authorized": false
+}

@@ -14,8 +14,10 @@ def main(argv=None):
     p.add_argument('--ledger',type=Path);args=p.parse_args(argv)
     root=args.root.resolve()
     try:
-        records=load_ledger(args.ledger or root/'evidence/ledger.jsonl',root)
-        paths=args.markdown or [root/'README.md',*sorted((root/'reports').glob('*.md'))]
+        ledger=args.ledger or Path('evidence/ledger.jsonl')
+        records=load_ledger(ledger if ledger.is_absolute() else root/ledger,root)
+        paths=([path if path.is_absolute() else root/path for path in args.markdown]
+               if args.markdown else [root/'README.md',*sorted((root/'reports').rglob('*.md'))])
         problems=[issue for path in paths for issue in check_markdown(path,records,readme=path.name.lower()=='readme.md')]
     except (ValueError,OSError,TypeError) as exc:
         print(exc);return 1

@@ -1,0 +1,31 @@
+{
+  "scope": "Offline adversarial J0 self-review; CPU contracts only, no native or efficacy claims",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "numpy": "2.3.5",
+  "defects_found": 10,
+  "defects_fixed": 10,
+  "pytest": {
+    "status": "UNAVAILABLE",
+    "returncode": 1,
+    "log": "runs/j0-self-review-pytest.log"
+  },
+  "unittest": {
+    "passed": 66,
+    "skipped": 5,
+    "failed": 0,
+    "collected": 71,
+    "log": "runs/j0-self-review-unittest.log"
+  },
+  "claims_checker": {
+    "returncode": 0,
+    "output": "Ledger valid; prose tripwire clear. Manual evidence review is still required.\n"
+  },
+  "native_codec": "[NEEDS VERIFY] no pinned local encoder/decoder stack; frozen historical replay/checkpoint and native warped-QG fixtures missing",
+  "training_unlocked": false,
+  "deliberation_config_sha256": "b83eaa77f6b23968b3fb5e42d3e6e6ed0c776291a6ecb48cbdc15fdb6ac8cdf5",
+  "artifacts": {
+    "runs/j0-self-review-pytest.log": "8c4387fcb7590739d958fb7f4cbacd0cfc6b84ca69572ddfb30c2a873f7e91c8",
+    "runs/j0-self-review-unittest.log": "ab52b5874e3c4f865632cdcc977176182d963dd0185d53985f7167b016636057",
+    "evidence/manifests/port_sources.json": "4fb71ff4570d05cc72da32a744009bd8910b552c889d7e65214bbfed600025f8"
+  }
+}

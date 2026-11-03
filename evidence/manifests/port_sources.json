@@ -97,7 +97,7 @@
       "source": "prism/models/student.py",
       "destination": "src/prism_v2/codec/qg.py",
       "source_sha256": "daf0093f790c9587b9741829f99a2b81a35a5213d9b89055dfa210ac5fb71f58",
-      "destination_sha256": "db2733d21a36d4a3c0b8d8195d2d1575893fcd4f3e9bd620b0aeeab32e1808d7"
+      "destination_sha256": "01047b14fb7e258fe7358aca00b647c59366136b465792fdaec0e0eb6975e290"
     },
     {
       "source": "scripts/spike_gate0.py",
@@ -132,6 +132,7 @@
     "runner": "Uses recovered v3 QG criteria for all signs; removes legacy raw-drift fallback and schema mismatch; keeps independent seeded ten-frame stimuli and process isolation.",
     "ctu_expansion": "NumPy implements v1 PyTorch bilinear align_corners=False center mapping; source model/training code is not ported.",
     "decoders": "Preserves FFmpeg/HM invocation, adds pinned binary hashes and exact YUV sample equality.",
-    "build": "Offline clean local source archives only; no apt/pip/git network operations; original CMake/HM compiler policy retained."
+    "build": "Offline clean local source archives only; no apt/pip/git network operations; original CMake/HM compiler policy retained.",
+    "warped_qg": "Self-review: preserve the supplied full v1 CTU-padded buffer under identity geometry; for nonidentity geometry extend the visible boundary field before destination-area integration. Coded dimensions follow the geometry signal domain."
   }
 }

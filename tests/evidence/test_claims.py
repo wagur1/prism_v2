@@ -54,3 +54,48 @@ class ClaimTests(unittest.TestCase):
         run=subprocess.run([sys.executable,str(script),'--root',str(self.root),'--ledger',str(ledger),str(md)],capture_output=True,text=True)
         self.assertEqual(run.returncode,1)
         self.assertIn('quantitative prose',run.stdout)
+
+    def test_compact_quantities_and_numeric_code_spans_are_flagged(self):
+        path=self.root/'quantities.md'
+        for text in ('Speedup is 3x.','Budget is 60GPU-h.','Rate is 30fps.',
+                     'Memory is 12MiB.','Resolution is 256x256.',
+                     'Saving is `3.5%`.','Gain is `0.5`.'):
+            with self.subTest(text=text):
+                path.write_text(text,encoding='utf-8')
+                self.assertTrue(any('quantitative prose' in p for p in check_markdown(path,{})))
+
+    def test_citations_in_code_comments_or_link_targets_do_not_support_prose(self):
+        path=self.root/'hidden-citation.md'
+        for citation in ('`[claim:test-design]`','<!-- [claim:test-design] -->',
+                         '[reference](https://example.invalid/[claim:test-design])'):
+            with self.subTest(citation=citation):
+                path.write_text('Saving is 3%. '+citation,encoding='utf-8')
+                self.assertTrue(any('quantitative prose' in p for p in check_markdown(path,{'test-design':self.design})))
+
+    def test_fence_delimiter_length_and_inline_backticks(self):
+        path=self.root/'fences.md'
+        for text in ('```\ncode\n````\nSaving is 3%.\n',
+                     '```literal```\nSaving is 3%.\n'):
+            path.write_text(text,encoding='utf-8')
+            self.assertTrue(any('quantitative prose' in p for p in check_markdown(path,{})))
+        path.write_text('````\n```\nSaving is 3%.\n````\n',encoding='utf-8')
+        self.assertEqual(check_markdown(path,{}),[])
+
+    def test_comment_examples_in_code_do_not_hide_following_prose(self):
+        path=self.root/'comments.md'
+        for text in ('```\n<!--\n```\nSaving is 3%.\n',
+                     'The token `<!--` starts a comment.\nSaving is 3%.\n',
+                     '<!--\n```\n-->\nSaving is 3%.\n'):
+            path.write_text(text,encoding='utf-8')
+            self.assertTrue(any('quantitative prose' in p for p in check_markdown(path,{})))
+
+    def test_cli_scans_nested_reports_and_resolves_paths_under_root(self):
+        (self.root/'evidence').mkdir();(self.root/'evidence/ledger.jsonl').write_text('')
+        (self.root/'README.md').write_text('Scope and status only.\n')
+        nested=self.root/'reports/nested';nested.mkdir(parents=True)
+        (nested/'result.md').write_text('Unsupported saving is 3%.\n')
+        script=Path(__file__).resolve().parents[2]/'scripts/check_claims.py'
+        for paths in ([],['reports/nested/result.md']):
+            run=subprocess.run([sys.executable,str(script),'--root',str(self.root),*paths],capture_output=True,text=True)
+            self.assertEqual(run.returncode,1)
+            self.assertIn('quantitative prose',run.stdout)

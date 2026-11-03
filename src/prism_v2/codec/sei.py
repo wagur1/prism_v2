@@ -4,13 +4,14 @@ Network byte order; version:u8, kind:u8, fractional bits:u8, reserved:u8;
 original W/H, coded W/H, visible x/y/W/H, crop x/y/W/H:12*u32;
 x/y knot counts:2*u16; destination knots:u32 Q16.16. Source knots are
 implicit QG16 boundaries over the crop extent (full frame for R/U).
+Resize/crop knots must be the half-up quantization of a uniform axis scale.
 HEVC payloadType=5, nal_unit_type=39, layer=0, temporal_id_plus1=1.
 """
 from __future__ import annotations
 from dataclasses import dataclass
 import re
 import struct
-from prism_v2.retarget.geometry import QuantizedMap, FRACTION_BITS, dimension
+from prism_v2.retarget.geometry import QuantizedMap, FRACTION_BITS, SCALE, boundaries, dimension
 
 UUID = bytes.fromhex('7b6fda7638cf4dbb944a839f0d5d70c2')
 HEADER = struct.Struct('>4B12I2H')
@@ -47,6 +48,14 @@ class GeometrySignal:
             raise ValueError("Unknown geometry kind")
         if self.kind != 'crop' and (self.crop_x or self.crop_y or g.source_width != self.original_width or g.source_height != self.original_height):
             raise ValueError("Retarget/resize must cover the complete source frame")
+        if self.kind in ('resize', 'crop'):
+            for source, visible, ticks in ((g.source_width,g.visible_width,g.x_ticks),
+                                            (g.source_height,g.visible_height,g.y_ticks)):
+                # Integer arithmetic fixes half ties without floating-point tolerance
+                # admitting a retarget map under a spatial baseline's kind.
+                expected=tuple((2*s*visible*SCALE+source)//(2*source) for s in boundaries(source))
+                if ticks != expected:
+                    raise ValueError("Resize/crop geometry must use a uniform axis scale")
 
 
 def serialize(signal: GeometrySignal) -> bytes:
@@ -90,6 +99,8 @@ def _unescape(ebsp: bytes) -> bytes:
             if i+1 == len(ebsp) or ebsp[i+1]>3:
                 raise ValueError("Invalid emulation prevention byte")
             zeros=0; i+=1; continue
+        if zeros == 2 and b<=2:
+            raise ValueError("Missing emulation prevention byte")
         result.append(b); zeros=zeros+1 if b==0 else 0; i+=1
     return bytes(result)
 
@@ -109,15 +120,17 @@ def _nals(stream: bytes):
         data=stream[m.end():end]
         if len(data)<2 or data[0]&128 or not data[1]&7:
             raise ValueError("Invalid HEVC NAL header")
-        yield m.start(), (data[0]>>1)&63, data[2:]
+        # Annex B trailing_zero_8bits are outside the EBSP. Remove them before
+        # emulation-prevention validation, not from the decoded RBSP.
+        yield m.start(), (data[0]>>1)&63, data[2:].rstrip(b'\x00'), data[:2]
 
 
 def extract(stream: bytes) -> list[GeometrySignal]:
     signals=[]
-    for _,kind,data in _nals(stream):
+    for _,kind,data,header in _nals(stream):
         if kind not in (39,40):
             continue
-        rbsp=_unescape(data).rstrip(b'\x00'); pos=0
+        rbsp=_unescape(data); pos=0
         while pos<len(rbsp) and rbsp[pos:] != b'\x80':
             fields=[]
             for _ in range(2):
@@ -132,6 +145,8 @@ def extract(stream: bytes) -> list[GeometrySignal]:
                 raise ValueError("Truncated SEI payload/trailing bits")
             payload=rbsp[pos:pos+size];pos+=size
             if typ==5 and payload.startswith(UUID):
+                if kind!=39 or header!=b'\x4e\x01':
+                    raise ValueError("Invalid PRISM SEI NAL header: expected prefix, layer 0, temporal id 0")
                 signals.append(parse(payload))
         if rbsp[pos:]!=b'\x80':
             raise ValueError("Invalid SEI trailing bits")
@@ -139,7 +154,7 @@ def extract(stream: bytes) -> list[GeometrySignal]:
 
 
 def has_sei(stream: bytes) -> bool:
-    return any(kind in (39,40) for _,kind,_ in _nals(stream))
+    return any(kind in (39,40) for _,kind,_,_ in _nals(stream))
 
 
 def attach(access_unit: bytes, signal: GeometrySignal | None, *, arm: str) -> bytes:
@@ -155,7 +170,7 @@ def attach(access_unit: bytes, signal: GeometrySignal | None, *, arm: str) -> by
     expected='crop' if arm in ('C','QC') else 'resize' if arm in ('U','QU') else 'retarget'
     if signal.kind!=expected:
         raise ValueError("Arm and geometry kind differ")
-    for start,kind,_ in _nals(access_unit):
+    for start,kind,_,_ in _nals(access_unit):
         if kind<=31:
             return access_unit[:start]+nal_unit(signal)+access_unit[start:]
     raise ValueError("Access unit has no VCL NAL")
